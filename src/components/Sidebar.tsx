@@ -10,19 +10,18 @@ const Sidebar = ({ role }: { role: string }) => {
 
   if (role === "client") {
     links = [
-      { name: "Book a Service", href: "/dashboard/client/book-service" },
-      { name: "History", href: "/dashboard/client/history" },
+      { name: "Book a Service", href: "/client/book-service" },
+      { name: "History", href: "/client/history" },
     ];
   } else if (role === "coach") {
     links = [
-      { name: "View Schedule", href: "/dashboard/coach/schedule" },
-      { name: "Check-In", href: "/dashboard/coach/check-in" },
+      { name: "View Schedule", href: "/coach/schedule" },
+      { name: "Check-In", href: "/coach/check-in" },
     ];
   } else if (role === "admin") {
     links = [
-      { name: "Manage Bookings", href: "/dashboard/admin/manage-bookings" },
-      { name: "Verify Payments", href: "/dashboard/admin/verify-payments" },
-      { name: "Manage Schedules", href: "/dashboard/admin/manage-schedules" },
+      { name: "Coaches", href: "/admin/coaches" },
+      { name: "Bookings", href: "/admin/bookings" }
     ];
   }
 

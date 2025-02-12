@@ -1,12 +1,12 @@
 import Sidebar from "@/components/Sidebar";
-import Navbar from "@/components/Navbar";
+import DashboardNavbar from "@/components/DashboardNavbar";
 
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex h-screen">
       <Sidebar role="client" /> 
       <div className="flex flex-col flex-1">
-        <Navbar />
+        <DashboardNavbar />
         <main className="p-4">{children}</main>
       </div>
     </div>
