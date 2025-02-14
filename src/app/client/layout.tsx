@@ -7,7 +7,7 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
       <Sidebar role="client" /> 
       <div className="flex flex-col flex-1">
         <DashboardNavbar />
-        <main className="p-4">{children}</main>
+        <main className="md:p-4">{children}</main>
       </div>
     </div>
   );

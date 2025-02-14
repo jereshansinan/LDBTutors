@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function BookServicePage() {
   const [formData, setFormData] = useState({
@@ -11,7 +10,6 @@ export default function BookServicePage() {
     timeSlot: "",
   });
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -32,26 +30,6 @@ export default function BookServicePage() {
     "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM",
   ];
 
-  const handleServiceSelect = (serviceId: string) => {
-    setFormData({ ...formData, service: serviceId });
-  };
-
-  const handleTimeSlotSelect = (slot: string) => {
-    setFormData({ ...formData, timeSlot: slot });
-  };
-
-  // Carousel Navigation
-  const itemsPerPage = 4;
-  const maxIndex = Math.max(0, services.length - itemsPerPage);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  };
-
   const handleSubmit = async () => {
     setIsLoading(true);
     setError(null);
@@ -63,12 +41,7 @@ export default function BookServicePage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          service: formData.service,
-          location: formData.location,
-          date: formData.date,
-          timeSlot: formData.timeSlot,
-        }),
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
@@ -85,7 +58,7 @@ export default function BookServicePage() {
         setError(result.error || "Failed to book service");
       }
     } catch (err) {
-      setError( err + "An error occurred while booking the service");
+      setError(err + "An error occurred while booking the service");
     } finally {
       setIsLoading(false);
     }
@@ -94,53 +67,27 @@ export default function BookServicePage() {
   return (
     <div className="flex justify-center items-start min-h-screen p-6 bg-gray-100 text-black">
       <div className="w-full max-w-3xl space-y-6">
-        <h1 className="text-2xl font-semibold text-center">Book a Service</h1>
 
-        {/* Services Selection - Carousel */}
-        <div className="relative w-full overflow-hidden">
-          {/* Left Arrow */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 shadow-md rounded-full z-10 disabled:opacity-50"
-            disabled={currentIndex === 0}
-          >
-            <ChevronLeft size={24} />
-          </button>
-
-          {/* Services List */}
-          <div className="overflow-hidden w-full">
-            <div
-              className="flex gap-4 transition-transform duration-300"
-              style={{ transform: `translateX(-${currentIndex * 100 / itemsPerPage}%)` }}
-            >
-              {services.map((service) => (
-                <button
-                  key={service.id}
-                  className={`p-4 w-[25%] min-w-[100px] rounded-lg border text-center ${formData.service === service.id ? "bg-green-500 text-white" : "bg-gray-200"
-                    }`}
-                  onClick={() => handleServiceSelect(service.id)}
-                >
-                  {service.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 shadow-md rounded-full z-10 disabled:opacity-50"
-            disabled={currentIndex >= maxIndex}
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
+        {/* Service Selection - Dropdown */}
+        <select
+          name="service"
+          className="w-full p-3 border rounded-lg"
+          required
+          value={formData.service}
+          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+        >
+          <option value="">Select a Service</option>
+          {services.map((service) => (
+            <option key={service.id} value={service.id}>{service.name}</option>
+          ))}
+        </select>
 
         {/* Location Selection */}
         <select
           name="location"
           className="w-full p-3 border rounded-lg"
           required
+          value={formData.location}
           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
         >
           <option value="">Select a Location</option>
@@ -154,6 +101,7 @@ export default function BookServicePage() {
           name="date"
           className="w-full p-3 border rounded-lg bg-green-100 text-green-700 focus:ring-green-500 text-lg appearance-none"
           required
+          value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
         />
 
@@ -164,9 +112,8 @@ export default function BookServicePage() {
             {timeSlots.map((slot) => (
               <button
                 key={slot}
-                className={`p-2 rounded-lg border ${formData.timeSlot === slot ? "bg-green-500 text-white" : "bg-gray-200"
-                  }`}
-                onClick={() => handleTimeSlotSelect(slot)}
+                className={`p-2 rounded-lg border ${formData.timeSlot === slot ? "bg-green-500 text-white" : "bg-gray-200"}`}
+                onClick={() => setFormData({ ...formData, timeSlot: slot })}
                 type="button"
               >
                 {slot}

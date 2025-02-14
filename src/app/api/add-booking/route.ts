@@ -79,7 +79,7 @@ export async function GET() {
 
     if (role === 'admin') {
     } else if (role === 'coach') {
-      query = query.eq('coach', user.fullName); // Coaches see only their bookings
+      query = query.eq('coach_name', user.fullName); // Coaches see only their bookings
     } else {
       query = query.eq('user_name', user.fullName); // Clients see only their bookings
     }
@@ -117,11 +117,20 @@ export async function DELETE(req: Request) {
 
 export async function PATCH(req: Request) {
   try {
-    const { bookingId, newCoach } = await req.json();
+    const { bookingId, newCoach, newStatus } = await req.json();
+    
+    const updateData: { coach_name?: string; status?: string } = {};
+
+    if (newCoach) {
+      updateData.coach_name = newCoach;
+    }
+    if (newStatus) {
+      updateData.status = newStatus;
+    }
 
     const { error } = await supabase
       .from('bookings')
-      .update({ coach_name: newCoach })
+      .update(updateData)
       .eq('id', bookingId);
 
     if (error) {
@@ -130,6 +139,6 @@ export async function PATCH(req: Request) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: error + 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: error + ' Internal server error' }, { status: 500 });
   }
 }

@@ -23,22 +23,38 @@ export default function DashboardNavbar() {
     pageTitle = "Book a Service"; 
   }
 
+  if (pathname.includes("/coach/check-in")) {
+    pageTitle = "Check In"; 
+  }
+
+  if (pathname.includes("/coach/schedule")) {
+    pageTitle = "Your Schedule"; 
+  }
+
+  if (pathname.includes("/admin/bookings")) {
+    pageTitle = "All Bookings"; 
+  }
+
   // Determine if the user is an admin
   const isAdmin = user?.publicMetadata?.role === "admin";
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <nav className="flex items-center justify-between px-3 pt-4 md:p-4 bg-white text-black font-body">
       {/* Page Title */}
-      <h1 className="text-xl font-bold">{pageTitle}</h1>
-
+      <h1 className="text-xl font-bold sm:text-lg md:text-xl lg:text-2xl">
+        {pageTitle}
+      </h1>
+  
       {/* Admin-only "Add Coach" button (only on /admin/coaches page) */}
       {isAdmin && pathname === "/admin/coaches" && (
-        <button
-          onClick={() => router.push("/admin/add-coach")}
-          className="bg-green-500 px-4 py-2 rounded-md text-white"
-        >
-          Add Coach
-        </button>
+        <div className="ml-auto pr-1">
+          <button
+            onClick={() => router.push("/admin/add-coach")}
+            className="bg-green-500 px-3 py-1 md:px-4 rounded-md text-white text-xs sm:text-xs md:text-sm"
+          >
+            Add Coach
+          </button>
+        </div>
       )}
     </nav>
   );

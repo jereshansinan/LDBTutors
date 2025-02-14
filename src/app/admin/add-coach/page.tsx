@@ -1,35 +1,14 @@
 "use client";
-
-import Image from "next/image";
 import { useState } from "react";
 
 export default function AddCoachPage() {
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
     gender: "",
-    profileImageUrl: "",
   });
-
-  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onloadend = () => setImagePreview(reader.result as string);
-    reader.readAsDataURL(file);
-
-    // Upload image to Supabase Storage
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const res = await fetch("/api/upload", { method: "POST", body: formData });
-    const data = await res.json();
-    setFormData((prev) => ({ ...prev, profileImageUrl: data.url }));
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -43,7 +22,7 @@ export default function AddCoachPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       if (!res.ok) {
         const errorData = await res.json();
         console.error("Error:", errorData);
@@ -56,29 +35,10 @@ export default function AddCoachPage() {
       alert("Unexpected error occurred");
     }
   };
-  
+
   return (
     <div className="flex justify-center items-center min-h-screen p-4 bg-gray-100">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        {/* Profile Image Upload */}
-        <div className="flex flex-col items-center mb-6">
-          <label className="cursor-pointer relative">
-            <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
-            {imagePreview ? (
-              <Image
-                src={imagePreview}
-                alt="Profile"
-                width={150}
-                height={150}
-                className="w-36 h-36 rounded-full object-cover border-4 border-gray-300"
-              />
-            ) : (
-              <div className="w-36 h-36 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 text-sm font-medium">
-                Upload Image
-              </div>
-            )}
-          </label>
-        </div>
 
         {/* Form Fields */}
         <form className="space-y-4 text-black" onSubmit={handleSubmit}>
@@ -94,6 +54,15 @@ export default function AddCoachPage() {
             <option value="other">Other</option>
           </select>
 
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="w-full p-3 border rounded-lg"
+            required
+            onChange={handleChange}
+          />
+
           {/* Add Coach Button */}
           <button type="submit" className="w-full bg-green-500 text-white p-3 rounded-lg font-semibold hover:bg-green-600 transition">
             Add Coach
@@ -103,3 +72,4 @@ export default function AddCoachPage() {
     </div>
   );
 }
+

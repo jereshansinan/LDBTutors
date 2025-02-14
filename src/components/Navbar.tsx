@@ -1,48 +1,172 @@
 "use client";
-
 import { UserButton, SignInButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
+import { usePathname } from "next/navigation";  // Import usePathname
+
+const navLinks = [
+  { title: "HOME", url: "/" },
+  { title: "ABOUT", url: "/about" },
+  { title: "SERVICES", url: "/services" },
+  { title: "CONTACT", url: "/contact" },
+];
 
 export default function Navbar() {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
+  const pathname = usePathname(); // Get the current pathname
 
-  // Determine the dashboard URL based on the user's role
-  const role = user?.publicMetadata?.role;
-  const dashboardURL =
-    role === "admin"
-      ? "/admin"
-      : role === "coach"
-        ? "/coach"
-        : "/client"; // Default to client dashboard if no role is set or role doesn't match
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 769);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const handleDashboardClick = () => {
+    setIsLoading(true); // Show loading state
+    const role = user?.publicMetadata?.role;
+    const dashboardURL =
+    role === "admin" ? "/admin" : role === "coach" ? "/coach" : "/client";
+    router.push(dashboardURL);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); 
+  };
+
+  const isSpecialPage = pathname.startsWith('/coach') || pathname.startsWith('/client') || pathname.startsWith('/admin');
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-800 text-white">
-      <Link href="/" className="text-xl font-bold">
-        MyApp
-      </Link>
-
-      <div>
-        {isSignedIn ? (
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => router.push(dashboardURL)}
-              className="bg-green-500 px-4 py-2 rounded-md text-white"
-            >
-              Go to Dashboard
-            </button>
-            <UserButton />
+    <>
+      {!isMobile ? (
+        <nav
+          className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+            isSpecialPage || isScrolled ? "bg-white shadow-md" : "bg-transparent"
+          }`}
+        >
+          <div className="flex justify-between mx-auto items-center py-4 px-24">
+            <Link href="/" className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
+              Logo
+            </Link>
+            <ul className="flex gap-8 md:gap-16 items-center justify-center text-center cursor-pointer font-body antialiased">
+              {navLinks.map((link, index) => (
+                <li
+                  key={index}
+                  className={`text-sm transition-colors duration-300 ${
+                    isSpecialPage || isScrolled ? "text-black" : "text-white"
+                  }`}
+                >
+                  {link.title}
+                </li>
+              ))}
+            </ul>
+            <ul className="flex gap-6 items-center cursor-pointer font-body">
+              {isSignedIn ? (
+                <div className="flex items-center gap-4">
+                  <Button
+                    onClick={handleDashboardClick}
+                    className="bg-green-500 text-white"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : "Go to Dashboard"}
+                  </Button>
+                  <UserButton />
+                </div>
+              ) : (
+                <SignInButton>
+                  <Button className="bg-blue-500 text-white">Login</Button>
+                </SignInButton>
+              )}
+            </ul>
           </div>
-        ) : (
-          <SignInButton>
-            <button className="bg-blue-500 px-4 py-2 rounded-md text-white">
-              Login
-            </button>
-          </SignInButton>
-        )}
-      </div>
-    </nav>
+        </nav>
+      ) : (
+        <nav
+          className={`fixed top-0 left-0 w-full z-50 py-4 px-4 transition-all duration-300 ${
+            isSpecialPage || isScrolled ? "bg-white shadow-md" : "bg-transparent"
+          }`}
+        >
+          <div className="mx-auto flex justify-between items-center">
+            <div className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
+              Logo
+            </div>
+            <div className="flex justify-end items-center gap-6 cursor-pointer">
+              {isSignedIn ? (
+                <div className="flex items-center gap-4">
+                  <Button
+                    onClick={handleDashboardClick}
+                    className={`bg-green-500 text-white rounded-md ${
+                      isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                    }`}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : "Go to Dashboard"}
+                  </Button>
+                  <UserButton />
+                </div>
+              ) : (
+                <SignInButton>
+                  <Button
+                    className={`bg-blue-500 text-white rounded-md ${
+                      isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                    }`}
+                  >
+                    Login
+                  </Button>
+                </SignInButton>
+              )}
+              <FaBars
+                onClick={toggleModal}
+                className={`cursor-pointer transition-colors duration-300 ${
+                  isSpecialPage || isScrolled ? "text-black" : "text-white"
+                }`}
+              />
+            </div>
+          </div>
+          {showModal && (
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+              <div className="relative bg-white w-full max-w-sm p-8 rounded-lg">
+                <FaTimes className="absolute top-4 right-4 cursor-pointer" onClick={toggleModal} />
+                <div className="flex flex-col gap-6 items-center">
+                  {navLinks.map((link, index) => (
+                    <span key={index} className="text-black text-xl cursor-pointer">
+                      {link.title}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </nav>
+      )}
+    </>
   );
 }
+
