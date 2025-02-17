@@ -18,7 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
-  const pathname = usePathname(); // Get the current pathname
+  const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -53,12 +53,12 @@ export default function Navbar() {
     setIsLoading(true); // Show loading state
     const role = user?.publicMetadata?.role;
     const dashboardURL =
-    role === "admin" ? "/admin" : role === "coach" ? "/coach" : "/client";
+      role === "admin" ? "/admin" : role === "coach" ? "/coach" : "/client";
     router.push(dashboardURL);
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000); 
+    }, 1000);
   };
 
   const isSpecialPage = pathname.startsWith('/coach') || pathname.startsWith('/client') || pathname.startsWith('/admin');
@@ -67,9 +67,8 @@ export default function Navbar() {
     <>
       {!isMobile ? (
         <nav
-          className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-            isSpecialPage || isScrolled ? "bg-white shadow-md" : "bg-transparent"
-          }`}
+          className={`fixed top-0 pt-0 left-0 w-full z-50 transition-all duration-300 ${isSpecialPage || isScrolled ? "bg-white shadow-md pt-0" : "bg-transparent"
+            }`}
         >
           <div className="flex justify-between mx-auto items-center py-4 px-24">
             <Link href="/" className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
@@ -77,13 +76,18 @@ export default function Navbar() {
             </Link>
             <ul className="flex gap-8 md:gap-16 items-center justify-center text-center cursor-pointer font-body antialiased">
               {navLinks.map((link, index) => (
-                <li
-                  key={index}
-                  className={`text-sm transition-colors duration-300 ${
-                    isSpecialPage || isScrolled ? "text-black" : "text-white"
-                  }`}
-                >
-                  {link.title}
+                <li key={index}>
+                  <Link
+                    href={link.url}
+                    className={`relative text-lg transition-colors duration-300 font-body tracking-[1px] 
+                      ${isSpecialPage || isScrolled ? "text-black" : "text-white"} 
+                      after:content-[''] after:absolute after:left-0 after:bottom-[-5px] 
+                      after:w-0 after:h-[4px] after:bg-[#75E379] after:rounded-xl 
+                      after:transition-all after:duration-300 hover:after:w-full`}
+                  >
+                    {link.title}
+                  </Link>
+
                 </li>
               ))}
             </ul>
@@ -92,7 +96,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Button
                     onClick={handleDashboardClick}
-                    className="bg-green-500 text-white"
+                    className="bg-[#75E379] text-black text-xl hover:text-white font-body"
                     disabled={isLoading}
                   >
                     {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : "Go to Dashboard"}
@@ -101,7 +105,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <SignInButton>
-                  <Button className="bg-blue-500 text-white">Login</Button>
+                  <Button className="bg-[#75E379] text-black">Login</Button>
                 </SignInButton>
               )}
             </ul>
@@ -109,9 +113,8 @@ export default function Navbar() {
         </nav>
       ) : (
         <nav
-          className={`fixed top-0 left-0 w-full z-50 py-4 px-4 transition-all duration-300 ${
-            isSpecialPage || isScrolled ? "bg-white shadow-md" : "bg-transparent"
-          }`}
+          className={`fixed top-0 left-0 w-full z-50 py-4 px-4 transition-all duration-300 ${isSpecialPage || isScrolled ? "bg-white shadow-md" : "bg-transparent"
+            }`}
         >
           <div className="mx-auto flex justify-between items-center">
             <div className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
@@ -122,21 +125,18 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Button
                     onClick={handleDashboardClick}
-                    className={`bg-green-500 text-white rounded-md ${
-                      isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
-                    }`}
+                    className={`bg-[#75E379] text-black rounded-md ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                      }`}
                     disabled={isLoading}
                   >
                     {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : "Go to Dashboard"}
                   </Button>
-                  <UserButton />
                 </div>
               ) : (
                 <SignInButton>
                   <Button
-                    className={`bg-blue-500 text-white rounded-md ${
-                      isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
-                    }`}
+                    className={`bg-[#75E379] text-black rounded-md ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                      }`}
                   >
                     Login
                   </Button>
@@ -144,26 +144,26 @@ export default function Navbar() {
               )}
               <FaBars
                 onClick={toggleModal}
-                className={`cursor-pointer transition-colors duration-300 ${
-                  isSpecialPage || isScrolled ? "text-black" : "text-white"
-                }`}
+                className={`cursor-pointer transition-colors duration-300 ${isSpecialPage || isScrolled ? "text-black" : "text-white"
+                  }`}
               />
             </div>
           </div>
-          {showModal && (
-            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-              <div className="relative bg-white w-full max-w-sm p-8 rounded-lg">
-                <FaTimes className="absolute top-4 right-4 cursor-pointer" onClick={toggleModal} />
-                <div className="flex flex-col gap-6 items-center">
-                  {navLinks.map((link, index) => (
-                    <span key={index} className="text-black text-xl cursor-pointer">
-                      {link.title}
-                    </span>
-                  ))}
-                </div>
+
+          {/* Modal */}
+          <div className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-500 ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+            <div className="relative bg-white w-full h-full max-w-sm p-8">
+              <FaTimes className="absolute top-4 right-4 cursor-pointer" onClick={toggleModal} />
+              <div className="flex flex-col gap-6 items-center pt-5">
+                {navLinks.map((link, index) => (
+                  <span key={index} className="text-black text-xl cursor-pointer">
+                    {link.title}
+                  </span>
+                ))}
               </div>
             </div>
-          )}
+          </div>
+
         </nav>
       )}
     </>

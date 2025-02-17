@@ -8,19 +8,22 @@ const testimonials = [
     name: "John Doe",
     position: "CEO of TechCorp",
     text: "This company provided exceptional service! Highly recommend.",
-    image: "/images/testimonial-bg1.jpg",
+    image: "/base.jpg",
+    profileImage: "/base.jpg"
   },
   {
     name: "Sarah Johnson",
     position: "Marketing Manager",
     text: "Amazing experience! Their team is professional and efficient.",
-    image: "/images/testimonial-bg2.jpg",
+    image: "/base.jpg",
+    profileImage: "/base.jpg"
   },
   {
     name: "Michael Smith",
     position: "Entrepreneur",
     text: "Their innovative solutions helped my business grow significantly.",
-    image: "/images/testimonial-bg3.jpg",
+    image: "/base.jpg",
+    profileImage: "/base.jpg"
   },
 ];
 
@@ -38,44 +41,69 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 px-8 flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-bold text-center mb-12">Testimonials</h2>
+    <section className="pb-16 px-0 md:px-8 flex flex-col items-center justify-center">
+      <h2 className="text-xl md:text-4xl font-bold text-center mb-8 md:mb-12">Testimonials</h2>
 
-      <div className="relative w-full max-w-4xl h-[450px]">
+      <div className="relative mx-auto w-full max-w-[calc(100%-20px)] md:max-w-[calc(100%-260px)] h-[500px]">
         {/* Background Image */}
         <Image
           src={testimonials[currentTestimonial].image}
           alt="Testimonial"
           layout="fill"
           objectFit="cover"
-          className="rounded-2xl shadow-lg"
+          className="rounded-lg shadow-lg"
         />
 
         {/* Testimonial Card */}
-        <div className="absolute bottom-6 right-6 bg-white p-6 rounded-lg shadow-xl w-[300px] md:w-[350px]">
-          <p className="text-gray-700 italic">
+        <div className="absolute bottom-6 right-6 bg-white p-2 md:p-8 rounded-lg shadow-xl w-[85%] md:w-[600px] lg:w-[700px] h-[40%] md:min-h-[80%] flex flex-col justify-between">
+          {/* Top Section: Image & Counter */}
+          <div className="flex justify-between items-center">
+            {/* Small Image (Profile Picture) */}
+            <Image
+              src={testimonials[currentTestimonial].profileImage}
+              alt={testimonials[currentTestimonial].name}
+              width={50}
+              height={50}
+              className="rounded-full border border-gray-300"
+            />
+
+            {/* Counter */}
+            <p className="text-gray-500 text-xs md:text-xl">{currentTestimonial + 1} / {testimonials.length}</p>
+          </div>
+
+          {/* Testimonial Text */}
+          <p className="text-gray-700 text-sm md:text-xl italic leading-relaxed mt-4 flex-1">
             {testimonials[currentTestimonial].text}
           </p>
-          <h4 className="font-semibold mt-3">{testimonials[currentTestimonial].name}</h4>
-          <p className="text-sm text-gray-500">{testimonials[currentTestimonial].position}</p>
 
-          {/* Navigation Buttons */}
-          <div className="flex justify-end gap-4 mt-4">
-            <button
-              onClick={prevTestimonial}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
-            >
-              <FaChevronLeft className="text-gray-600" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
-            >
-              <FaChevronRight className="text-gray-600" />
-            </button>
+          {/* Bottom Section: Name & Navigation Buttons */}
+          <div className="flex justify-between items-center mt-6">
+            {/* Name & Position */}
+            <div>
+              <h4 className="font-semibold text-xs md:text-xl">{testimonials[currentTestimonial].name}</h4>
+              <p className="text-xs md:text-sm text-gray-500">{testimonials[currentTestimonial].position}</p>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex gap-4">
+              <button
+                onClick={prevTestimonial}
+                className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition"
+              >
+                <FaChevronLeft className="text-gray-600 text-xs md:text-lg" />
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition"
+              >
+                <FaChevronRight className="text-gray-600 text-xs md:text-lg" />
+              </button>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
+
   );
 }
