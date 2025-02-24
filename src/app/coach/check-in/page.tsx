@@ -78,7 +78,7 @@ export default function CheckInPage() {
                 <td className="px-6 py-4">
                   <button
                     className={`px-4 py-2 text-white font-medium rounded-md transition 
-                      ${isCurrentBooking(booking.date, booking.time_slot) ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}
+                      ${isCurrentBooking(booking.date, booking.time_slot) ? 'bg-[#75E379] hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}
                     `}
                     disabled={!isCurrentBooking(booking.date, booking.time_slot)}
                   >

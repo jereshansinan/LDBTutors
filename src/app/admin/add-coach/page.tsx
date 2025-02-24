@@ -37,7 +37,7 @@ export default function AddCoachPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen p-4 bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen p-4 bg-white">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
 
         {/* Form Fields */}
@@ -64,7 +64,7 @@ export default function AddCoachPage() {
           />
 
           {/* Add Coach Button */}
-          <button type="submit" className="w-full bg-green-500 text-white p-3 rounded-lg font-semibold hover:bg-green-600 transition">
+          <button type="submit" className="w-full bg-[#75E379] text-white p-3 rounded-lg font-semibold hover:bg-green-600 transition">
             Add Coach
           </button>
         </form>

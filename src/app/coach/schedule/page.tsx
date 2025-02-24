@@ -104,7 +104,7 @@ function renderEventContent(eventInfo: EventContentArg, setSelectedEvent: (event
   return (
     <div
       onClick={handleClick}
-      className="p-1 rounded bg-green-500 text-white text-center cursor-pointer"
+      className="p-1 rounded bg-[#75E379] text-white text-center cursor-pointer"
       style={{ fontSize: '14px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
     >
       {user_name}

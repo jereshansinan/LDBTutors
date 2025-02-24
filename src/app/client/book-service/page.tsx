@@ -73,7 +73,7 @@ export default function BookServicePage() {
   };
 
   return (
-    <div className="flex justify-center items-start min-h-screen p-3 md:p-6 bg-gray-100 text-black">
+    <div className="flex justify-center items-start min-h-screen p-3 md:p-6 bg-white text-black">
       <div className="w-full max-w-3xl space-y-6">
 
         {/* Service Selection */}
@@ -107,7 +107,7 @@ export default function BookServicePage() {
         <input
           type="date"
           name="date"
-          className="w-full p-3 border rounded-lg bg-green-100 text-green-700 focus:ring-green-500 text-lg appearance-none"
+          className="w-full p-3 border rounded-lg bg-green-100 text-[#75E379] focus:ring-[#75E379] text-lg appearance-none"
           required
           value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
@@ -120,7 +120,7 @@ export default function BookServicePage() {
             {timeSlots.map((slot) => (
               <button
                 key={slot}
-                className={`p-2 rounded-lg border ${formData.timeSlot === slot ? "bg-green-500 text-white" : "bg-gray-200"}`}
+                className={`p-2 rounded-lg border ${formData.timeSlot === slot ? "bg-[#75E379] text-white" : "bg-gray-200"}`}
                 onClick={() => setFormData({ ...formData, timeSlot: slot })}
                 type="button"
               >
@@ -132,7 +132,7 @@ export default function BookServicePage() {
 
         {/* Submit Button */}
         <button
-          className="w-full bg-green-500 text-white p-3 rounded-lg font-semibold hover:bg-green-600 transition"
+          className="w-full bg-[#75E379] text-white p-3 rounded-lg font-semibold hover:bg-green-600 transition"
           onClick={handleSubmit}
           disabled={isLoading}
         >
@@ -148,11 +148,11 @@ export default function BookServicePage() {
 
               {/* Small Image at the Top */}
               <div className="flex justify-center">
-                <CheckCircle className="my-5 w-20 h-20 text-green-500" />
+                <CheckCircle className="my-5 w-20 h-20 text-[#75E379]" />
               </div>
 
               {/* In Process Status */}
-              <p className="mt-4 px-3 py-1 border border-gray-300 text-green-500 rounded-md text-sm inline-block w-fit">
+              <p className="mt-4 px-3 py-1 border border-gray-300 text-[#75E379] rounded-md text-sm inline-block w-fit">
                 In Process
               </p>
 
@@ -168,22 +168,22 @@ export default function BookServicePage() {
             {/* Booking Details */}
             <div className="mt-4 space-y-3 text-gray-800 text-sm">
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-green-500" />
+                <Calendar className="w-5 h-5 text-[#75E379]" />
                 <span>{bookingDetails.date || "N/A"}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-green-500" />
+                <Clock className="w-5 h-5 text-[#75E379]" />
                 <span>{bookingDetails.timeSlot || "N/A"}</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-green-500" />
+                <MapPin className="w-5 h-5 text-[#75E379]" />
                 <span>{bookingDetails.location || "N/A"}</span>
               </div>
             </div>
 
             {/* Confirm Button */}
             <DialogFooter>
-              <Button className="bg-green-500 hover:bg-green-600 text-white w-full" onClick={() => setShowDialog(false)}>
+              <Button className="bg-[#75E379] hover:bg-green-600 text-white w-full" onClick={() => setShowDialog(false)}>
                 Confirm
               </Button>
             </DialogFooter>
@@ -192,7 +192,7 @@ export default function BookServicePage() {
 
         {/* Error or Success Message */}
         {error && <div className="text-red-500 mt-4">{error}</div>}
-        {successMessage && <div className="text-green-500 mt-4">{successMessage}</div>}
+        {successMessage && <div className="text-[#75E379] mt-4">{successMessage}</div>}
       </div>
     </div>
   );

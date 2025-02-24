@@ -49,7 +49,7 @@ export default function ContactPage() {
           <h2 className="text-xl md:text-4xl font-bold">Let's Connect</h2>
           <p className="text-base md:text-xl text-gray-600">We’d love to hear from you. Fill out the form below and we’ll be in touch soon.</p>
 
-          <form onSubmit={handleSubmit} className="space-y-4 rounded-lg shadow-lg">
+          <form onSubmit={handleSubmit} className="space-y-4 rounded-lg bg-transparent">
             {/* Full Name */}
             <input
               type="text"
@@ -119,7 +119,7 @@ export default function ContactPage() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#75E379] text-white py-3 rounded-md font-semibold hover:bg-green-700 transition duration-300"
+              className="w-full bg-[#75E379] text-white py-3 rounded-md font-semibold hover:bg-[#75E379] transition duration-300"
               disabled={loading}
             >
               {loading ? "Sending..." : "Send Message"}
@@ -127,7 +127,7 @@ export default function ContactPage() {
           </form>
 
           {/* Response Message */}
-          {responseMessage && <p className="text-center text-green-600 mt-2">{responseMessage}</p>}
+          {responseMessage && <p className="text-center text-[#75E379] mt-2">{responseMessage}</p>}
         </div>
 
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-0 h-full">

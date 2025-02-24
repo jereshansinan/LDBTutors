@@ -133,7 +133,7 @@ export default function BookingPage() {
 
   return (
     <>
-  <div className="flex justify-between items-center p-2 sm:p-4 bg-gray-100 rounded-t-lg">
+  <div className="flex justify-between items-center p-2 sm:p-4 bg-white rounded-t-lg">
     <div className="flex items-center space-x-2 sm:space-x-4">
       <span className="font-medium text-gray-700 text-xs sm:text-sm">Filter By</span>
       <div className="flex space-x-2 sm:space-x-4">
@@ -224,7 +224,7 @@ export default function BookingPage() {
                 type="checkbox"
                 checked={booking.coach_check_in}
                 readOnly
-                className="w-4 h-4 sm:w-5 sm:h-5 accent-green-500 cursor-not-allowed"
+                className="w-4 h-4 sm:w-5 sm:h-5 accent-[#75E379] cursor-not-allowed"
               />
             </td>
 

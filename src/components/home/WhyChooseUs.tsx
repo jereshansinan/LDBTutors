@@ -25,7 +25,7 @@ const services = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-8 md:py-16 px-0 md:px-8 bg-gray-100">
+    <section className="py-8 md:py-16 px-0 md:px-8 bg-white">
       <div className="mx-auto w-full max-w-[calc(100%-20px)] md:max-w-[calc(100%-260px)]">
         {/* Centered Paragraph */}
         <p className="text-left text-xs sm:text-sm md:text-2xl mx-auto text-gray-700 mb-6 md:mb-8 font-body">
