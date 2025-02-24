@@ -8,7 +8,7 @@ export default function Footer() {
         
         {/* Left Section: Logo & Slogan */}
         <div className="flex flex-col items-center lg:items-start">
-          <Image src="/Logowhite.png" alt="Company Logo" width={120} height={50} />
+          <Image src="/Logowhite.png" alt="Company Logo" width={120} height={50} className="w-20 md:w-32" />
         </div>
 
         {/* Center Section: Navigation Links */}

@@ -42,14 +42,14 @@ export default function ContactPage() {
   return (
     <div>
       <Navbar />
-      <Hero media={"/base.jpg"} heading="Contact Us"/>
-      <section className="flex flex-col lg:flex-row items-center justify-between min-h-screen px-0 md:px-[130px] pb-2 md:pb-16">
+      <Hero media={"/base.jpg"} heading="Contact Us" />
+      <section className="flex flex-col lg:flex-row justify-between px-0 md:px-[130px] pt-10 md:pt-10 pb-4 md:pb-8">
         {/* Left Section - Contact Form */}
-        <div className="w-full lg:w-1/2 space-y-6 p-6">
+        <div className="w-full lg:w-1/2 space-y-6 px-6">
           <h2 className="text-xl md:text-4xl font-bold">Let's Connect</h2>
           <p className="text-base md:text-xl text-gray-600">We’d love to hear from you. Fill out the form below and we’ll be in touch soon.</p>
 
-          <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-lg shadow-lg">
+          <form onSubmit={handleSubmit} className="space-y-4 rounded-lg shadow-lg">
             {/* Full Name */}
             <input
               type="text"
@@ -58,7 +58,7 @@ export default function ContactPage() {
               value={formData.fullName}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             />
 
             {/* Email */}
@@ -69,7 +69,7 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             />
 
             {/* Phone Number */}
@@ -80,7 +80,7 @@ export default function ContactPage() {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             />
 
             {/* Service */}
@@ -91,7 +91,7 @@ export default function ContactPage() {
               value={formData.service}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             />
 
             {/* Status */}
@@ -99,7 +99,7 @@ export default function ContactPage() {
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             >
               <option value="Amateur">Amateur</option>
               <option value="Semi-Professional">Semi-Professional</option>
@@ -113,13 +113,13 @@ export default function ContactPage() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             ></textarea>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition duration-300"
+              className="w-full bg-[#75E379] text-white py-3 rounded-md font-semibold hover:bg-green-700 transition duration-300"
               disabled={loading}
             >
               {loading ? "Sending..." : "Send Message"}
@@ -130,9 +130,8 @@ export default function ContactPage() {
           {responseMessage && <p className="text-center text-green-600 mt-2">{responseMessage}</p>}
         </div>
 
-        {/* Right Section - Image */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-0 h-full">
-          <div className="relative w-full pb-[70%] hidden lg:block"> {/* Hidden on mobile, shown on large screens */}
+          <div className="relative w-full lg:h-[750px]"> {/* Ensure height */}
             <Image
               src="/base.jpg"
               alt="Contact Us"
@@ -142,6 +141,7 @@ export default function ContactPage() {
             />
           </div>
         </div>
+
       </section>
       <Footer />
     </div>
