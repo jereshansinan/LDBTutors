@@ -5,26 +5,19 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "John Doe",
-    position: "CEO of TechCorp",
-    text: "This company provided exceptional service! Highly recommend.",
+    name: "Athlete A",
+    position: "Trainee",
+    text: "Molende Sports took my training to the next level. The attention to detail and personalized approach made a real difference in my performance!",
     image: "/base.jpg",
     profileImage: "/base.jpg"
   },
   {
-    name: "Sarah Johnson",
-    position: "Marketing Manager",
-    text: "Amazing experience! Their team is professional and efficient.",
+    name: "Athlete B",
+    position: "Trainee",
+    text: "'Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!",
     image: "/base.jpg",
     profileImage: "/base.jpg"
-  },
-  {
-    name: "Michael Smith",
-    position: "Entrepreneur",
-    text: "Their innovative solutions helped my business grow significantly.",
-    image: "/base.jpg",
-    profileImage: "/base.jpg"
-  },
+  }
 ];
 
 export default function Testimonials() {
@@ -72,12 +65,12 @@ export default function Testimonials() {
           </div>
 
           {/* Testimonial Text */}
-          <p className="text-gray-700 text-sm md:text-xl italic leading-relaxed mt-4 flex-1">
+          <p className="text-gray-700 text-xs md:text-xl italic leading-relaxed mt-2 md:mt-4 flex-1">
             {testimonials[currentTestimonial].text}
           </p>
 
           {/* Bottom Section: Name & Navigation Buttons */}
-          <div className="flex justify-between items-center mt-6">
+          <div className="flex justify-between items-center mt-1 md:mt-6">
             {/* Name & Position */}
             <div>
               <h4 className="font-semibold text-xs md:text-xl">{testimonials[currentTestimonial].name}</h4>
@@ -90,13 +83,13 @@ export default function Testimonials() {
                 onClick={prevTestimonial}
                 className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition"
               >
-                <FaChevronLeft className="text-gray-600 text-xs md:text-lg" />
+                <FaChevronLeft className="text-gray-600 text-[8px] md:text-lg" />
               </button>
               <button
                 onClick={nextTestimonial}
                 className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition"
               >
-                <FaChevronRight className="text-gray-600 text-xs md:text-lg" />
+                <FaChevronRight className="text-gray-600 text-[8px] md:text-lg" />
               </button>
             </div>
           </div>

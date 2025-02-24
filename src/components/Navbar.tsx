@@ -6,7 +6,9 @@ import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { usePathname } from "next/navigation";  // Import usePathname
+import { usePathname } from "next/navigation";
+import ClientSignInButton from "@/components/clientSignInButton";
+import Image from "next/image";
 
 const navLinks = [
   { title: "HOME", url: "/" },
@@ -72,7 +74,13 @@ export default function Navbar() {
         >
           <div className="flex justify-between mx-auto items-center py-4 px-24">
             <Link href="/" className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
-              Logo
+              <Image
+                src={`${isSpecialPage || isScrolled ? "/Logowhite.png" : "/logoDark.png"}`}
+                width={100}
+                height={20}
+                alt="Logo"
+                className="overflow-hidden transition-all w-32"
+              />
             </Link>
             <ul className="flex gap-8 md:gap-16 items-center justify-center text-center cursor-pointer font-body antialiased">
               {navLinks.map((link, index) => (
@@ -104,9 +112,7 @@ export default function Navbar() {
                   <UserButton />
                 </div>
               ) : (
-                <SignInButton>
-                  <Button className="bg-[#75E379] text-black">Login</Button>
-                </SignInButton>
+                <ClientSignInButton />
               )}
             </ul>
           </div>
@@ -118,7 +124,15 @@ export default function Navbar() {
         >
           <div className="mx-auto flex justify-between items-center">
             <div className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
-              Logo
+              <Link href="/" className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
+                <Image
+                  src={`${isSpecialPage || isScrolled ? "/Logowhite.png" : "/logoDark.png"}`}
+                  width={50}
+                  height={20}
+                  alt="Logo"
+                  className="overflow-hidden transition-all w-20"
+                />
+              </Link>
             </div>
             <div className="flex justify-end items-center gap-6 cursor-pointer">
               {isSignedIn ? (
@@ -135,7 +149,7 @@ export default function Navbar() {
               ) : (
                 <SignInButton>
                   <Button
-                    className={`bg-[#75E379] text-black rounded-md ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                    className={`bg-[#75E379] text-black rounded-md hover:text-white ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
                       }`}
                   >
                     Login
@@ -151,14 +165,17 @@ export default function Navbar() {
           </div>
 
           {/* Modal */}
-          <div className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-500 ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+          <div
+            className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-500 ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+          >
             <div className="relative bg-white w-full h-full max-w-sm p-8">
               <FaTimes className="absolute top-4 right-4 cursor-pointer" onClick={toggleModal} />
               <div className="flex flex-col gap-6 items-center pt-5">
                 {navLinks.map((link, index) => (
-                  <span key={index} className="text-black text-xl cursor-pointer">
+                  <Link key={index} href={link.url} className="text-black text-xl cursor-pointer">
                     {link.title}
-                  </span>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronFirst, ChevronLast, Home, Phone, Info, ChevronDown } from "lucide-react";
+import { ChevronFirst, ChevronLast, Home, Phone, Info, ChevronDown, HandCoins } from "lucide-react";
 import { createContext, useContext, useState } from "react";
 import { UserButton } from "@clerk/nextjs"; // Clerk Profile Component
 import Image from "next/image";
@@ -39,7 +39,7 @@ const roleLinks: RoleLinks = {
 
 // Additional links like "Services", "Contact", and "About"
 const additionalLinks: AdditionalLinks = [
-    { name: "Services", href: "/services", icon: <Phone /> },
+    { name: "Services", href: "/services", icon: <HandCoins /> },
     { name: "Contact", href: "/contact", icon: <Phone /> },
     { name: "About", href: "/about", icon: <Info /> },
 ];
@@ -60,23 +60,25 @@ export default function Sidebar({ role }: { role: keyof RoleLinks }) {
                 <nav className="h-full flex flex-col bg-white border-r shadow-sm">
                     {/* LOGO + TOGGLE BUTTON */}
                     <div className="pt-4 p-1 md:p-4 pb-2 flex items-center">
-                        <Image
-                            src="/base.jpg"
-                            width={100}
-                            height={20}
-                            alt="Logo"
-                            className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"}`}
-                        />
+                        <Link href="/">
+                            <Image
+                                src="/Logowhite.png"
+                                width={100}
+                                height={20}
+                                alt="Logo"
+                                className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"}`}
+                            />
+                        </Link>
                         <button
                             onClick={() => setExpanded((curr) => !curr)}
-                            className="p-1 rounded-lg bg-gray-50 hover:bg-gray-100"
+                            className="p-1 rounded-lg bg-gray-50 hover:bg-gray-100 ml-auto"
                         >
                             {expanded ? <ChevronFirst /> : <ChevronLast />}
                         </button>
                     </div>
 
                     {/* SIDEBAR CONTENT */}
-                    <ul className="flex-1 px-1 md:px-2">
+                    <ul className="flex-1 px-1 md:px-4">
                         {/* Dashboard Section */}
                         <h3 className={`text-sm font-semibold text-gray-600 mt-4 mb-2 ${expanded ? "" : "hidden"}`}>
                             Dashboard
@@ -120,7 +122,7 @@ export default function Sidebar({ role }: { role: keyof RoleLinks }) {
                     </ul>
 
                     <div className="border-t flex p-[2px] sm:p-3 items-center">
-                        <UserButton afterSignOutUrl="/"/>
+                        <UserButton afterSignOutUrl="/" />
                     </div>
 
                 </nav>

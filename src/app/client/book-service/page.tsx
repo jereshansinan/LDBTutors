@@ -1,6 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogFooter } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, Calendar, Clock, MapPin } from "lucide-react";
+import { DialogTitle } from "@/components/ui/dialog";
 
 export default function BookServicePage() {
   const [formData, setFormData] = useState({
@@ -9,10 +13,12 @@ export default function BookServicePage() {
     date: "",
     timeSlot: "",
   });
+  const [bookingDetails, setBookingDetails] = useState({ service: "", location: "", date: "", timeSlot: "" });
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showDialog, setShowDialog] = useState(false);
 
   const services = [
     { id: "service1", name: "Service 1" },
@@ -48,6 +54,8 @@ export default function BookServicePage() {
 
       if (response.ok) {
         setSuccessMessage("Booking successful!");
+        setBookingDetails(formData);
+        setShowDialog(true); // Open dialog
         setFormData({
           service: "",
           location: "",
@@ -65,10 +73,10 @@ export default function BookServicePage() {
   };
 
   return (
-    <div className="flex justify-center items-start min-h-screen p-6 bg-gray-100 text-black">
+    <div className="flex justify-center items-start min-h-screen p-3 md:p-6 bg-gray-100 text-black">
       <div className="w-full max-w-3xl space-y-6">
 
-        {/* Service Selection - Dropdown */}
+        {/* Service Selection */}
         <select
           name="service"
           className="w-full p-3 border rounded-lg"
@@ -78,7 +86,7 @@ export default function BookServicePage() {
         >
           <option value="">Select a Service</option>
           {services.map((service) => (
-            <option key={service.id} value={service.id}>{service.name}</option>
+            <option key={service.id} value={service.name}>{service.name}</option>
           ))}
         </select>
 
@@ -91,8 +99,8 @@ export default function BookServicePage() {
           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
         >
           <option value="">Select a Location</option>
-          <option value="location1">Location 1</option>
-          <option value="location2">Location 2</option>
+          <option value="Location 1">Location 1</option>
+          <option value="Location 2">Location 2</option>
         </select>
 
         {/* Date Picker */}
@@ -130,6 +138,57 @@ export default function BookServicePage() {
         >
           {isLoading ? "Booking..." : "Book Service"}
         </button>
+
+        {/* Alert Dialog */}
+        <Dialog open={showDialog} onOpenChange={setShowDialog}>
+          <DialogContent className="max-w-md text-center p-6 bg-white rounded-lg">
+            <DialogHeader>
+              {/* Hidden Title for Screen Readers */}
+              <DialogTitle>Booking Confirmation</DialogTitle>
+
+              {/* Small Image at the Top */}
+              <div className="flex justify-center">
+                <CheckCircle className="my-5 w-20 h-20 text-green-500" />
+              </div>
+
+              {/* In Process Status */}
+              <p className="mt-4 px-3 py-1 border border-gray-300 text-green-500 rounded-md text-sm inline-block w-fit">
+                In Process
+              </p>
+
+              {/* Service Name */}
+              <h2 className="text-xl font-semibold mt-3">{bookingDetails.service || "N/A"}</h2>
+
+              {/* Description */}
+              <p className="text-gray-600 mt-2 text-sm">
+                You have successfully notified Mondele Sports of your booking. We will contact you soon to finalize payment.
+              </p>
+            </DialogHeader>
+
+            {/* Booking Details */}
+            <div className="mt-4 space-y-3 text-gray-800 text-sm">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-green-500" />
+                <span>{bookingDetails.date || "N/A"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-green-500" />
+                <span>{bookingDetails.timeSlot || "N/A"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-green-500" />
+                <span>{bookingDetails.location || "N/A"}</span>
+              </div>
+            </div>
+
+            {/* Confirm Button */}
+            <DialogFooter>
+              <Button className="bg-green-500 hover:bg-green-600 text-white w-full" onClick={() => setShowDialog(false)}>
+                Confirm
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
 
         {/* Error or Success Message */}
         {error && <div className="text-red-500 mt-4">{error}</div>}

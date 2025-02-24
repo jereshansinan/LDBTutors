@@ -89,17 +89,17 @@ export default function Services() {
       <Hero media={"/base.jpg"} heading="Our Services"/>
 
       {/* Main Content with 130px left/right padding */}
-      <div className="px-[130px] py-8">
+      <div className="px-2 md:px-[130px] py-8">
         {/* Page Heading */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl text-gray-600">
+        <div className="mb-2 md:mb-12">
+          <h1 className="text-center text-xl md:text-4xl font-bold mb-4">Our Services</h1>
+          <p className="text-left md:text-center text-base md:text-xl text-gray-600">
             We offer a variety of services to cater to your needs.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5 md:mb-12">
           {services.map((service, index) => (
             <div
               key={service.id}
@@ -115,15 +115,15 @@ export default function Services() {
                 />
               </div>
               {/* Bordered Content Section */}
-              <div className="p-6 flex flex-col flex-1">
-                <h2 className="text-2xl font-semibold mb-2">
+              <div className="p-2 md:p-6 flex flex-col flex-1">
+                <h2 className="text-xl md:text-2xl font-semibold mb-2">
                   {service.title}
                 </h2>
-                <p className="text-lg text-gray-700 mb-4">
+                <p className="text-base md:text-lg text-gray-700 mb-4">
                   {service.description}
                 </p>
                 <div className="text-center mb-4">
-                  <span className="text-3xl font-bold">{service.price}</span>
+                  <span className="text-2xl md:text-3xl font-bold">{service.price}</span>
                 </div>
                 {/* Includes List */}
                 <div className="mb-4">
@@ -144,17 +144,17 @@ export default function Services() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="ml-2 text-lg">{inc}</span>
+                      <span className="ml-2 text-base md:text-lg">{inc}</span>
                     </div>
                   ))}
                 </div>
                 {/* Group Training Section for the 1st 2 services */}
                 {index < 2 && service.groupTraining && (
                   <div className="mt-auto pt-4 border-t">
-                    <h3 className="font-semibold mb-2 text-lg">
+                    <h3 className="font-semibold mb-2 text-base md:text-lg">
                       Group Training
                     </h3>
-                    <div className="space-y-1 text-lg">
+                    <div className="space-y-1 text-base md:text-lg">
                       <div className="flex justify-between">
                         <span>4 sessions</span>
                         <span>{service.groupTraining[4]}</span>
@@ -176,7 +176,7 @@ export default function Services() {
         </div>
 
         {/* Other Services Section */}
-        <div className="w-full bg-gray-100 py-8 px-4 mb-12 rounded-lg">
+        <div className="w-full bg-white py-2 md:py-8 px-0 md:px-4 mb-5 md:mb-12 rounded-lg">
           <h2 className="text-3xl font-bold text-center mb-6">
             Other Services
           </h2>
@@ -186,16 +186,16 @@ export default function Services() {
                 key={os.id}
                 className="flex items-center justify-between p-4 border rounded-lg"
               >
-                <span className="text-lg">{os.title}</span>
-                <span className="text-xl font-bold">{os.price}</span>
+                <span className="text-xs md:text-lg">{os.title}</span>
+                <span className="text-lg md:text-xl font-bold">{os.price}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Assessment and Profiling Section */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-6">
+        <div className="mb-5 md:mb-12">
+          <h2 className="text-xl md:text-4xl font-bold text-center mb-6">
             Assessment and Profiling
           </h2>
           <div className="flex flex-col lg:flex-row items-center gap-8">
@@ -214,13 +214,13 @@ export default function Services() {
             </div>
             {/* Description on the Right */}
             <div className="flex-1">
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="text-sm md:text-xl text-gray-700 mb-4">
                 Our comprehensive assessment and profiling service helps you
                 understand your strengths and areas for improvement. Benefit
                 from personalized insights and detailed analysis to optimize
                 your performance.
               </p>
-              <p className="text-lg text-gray-700">
+              <p className="text-sm md:text-xl text-gray-700">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
               </p>

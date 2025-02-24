@@ -5,18 +5,21 @@ export default function StatisticsBar() {
     { label: "Customer Satisfaction", value: "98%" },
     { label: "Another", value: "98%" },
   ];
-  
+
   return (
-    <section className="bg-[#75E379] text-white py-8">
-      <div className="px-2 md:mx-auto w-full md:max-w-[calc(100%-260px)] flex md:justify-around">
+    <section className="bg-[#75E379] text-white py-8 px-2 md:px-4">
+      <div className="md:mx-auto w-full md:max-w-[calc(100%-260px)] flex justify-between items-center gap-4">
         {stats.map((stat, index) => (
-          <div key={index} className="text-center">
+          <div key={index} className="flex flex-col items-center text-center">
             <p className="text-sm sm:text-2xl md:text-5xl font-bold font-body text-black">{stat.value}</p>
-            <p className="text-xs sm:text-sm md:text-lg font-body text-black">{stat.label}</p>
+            <p className="text-xs sm:text-sm md:text-lg font-body text-black whitespace-pre-line">
+              {stat.label}
+            </p>
           </div>
         ))}
       </div>
     </section>
+
   );
-  
+
 }

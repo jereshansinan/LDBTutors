@@ -43,11 +43,11 @@ export default function ContactPage() {
     <div>
       <Navbar />
       <Hero media={"/base.jpg"} heading="Contact Us"/>
-      <section className="flex flex-col lg:flex-row items-center justify-between min-h-screen px-[130px] pb-16">
+      <section className="flex flex-col lg:flex-row items-center justify-between min-h-screen px-0 md:px-[130px] pb-2 md:pb-16">
         {/* Left Section - Contact Form */}
         <div className="w-full lg:w-1/2 space-y-6 p-6">
-          <h2 className="text-4xl font-bold">Let's Connect</h2>
-          <p className="text-gray-600">We’d love to hear from you. Fill out the form below and we’ll be in touch soon.</p>
+          <h2 className="text-xl md:text-4xl font-bold">Let's Connect</h2>
+          <p className="text-base md:text-xl text-gray-600">We’d love to hear from you. Fill out the form below and we’ll be in touch soon.</p>
 
           <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-lg shadow-lg">
             {/* Full Name */}
