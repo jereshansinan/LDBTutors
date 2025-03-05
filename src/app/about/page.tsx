@@ -42,7 +42,7 @@ export default function About() {
                     {/* First Grid Item - Image on Right */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-20 items-center">
                         <div className="order-2 md:order-1">
-                            <h2 className="text-xl md:text-4xl font-bold font-heading mb-2 md:mb-4">Our Commitment</h2>
+                            <h2 className="text-xl md:text-4xl font-bold text-[#75E379] font-heading mb-2 md:mb-4">Our Commitment</h2>
                             <p className="text-gray-700 text-sm md:text-xl leading-relaxed font-body">
                                 To empower athletes with tailored training and recovery programs, ensuring they perform at their peak while preventing injuries and optimizing recovery time.
                             </p>
@@ -54,7 +54,7 @@ export default function About() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-20 items-center">
                         <Image src="/base.jpg" alt="Second Section" className="rounded-lg w-full h-72 md:h-96 object-cover" width={100} height={100} />
                         <div>
-                            <h2 className="text-xl md:text-4xl font-bold mb-2 md:mb-4">Innovation & Growth</h2>
+                            <h2 className="text-xl md:text-4xl font-bold mb-2 md:mb-4 text-[#75E379]">Innovation & Growth</h2>
                             <p className="text-gray-700 text-sm md:text-lg leading-relaxed">
                                 To revolutionize the way athletes train, recover, and perform by offering holistic, sciencebacked solutions that go beyond traditional training
                             </p>

@@ -13,10 +13,10 @@ export default function Footer() {
 
         {/* Center Section: Navigation Links */}
         <div className="flex flex-col items-center space-y-2 my-6 lg:my-0">
-          <a href="#" className="hover:text-gray-300">Home</a>
-          <a href="#" className="hover:text-gray-300">About</a>
-          <a href="#" className="hover:text-gray-300">Services</a>
-          <a href="#" className="hover:text-gray-300">Contact</a>
+          <a href="#" className="hover:text-[#75E379]">Home</a>
+          <a href="#" className="hover:text-[#75E379]">About</a>
+          <a href="#" className="hover:text-[#75E379]">Services</a>
+          <a href="#" className="hover:text-[#75E379]">Contact</a>
         </div>
 
         {/* Right Section: Contact Info & Social Icons */}
@@ -28,7 +28,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center space-x-2">
             <FaEnvelope className="text-blue-400" />
-            <p className="text-sm">contact@mycompany.com</p>
+            <p className="text-sm">info@molendesports.co.za</p>
           </div>
 
           {/* Social Media Icons */}

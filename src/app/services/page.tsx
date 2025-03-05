@@ -20,49 +20,67 @@ type Service = {
 const services: Service[] = [
   {
     id: 1,
-    title: "Service 1",
+    title: "Field Training",
     description:
-      "This is a detailed description for service 1. It provides more information and makes the column longer.",
-    price: "$100",
+      "Our 1 on 1 Training includes on-field training programs that focus and help athletes improve these skills ensuring they are ready to perform when it counts",
+    price: "R400",
     image: "/base.jpg",
-    includes: ["Feature A", "Feature B", "Feature C"],
+    includes: [
+      "Game strategy",
+      "Situational awareness",
+      "Agility",
+      "Reaction time",
+      "Understanding of game dynamics",
+    ],
     groupTraining: {
-      4: "$350",
-      8: "$600",
-      12: "$800",
+      4: "R1000",
+      8: "R1800",
+      12: "R2400",
     },
   },
   {
     id: 2,
-    title: "Service 2",
+    title: "Strength & Conditioning",
     description:
-      "This is a detailed description for service 2. It provides more information and makes the column longer.",
-    price: "$120",
+      "Our Strength & Conditioning built on science-backed techniques designed to help athletes enhance their physical performance and prevent injuries.",
+    price: "R400",
     image: "/base.jpg",
-    includes: ["Feature D", "Feature E", "Feature F"],
+    includes: ["Endurance", "Agility", "Power"],
     groupTraining: {
-      4: "$400",
-      8: "$700",
-      12: "$900",
+      4: "R1000",
+      8: "R1800",
+      12: "R2400",
     },
   },
   {
     id: 3,
-    title: "Service 3",
+    title: "Standard Package",
     description:
-      "This is a detailed description for service 3. It provides more information and makes the column longer.",
-    price: "$90",
+      "A great choice for athletes looking to build a strong foundation, the Standard Package provides essential training programs to improve key skills and overall fitness at a steady pace.",
+    price: "R3800",
     image: "/base.jpg",
-    includes: ["Feature G", "Feature H"],
+    includes: [
+      "8x Field sessions per Month",
+      "8x Strength & Conditioning",
+      "4x Recovery Session",
+      "4x Mobility and Flexibility classes",
+    ],
   },
   {
     id: 4,
-    title: "Service 4",
+    title: "Elite Package",
     description:
-      "This is a detailed description for service 4. It provides more information and makes the column longer.",
-    price: "$110",
+      "Designed for serious athletes aiming for peak performance, the Elite Package offers advanced training programs to help you reach the highest level of competition.",
+    price: "R6600",
     image: "/base.jpg",
-    includes: ["Feature I", "Feature J", "Feature K"],
+    includes: [
+      "8x Field sessions per Month",
+      "8x Strength & Conditioning",
+      "4x Recovery Session",
+      "4x Mobility and Flexibility classes",
+      "Nutrition Guidance",
+      "Sleep Optimisation",
+    ],
   },
 ];
 
@@ -73,12 +91,20 @@ type OtherService = {
 };
 
 const otherServices: OtherService[] = [
-  { id: 1, title: "Other Service 1", price: "$50" },
-  { id: 2, title: "Other Service 2", price: "$60" },
-  { id: 3, title: "Other Service 3", price: "$70" },
-  { id: 4, title: "Other Service 4", price: "$80" },
-  { id: 5, title: "Other Service 5", price: "$90" },
-  { id: 6, title: "Other Service 6", price: "$100" },
+  { id: 1, title: "Athlete Assessment and Profiling", price: "R700" },
+  {
+    id: 2,
+    title: "Online Training Program (5 sessions per week + 2 check ins)",
+    price: "R750",
+  },
+  { id: 3, title: "Injury Assessment + FMS Assessment", price: "R1000" },
+  {
+    id: 4,
+    title: "Lifestyle Assessment (Nutrition + Sleep + Supplements)",
+    price: "R850",
+  },
+  { id: 5, title: "Rehabilitation", price: "Custom" },
+  { id: 6, title: "Recovery", price: "R50 /15 minutes" },
 ];
 
 // --- Main Component ---
@@ -86,15 +112,20 @@ export default function Services() {
   return (
     <div>
       <Navbar />
-      <Hero media={"/base.jpg"} heading="Our Services"/>
+      <Hero media={"/base.jpg"} heading="Our Services" />
 
       {/* Main Content with 130px left/right padding */}
       <div className="px-2 md:px-[130px] py-8">
         {/* Page Heading */}
         <div className="mb-2 md:mb-12">
-          <h1 className="text-center text-xl md:text-4xl font-bold mb-4">Our Services</h1>
+          <h1 className="text-center text-xl md:text-4xl font-bold mb-4">
+            Our Services
+          </h1>
           <p className="text-left md:text-center text-base md:text-xl text-gray-600">
-            We offer a variety of services to cater to your needs.
+            Molende Sports offers a variety of specialized training programs
+            designed to enhance performance, strength, and recovery. All
+            programs are personalized based on the athlete’s needs, goals, and
+            sport.
           </p>
         </div>
 
@@ -114,21 +145,28 @@ export default function Services() {
                   objectFit="cover"
                 />
               </div>
+
               {/* Bordered Content Section */}
               <div className="p-2 md:p-6 flex flex-col flex-1">
-                <h2 className="text-xl md:text-2xl font-semibold mb-2">
+                <h2 className="text-xl md:text-xl font-semibold mb-2">
                   {service.title}
                 </h2>
-                <p className="text-base md:text-lg text-gray-700 mb-4">
+
+                {/* Fixed Height Description */}
+                <p className="text-base md:text-lg text-gray-700 mb-4 md:min-h-48">
                   {service.description}
                 </p>
-                <div className="text-center mb-4">
-                  <span className="text-2xl md:text-3xl font-bold">{service.price}</span>
+
+                <div className="text-center mb-4 md:mb-14">
+                  <span className="text-3xl md:text-4xl font-bold">
+                    {service.price}
+                  </span>
                 </div>
+
                 {/* Includes List */}
                 <div className="mb-4">
                   {service.includes.map((inc, idx) => (
-                    <div key={idx} className="flex items-center mb-1">
+                    <div key={idx} className="flex items-center mb-2">
                       {/* Green Tick Icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -148,6 +186,7 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
+
                 {/* Group Training Section for the 1st 2 services */}
                 {index < 2 && service.groupTraining && (
                   <div className="mt-auto pt-4 border-t">
@@ -157,15 +196,21 @@ export default function Services() {
                     <div className="space-y-1 text-base md:text-lg">
                       <div className="flex justify-between">
                         <span>4 sessions</span>
-                        <span>{service.groupTraining[4]}</span>
+                        <span className="font-bold">
+                          {service.groupTraining[4]}
+                        </span>
                       </div>
                       <div className="flex justify-between">
                         <span>8 sessions</span>
-                        <span>{service.groupTraining[8]}</span>
+                        <span className="font-bold">
+                          {service.groupTraining[8]}
+                        </span>
                       </div>
                       <div className="flex justify-between">
                         <span>12 sessions</span>
-                        <span>{service.groupTraining[12]}</span>
+                        <span className="font-bold">
+                          {service.groupTraining[12]}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -214,16 +259,22 @@ export default function Services() {
             </div>
             {/* Description on the Right */}
             <div className="flex-1">
-              <p className="text-sm md:text-xl text-gray-700 mb-4">
-                Our comprehensive assessment and profiling service helps you
-                understand your strengths and areas for improvement. Benefit
-                from personalized insights and detailed analysis to optimize
-                your performance.
+              <p className="text-base md:text-lg text-black mb-4">
+                A comprehensive physical evaluation designed to assess your
+                current athletic abilities and track your progress over time.
+                The assessment also helps in tailoring a personalized training
+                program and nutrition plan for the athlete.The assessment
+                includes:
               </p>
-              <p className="text-sm md:text-xl text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-              </p>
+              <ul className="text-base md:text-lg text-black list-disc pl-5">
+                <li>Speed & Acceleration Tests</li>
+                <li>Jump Tests & Leg Power</li>
+                <li>Leg Symmetry & Individual Leg Power</li>
+                <li>Agility Tests</li>
+                <li>Upper Body Power Tests</li>
+                <li>Fitness Tests & Specific Prescription</li>
+                <li>Adult Height & Growth Spurt Predictions</li>
+              </ul>
             </div>
           </div>
         </div>

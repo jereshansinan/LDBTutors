@@ -9,14 +9,14 @@ const testimonials = [
     position: "Trainee",
     text: "Molende Sports took my training to the next level. The attention to detail and personalized approach made a real difference in my performance!",
     image: "/base.jpg",
-    profileImage: "/base.jpg"
+    profileImage: "/Quote Left.png"
   },
   {
     name: "Athlete B",
     position: "Trainee",
-    text: "'Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!",
+    text: "Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!",
     image: "/base.jpg",
-    profileImage: "/base.jpg"
+    profileImage: "/Quote Left.png"
   }
 ];
 
@@ -48,7 +48,7 @@ export default function Testimonials() {
         />
 
         {/* Testimonial Card */}
-        <div className="absolute bottom-6 right-6 bg-white p-2 md:p-8 rounded-lg shadow-xl w-[85%] md:w-[600px] lg:w-[700px] h-[40%] md:min-h-[80%] flex flex-col justify-between">
+        <div className="absolute bottom-6 right-6 bg-[#75E379] p-2 md:p-8 rounded-lg shadow-xl w-[85%] md:w-[600px] lg:w-[700px] h-[40%] md:min-h-[80%] flex flex-col justify-between">
           {/* Top Section: Image & Counter */}
           <div className="flex justify-between items-center">
             {/* Small Image (Profile Picture) */}
@@ -57,15 +57,15 @@ export default function Testimonials() {
               alt={testimonials[currentTestimonial].name}
               width={50}
               height={50}
-              className="rounded-full border border-gray-300"
+              className="rounded-full"
             />
 
             {/* Counter */}
-            <p className="text-gray-500 text-xs md:text-xl">{currentTestimonial + 1} / {testimonials.length}</p>
+            <p className="text-black text-xs md:text-xl">{currentTestimonial + 1} / {testimonials.length}</p>
           </div>
 
           {/* Testimonial Text */}
-          <p className="text-gray-700 text-xs md:text-xl italic leading-relaxed mt-2 md:mt-4 flex-1">
+          <p className="text-black text-xs md:text-xl font-bold leading-relaxed mt-2 md:mt-4 flex-1">
             {testimonials[currentTestimonial].text}
           </p>
 
@@ -74,7 +74,7 @@ export default function Testimonials() {
             {/* Name & Position */}
             <div>
               <h4 className="font-semibold text-xs md:text-xl">{testimonials[currentTestimonial].name}</h4>
-              <p className="text-xs md:text-sm text-gray-500">{testimonials[currentTestimonial].position}</p>
+              <p className="text-xs md:text-sm text-black">{testimonials[currentTestimonial].position}</p>
             </div>
 
             {/* Navigation Buttons */}
@@ -83,13 +83,13 @@ export default function Testimonials() {
                 onClick={prevTestimonial}
                 className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition"
               >
-                <FaChevronLeft className="text-gray-600 text-[8px] md:text-lg" />
+                <FaChevronLeft className="text-black text-[8px] md:text-lg" />
               </button>
               <button
                 onClick={nextTestimonial}
                 className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition"
               >
-                <FaChevronRight className="text-gray-600 text-[8px] md:text-lg" />
+                <FaChevronRight className="text-black text-[8px] md:text-lg" />
               </button>
             </div>
           </div>
