@@ -1,12 +1,28 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
   const { scrollY } = useScroll();
   const yBackground = useTransform(scrollY, [0, 300], ["0%", "20%"]);
 
-    return (
-      <section
+  // State to hold translations
+  const [translations, setTranslations] = useState({
+    heroTitle: "TRANSFORM PASSION INTO PRECISION",
+    heroSubtitle: "Personalized training & recovery solutions for serious athletes",
+  });
+
+  // Load translations based on the selected language
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en"; // Default to English
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
+
+  return (
+    <section
       className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden"
       style={{ backgroundImage: "url('/base.jpg')" }}
     >
@@ -33,7 +49,7 @@ export default function Hero() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          TRANSFORM PASSION INTO PRECISION
+          {translations.heroTitle}
         </motion.h1>
 
         <motion.p
@@ -43,10 +59,9 @@ export default function Hero() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          Personalized training & recovery solutions for serious athletes
+          {translations.heroSubtitle}
         </motion.p>
       </motion.div>
     </section>
-    );
-  }
-  
+  );
+}

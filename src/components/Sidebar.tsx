@@ -8,11 +8,13 @@ import {
   Info,
   ChevronDown,
   HandCoins,
+  Dumbbell
 } from "lucide-react";
 import { createContext, useContext, useState } from "react";
 import { UserButton } from "@clerk/nextjs"; // Clerk Profile Component
 import Image from "next/image";
 import Link from "next/link";
+import LanguageDropdown from "./LanguageDropdown";
 
 // Define types for the links object
 type SidebarLink = {
@@ -49,6 +51,7 @@ const roleLinks: RoleLinks = {
 const additionalLinks: AdditionalLinks = [
   { name: "Services", href: "/services", icon: <HandCoins /> },
   { name: "Contact", href: "/contact", icon: <Phone /> },
+  { name: "Members", href: "/members", icon: <Dumbbell /> },
   { name: "About", href: "/about", icon: <Info /> },
 ];
 
@@ -147,18 +150,7 @@ export default function Sidebar({ role, className }: { role: keyof RoleLinks; cl
 
               {/* Dropdown content */}
               {dropdownOpen && (
-                <ul className="absolute left-0 top-full mt-2 bg-white border rounded-md shadow-md w-full z-10">
-                  <li>
-                    <button className="w-full px-3 py-2 text-gray-700 hover:bg-gray-100">
-                      English
-                    </button>
-                  </li>
-                  <li>
-                    <button className="w-full px-3 py-2 text-gray-700 hover:bg-gray-100">
-                      French
-                    </button>
-                  </li>
-                </ul>
+                <LanguageDropdown />
               )}
             </li>
           </ul>

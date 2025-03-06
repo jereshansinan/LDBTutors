@@ -13,6 +13,7 @@ import Image from "next/image";
 const navLinks = [
   { title: "HOME", url: "/" },
   { title: "ABOUT", url: "/about" },
+  { title: "MEMBERS", url: "/members" },
   { title: "SERVICES", url: "/services" },
   { title: "CONTACT", url: "/contact" },
 ];

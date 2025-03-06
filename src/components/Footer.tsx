@@ -15,6 +15,7 @@ export default function Footer() {
         <div className="flex flex-col items-center space-y-2 my-6 lg:my-0">
           <a href="#" className="hover:text-[#75E379]">Home</a>
           <a href="#" className="hover:text-[#75E379]">About</a>
+          <a href="#" className="hover:text-[#75E379]">Members</a>
           <a href="#" className="hover:text-[#75E379]">Services</a>
           <a href="#" className="hover:text-[#75E379]">Contact</a>
         </div>
