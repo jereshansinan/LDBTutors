@@ -57,7 +57,8 @@ const SidebarContext = createContext<{ expanded: boolean }>({
   expanded: true,
 });
 
-export default function Sidebar({ role }: { role: keyof RoleLinks }) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function Sidebar({ role, className }: { role: keyof RoleLinks; className?: string }) {
   const [expanded, setExpanded] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const links = roleLinks[role];
