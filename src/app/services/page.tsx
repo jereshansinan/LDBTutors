@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero";
@@ -24,7 +25,7 @@ const services: Service[] = [
     description:
       "Our 1 on 1 Training includes on-field training programs that focus and help athletes improve these skills ensuring they are ready to perform when it counts",
     price: "R400",
-    image: "/base.jpg",
+    image: "/field.jpg",
     includes: [
       "Game strategy",
       "Situational awareness",
@@ -42,9 +43,9 @@ const services: Service[] = [
     id: 2,
     title: "Strength & Conditioning",
     description:
-      "Our Strength & Conditioning built on science-backed techniques designed to help athletes enhance their physical performance and prevent injuries.",
+      "Built on science-backed techniques designed to help athletes enhance their physical performance and prevent injuries.",
     price: "R400",
-    image: "/base.jpg",
+    image: "/strength.jpg",
     includes: ["Endurance", "Agility", "Power"],
     groupTraining: {
       4: "R1000",
@@ -56,9 +57,9 @@ const services: Service[] = [
     id: 3,
     title: "Standard Package",
     description:
-      "A great choice for athletes looking to build a strong foundation, the Standard Package provides essential training programs to improve key skills and overall fitness at a steady pace.",
+      "A great choice for athletes looking to build a strong foundation, providing essential training programs to improve key skills and overall fitness at a steady pace.",
     price: "R3800",
-    image: "/base.jpg",
+    image: "/standard.jpg",
     includes: [
       "8x Field sessions per Month",
       "8x Strength & Conditioning",
@@ -70,9 +71,9 @@ const services: Service[] = [
     id: 4,
     title: "Elite Package",
     description:
-      "Designed for serious athletes aiming for peak performance, the Elite Package offers advanced training programs to help you reach the highest level of competition.",
+      "Designed for serious athletes aiming for peak performance, offering advanced training programs to help you reach the highest level of competition.",
     price: "R6600",
-    image: "/base.jpg",
+    image: "/elite.jpg",
     includes: [
       "8x Field sessions per Month",
       "8x Strength & Conditioning",
@@ -112,7 +113,7 @@ export default function Services() {
   return (
     <div>
       <Navbar />
-      <Hero media={"/base.jpg"} heading="Our Services" />
+      <Hero media={"/home.jpg"} heading="Our Services" />
 
       {/* Main Content with 130px left/right padding */}
       <div className="px-2 md:px-[130px] py-8">
@@ -137,7 +138,7 @@ export default function Services() {
               className="flex flex-col rounded-lg overflow-hidden border"
             >
               {/* Service Image */}
-              <div className="relative w-full h-[200px]">
+              <div className="relative w-full h-[400px]">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -148,19 +149,43 @@ export default function Services() {
 
               {/* Bordered Content Section */}
               <div className="p-2 md:p-6 flex flex-col flex-1">
-                <h2 className="text-xl md:text-xl font-semibold mb-2">
+                <h2 className="text-xl md:text-xl font-semibold mb-2 min-h-[3.5rem]">
                   {service.title}
                 </h2>
 
-                {/* Fixed Height Description */}
-                <p className="text-base md:text-lg text-gray-700 mb-4 md:min-h-48">
+                {/* Description Section */}
+                <p
+                  className={`text-base md:text-lg text-gray-700 ${
+                    index === 1
+                      ? "min-h-48 md:min-h-48 lg:min-h-[600px] xl:min-h-[300px]"
+                      : "min-h-40 md:min-h-52 lg:min-h-[600px] xl:min-h-60"
+                  }`}
+                >
                   {service.description}
                 </p>
 
-                <div className="text-center mb-4 md:mb-14">
+                {/* Price Section */}
+                <div className="text-center mb-6 md:mb-8">
                   <span className="text-3xl md:text-4xl font-bold">
                     {service.price}
                   </span>
+                </div>
+
+                {/* Button for Logged In Users */}
+                <div className="text-center">
+                  <button
+                    onClick={() => {
+                      const isLoggedIn = false; // Replace with actual login check
+                      if (isLoggedIn) {
+                        window.location.href = "/dashboard";
+                      } else {
+                        window.location.href = "/login";
+                      }
+                    }}
+                    className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold mb-6 md:mb-8 hover:bg-black hover:text-white"
+                  >
+                    Go to Dashboard
+                  </button>
                 </div>
 
                 {/* Includes List */}

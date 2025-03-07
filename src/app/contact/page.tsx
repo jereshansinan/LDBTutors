@@ -46,7 +46,7 @@ export default function ContactPage() {
   return (
     <div>
       <Navbar />
-      <Hero media={"/base.jpg"} heading="Contact Us" />
+      <Hero media={"/home.jpg"} heading="Contact Us" />
       <section className="flex flex-col lg:flex-row justify-between px-0 md:px-[130px] pt-10 md:pt-10 pb-4 md:pb-8">
         {/* Left Section - Contact Form */}
         <div className="w-full lg:w-1/2 space-y-6 px-6">
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <input
               type="tel"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="+ 27 Phone Number"
               value={formData.phone}
               onChange={handleChange}
               required
@@ -154,11 +154,11 @@ export default function ContactPage() {
         </div>
 
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-0 h-full">
-          <div className="relative w-full lg:h-[750px]">
+          <div className="relative w-full lg:h-[700px]">
             {" "}
             {/* Ensure height */}
             <Image
-              src="/base.jpg"
+              src="/contact.jpg"
               alt="Contact Us"
               layout="fill"
               objectFit="cover"

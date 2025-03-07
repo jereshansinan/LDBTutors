@@ -9,7 +9,8 @@ export default function Hero() {
   // State to hold translations
   const [translations, setTranslations] = useState({
     heroTitle: "TRANSFORM PASSION INTO PRECISION",
-    heroSubtitle: "Personalized training & recovery solutions for serious athletes",
+    heroSubtitle:
+      "Personalized training & recovery solutions for serious athletes",
   });
 
   // Load translations based on the selected language
@@ -30,10 +31,13 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/base.jpg')",
+          backgroundImage: "url('/home.jpg')",
           y: yBackground,
         }}
       />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       {/* Content */}
       <motion.div

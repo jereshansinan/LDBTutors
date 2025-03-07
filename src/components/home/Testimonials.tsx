@@ -8,14 +8,14 @@ const testimonials = [
     name: "Athlete A",
     position: "Trainee",
     text: "Molende Sports took my training to the next level. The attention to detail and personalized approach made a real difference in my performance!",
-    image: "/base.jpg",
+    image: "/testimonial.jpg",
     profileImage: "/Quote Left.png"
   },
   {
     name: "Athlete B",
     position: "Trainee",
     text: "Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!",
-    image: "/base.jpg",
+    image: "/testim2.jpg",
     profileImage: "/Quote Left.png"
   }
 ];

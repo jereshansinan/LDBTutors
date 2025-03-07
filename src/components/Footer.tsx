@@ -1,4 +1,4 @@
-import { FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Footer() {
@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Phone & Email */}
           <div className="flex items-center space-x-2 mb-2">
             <FaPhone className="text-green-400" />
-            <p className="text-sm">+1 234 567 890</p>
+            <p className="text-sm">+27 65 919 9598</p>
           </div>
           <div className="flex items-center space-x-2">
             <FaEnvelope className="text-blue-400" />
@@ -34,14 +34,20 @@ export default function Footer() {
 
           {/* Social Media Icons */}
           <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-xl text-green-400 hover:text-green-300">
+            <a href="#" className="text-xl text-black hover:text-green-300">
               <FaWhatsapp />
             </a>
-            <a href="#" className="text-xl text-pink-500 hover:text-pink-400">
+            <a href="#" className="text-xl text-black hover:text-pink-400">
               <FaInstagram />
             </a>
-            <a href="#" className="text-xl text-blue-500 hover:text-blue-400">
+            <a href="#" className="text-xl text-black hover:text-blue-400">
               <FaLinkedin />
+            </a>
+            <a href="#" className="text-xl text-black hover:text-red-600">
+              <FaYoutube />
+            </a>
+            <a href="#" className="text-xl text-black hover:text-gray-300">
+              <FaTiktok />
             </a>
           </div>
         </div>

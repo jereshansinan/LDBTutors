@@ -9,22 +9,22 @@ const services = [
   {
     title: 'Expert Coaches',
     description: 'Years of experience in strength training, rehabilitation, and sport-specific skills.',
-    image: '/base.jpg',
+    image: '/expertcoach.jpg',
   },
   {
     title: 'Tailored Programs',
     description: 'Programs are customized to meet the unique needs of athletes at any level.',
-    image: '/base.jpg',
+    image: '/tailored.jpg',
   },
   {
     title: 'Advanced Recovery Solutions',
     description: 'Keeping athletes injury-free and performing at their best.',
-    image: '/base.jpg',
+    image: '/recovery.png',
   },
   {
     title: 'Flexible Scheduling',
     description: 'Sessions are available both on-site and virtually to fit athletes\' schedules.',
-    image: '/base.jpg',
+    image: '/sched.png',
   },
 ];
 
