@@ -1,7 +1,16 @@
 "use client";
-import { FaPhone, FaEnvelope, FaWhatsapp, FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaWhatsapp,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Footer() {
   const [translations, setTranslations] = useState({
@@ -53,21 +62,21 @@ export default function Footer() {
 
         {/* Center Section: Navigation Links */}
         <div className="flex flex-col items-center space-y-2 my-6 lg:my-0">
-          <a href="#" className="hover:text-[#75E379]">
+          <Link href="/" className="hover:text-[#75E379]">
             {translations.footer.navigation.home}
-          </a>
-          <a href="#" className="hover:text-[#75E379]">
+          </Link>
+          <Link href="/about" className="hover:text-[#75E379]">
             {translations.footer.navigation.about}
-          </a>
-          <a href="#" className="hover:text-[#75E379]">
+          </Link>
+          <Link href="/members" className="hover:text-[#75E379]">
             {translations.footer.navigation.members}
-          </a>
-          <a href="#" className="hover:text-[#75E379]">
+          </Link>
+          <Link href="/services" className="hover:text-[#75E379]">
             {translations.footer.navigation.services}
-          </a>
-          <a href="#" className="hover:text-[#75E379]">
+          </Link>
+          <Link href="/contact" className="hover:text-[#75E379]">
             {translations.footer.navigation.contact}
-          </a>
+          </Link>
         </div>
 
         {/* Right Section: Contact Info & Social Icons */}
@@ -84,19 +93,34 @@ export default function Footer() {
 
           {/* Social Media Icons */}
           <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-xl text-black hover:text-green-300">
+            <a
+              href="https://wa.me/27659199598?text=I%20am%20interested%20in%20your%20services"
+              className="text-xl text-black hover:text-green-300"
+            >
               <FaWhatsapp />
             </a>
-            <a href="#" className="text-xl text-black hover:text-pink-400">
+            <a
+              href="https://www.instagram.com/molendesports?igsh=MXBueHpkbjFsanMycw=="
+              className="text-xl text-black hover:text-pink-400"
+            >
               <FaInstagram />
             </a>
-            <a href="#" className="text-xl text-black hover:text-blue-400">
+            <a
+              href="https://www.linkedin.com/company/molendesports/"
+              className="text-xl text-black hover:text-blue-400"
+            >
               <FaLinkedin />
             </a>
-            <a href="#" className="text-xl text-black hover:text-red-600">
+            <a
+              href="https://youtube.com/@molendesports?si=zZKSXVZb6W8NWTP1"
+              className="text-xl text-black hover:text-red-600"
+            >
               <FaYoutube />
             </a>
-            <a href="#" className="text-xl text-black hover:text-gray-300">
+            <a
+              href="https://www.tiktok.com/@molende.sports?_t=ZM-8uTRPdlttkV&_r=1"
+              className="text-xl text-black hover:text-gray-300"
+            >
               <FaTiktok />
             </a>
           </div>
