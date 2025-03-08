@@ -1,4 +1,391 @@
 {
-    "heroTitle": "TRANSFORMER LA PASSION EN PRÉCISION",
-    "heroSubtitle": "Solutions d'entraînement et de récupération personnalisées pour les athlètes sérieux"
+  "heroTitle": "TRANSFORMER LA PASSION EN PRÉCISION",
+  "heroSubtitle": "Solutions d'entraînement et de récupération personnalisées pour les athlètes sérieux",
+  "statistics": {
+    "users": "Utilisateurs",
+    "projectsCompleted": "Projets Terminés",
+    "customerSatisfaction": "Satisfaction des Clients",
+    "another": "Autre"
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "athleteA": {
+      "name": "Athlète A",
+      "position": "Stagiaire",
+      "text": "Molende Sports a élevé mon entraînement à un niveau supérieur. L'attention aux détails et l'approche personnalisée ont fait une réelle différence dans ma performance !"
+    },
+    "athleteB": {
+      "name": "Athlète B",
+      "position": "Stagiaire",
+      "text": "Grâce aux programmes de récupération et de nutrition de Molende, j'ai pu retourner sur le terrain plus rapidement que prévu !"
+    }
+  },
+  "whyChooseUs": {
+    "paragraph": "Molende Sports est une installation d'entraînement axée sur la performance, conçue pour maximiser le potentiel des athlètes grâce à un coaching personnalisé, des solutions de récupération et des conseils nutritionnels. Nous nous spécialisons dans l'entraînement hors saison, le suivi de la condition physique personnalisé et le développement des compétences spécifiques au sport pour les athlètes visant une haute performance.",
+    "heading": "Pourquoi Nous Choisir",
+    "services": [
+      {
+        "title": "Entraîneurs Experts",
+        "description": "Des années d'expérience en musculation, réhabilitation et compétences spécifiques au sport."
+      },
+      {
+        "title": "Programmes Personnalisés",
+        "description": "Les programmes sont adaptés pour répondre aux besoins uniques des athlètes de tous niveaux."
+      },
+      {
+        "title": "Solutions de Récupération Avancées",
+        "description": "Maintenir les athlètes sans blessure et performant à leur meilleur."
+      },
+      {
+        "title": "Horaires Flexibles",
+        "description": "Les sessions sont disponibles sur place et virtuellement pour s'adapter aux emplois du temps des athlètes."
+      }
+    ]
+  },
+  "dashboardNavbar": {
+    "dashboard": "Tableau de Bord",
+    "coaches": "Entraîneurs",
+    "bookService": "Réserver un Service",
+    "checkIn": "Enregistrement",
+    "yourSchedule": "Votre Emploi du Temps",
+    "allBookings": "Toutes les Réservations",
+    "history": "Historique",
+    "addCoach": "Ajouter un Entraîneur"
+  },
+  "footer": {
+    "logoAlt": "Logo de l'entreprise",
+    "navigation": {
+      "home": "Accueil",
+      "about": "À Propos",
+      "members": "Membres",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "contact": {
+      "phone": "+27 65 919 9598",
+      "email": "info@molendesports.co.za"
+    },
+    "socialMedia": {
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube",
+      "tiktok": "TikTok"
+    },
+    "copyright": "&copy; {year} MondeleSports. Tous droits réservés."
+  },
+
+  "navbar": {
+    "logoAlt": "Logo",
+    "navLinks": [
+      { "title": "ACCUEIL", "url": "/" },
+      { "title": "À PROPOS", "url": "/about" },
+      { "title": "MEMBRES", "url": "/members" },
+      { "title": "SERVICES", "url": "/services" },
+      { "title": "CONTACT", "url": "/contact" }
+    ],
+    "dashboardButton": "Aller au Tableau de Bord",
+    "loginButton": "Connexion"
+  },
+
+  "sidebar": {
+    "dashboardSection": "Tableau de Bord",
+    "additionalSection": "Supplémentaire",
+    "language": "Langue",
+    "links": {
+      "client": [
+        { "name": "Réserver un Service", "href": "/client/book-service" },
+        { "name": "Historique", "href": "/client/history" }
+      ],
+      "coach": [
+        { "name": "Voir l'Emploi du Temps", "href": "/coach/schedule" },
+        { "name": "Enregistrement", "href": "/coach/check-in" }
+      ],
+      "admin": [
+        { "name": "Entraîneurs", "href": "/admin/coaches" },
+        { "name": "Réservations", "href": "/admin/bookings" }
+      ]
+    },
+    "additionalLinks": [
+      { "name": "Services", "href": "/services" },
+      { "name": "Contact", "href": "/contact" },
+      { "name": "Membres", "href": "/members" },
+      { "name": "À Propos", "href": "/about" }
+    ]
+  },
+
+  "aboutPage": {
+    "heroHeading": "À Propos de Nous",
+    "whoWeAre": {
+      "heading": "Qui Nous Sommes",
+      "description1": "Molende Sports est une entreprise de développement et de gestion de joueurs dédiée à cultiver les talents du football en Afrique. Grâce à son Programme de Formation Molende, elle propose des services de formation spécialisés, y compris le travail sur le terrain, la force et le conditionnement, la rééducation et les évaluations sportives. L'entreprise collabore avec des entraîneurs de haut niveau, des biokinésistes et des spécialistes de la performance pour aider les joueurs à atteindre des niveaux professionnels.",
+      "description2": "De plus, Molende Management représente et guide les joueurs dans leur carrière, en leur offrant des opportunités localement et internationalement grâce à des partenariats stratégiques avec des clubs, des agences et des organisations comme Imbondeiro.",
+      "description3": "Avec une forte concentration sur le développement holistique des joueurs, Molende Sports s'assure que les athlètes sont physiquement, mentalement et tactiquement préparés aux exigences du football professionnel."
+    },
+    "mission": {
+      "heading": "Notre Mission",
+      "description": "Permettre aux athlètes de performer à leur meilleur niveau grâce à des programmes d'entraînement et de récupération sur mesure, tout en prévenant les blessures et en optimisant le temps de récupération."
+    },
+    "vision": {
+      "heading": "Notre Vision",
+      "description": "Révolutionner la façon dont les athlètes s'entraînent, récupèrent et performent en proposant des solutions holistiques et scientifiques qui vont au-delà de l'entraînement traditionnel."
+    }
+  },
+
+  "servicesPage": {
+    "heroHeading": "Nos Services",
+    "pageDescription": "Molende Sports propose une variété de programmes d'entraînement spécialisés conçus pour améliorer les performances, la force et la récupération. Tous les programmes sont personnalisés en fonction des besoins, des objectifs et du sport de l'athlète.",
+    "services": [
+      {
+        "title": "Entraînement sur le Terrain",
+        "description": "Notre entraînement individuel comprend des programmes d'entraînement sur le terrain qui aident les athlètes à améliorer leurs compétences et à être prêts à performer au moment crucial.",
+        "price": "R400",
+        "includes": [
+          "Stratégie de jeu",
+          "Conscience situationnelle",
+          "Agilité",
+          "Temps de réaction",
+          "Compréhension de la dynamique du jeu"
+        ],
+        "groupTraining": {
+          "4": "R1000",
+          "8": "R1800",
+          "12": "R2400"
+        }
+      },
+      {
+        "title": "Force et Conditionnement",
+        "description": "Basé sur des techniques scientifiques pour aider les athlètes à améliorer leurs performances physiques et prévenir les blessures.",
+        "price": "R400",
+        "includes": ["Endurance", "Agilité", "Puissance"],
+        "groupTraining": {
+          "4": "R1000",
+          "8": "R1800",
+          "12": "R2400"
+        }
+      },
+      {
+        "title": "Forfait Standard",
+        "description": "Un excellent choix pour les athlètes cherchant à construire une base solide, offrant des programmes d'entraînement essentiels pour améliorer les compétences clés et la condition physique générale.",
+        "price": "R3800",
+        "includes": [
+          "8x Séances sur le terrain par mois",
+          "8x Séances de force et conditionnement",
+          "4x Séances de récupération",
+          "4x Cours de mobilité et flexibilité"
+        ]
+      },
+      {
+        "title": "Forfait Élite",
+        "description": "Conçu pour les athlètes sérieux visant des performances de pointe, offrant des programmes d'entraînement avancés pour atteindre le plus haut niveau de compétition.",
+        "price": "R6600",
+        "includes": [
+          "8x Séances sur le terrain par mois",
+          "8x Séances de force et conditionnement",
+          "4x Séances de récupération",
+          "4x Cours de mobilité et flexibilité",
+          "Conseils en nutrition",
+          "Optimisation du sommeil"
+        ]
+      }
+    ],
+    "otherServices": [
+      { "title": "Évaluation et Profilage de l'Athlète", "price": "R700" },
+      {
+        "title": "Programme d'Entraînement en Ligne (5 séances par semaine + 2 suivis)",
+        "price": "R750"
+      },
+      { "title": "Évaluation des Blessures + Évaluation FMS", "price": "R1000" },
+      {
+        "title": "Évaluation du Mode de Vie (Nutrition + Sommeil + Compléments)",
+        "price": "R850"
+      },
+      { "title": "Réhabilitation", "price": "Sur Mesure" },
+      { "title": "Récupération", "price": "R50 /15 minutes" }
+    ],
+    "assessmentSection": {
+      "heading": "Évaluation et Profilage",
+      "description": "Une évaluation physique complète conçue pour évaluer vos capacités athlétiques actuelles et suivre vos progrès au fil du temps. L'évaluation aide également à personnaliser un programme d'entraînement et un plan nutritionnel pour l'athlète. L'évaluation comprend :",
+      "listItems": [
+        "Tests de Vitesse et d'Accélération",
+        "Tests de Saut et de Puissance des Jambes",
+        "Symétrie des Jambes et Puissance Individuelle",
+        "Tests d'Agilité",
+        "Tests de Puissance du Haut du Corps",
+        "Tests de Condition Physique et Prescription Spécifique",
+        "Prédictions de Taille Adulte et de Poussée de Croissance"
+      ]
+    }
+  },
+
+  "contactPage": {
+    "heroHeading": "Contactez-Nous",
+    "form": {
+      "heading": "Restons en Contact",
+      "description": "Nous aimerions avoir de vos nouvelles. Remplissez le formulaire ci-dessous et nous vous contacterons bientôt.",
+      "fields": {
+        "fullName": "Nom Complet",
+        "email": "Email",
+        "phone": "+ 27 Numéro de Téléphone",
+        "service": "Sélectionnez un Service",
+        "status": "Statut",
+        "message": "Votre Message"
+      },
+      "serviceOptions": [
+        "Entraînement sur le Terrain",
+        "Force et Conditionnement",
+        "Forfait Standard",
+        "Forfait Élite",
+        "Évaluation et Profilage de l'Athlète",
+        "Programme d'Entraînement en Ligne",
+        "Évaluation des Blessures + Évaluation FMS",
+        "Évaluation du Mode de Vie",
+        "Réhabilitation",
+        "Récupération"
+      ],
+      "statusOptions": ["Amateur", "Semi-Professionnel", "Professionnel"],
+      "submitButton": "Envoyer le Message",
+      "loadingText": "Envoi en cours...",
+      "successMessage": "Merci ! Votre message a été envoyé."
+    }
+  },
+
+  "adminDashboard": {
+    "welcomeMessage": "Bienvenue, {userName} !",
+    "welcomeDescription": "Gérez vos horaires d'entraînement et les réservations des clients avec facilité.",
+    "cards": {
+      "manageCoaches": {
+        "heading": "Gérer les Entraîneurs et les Horaires",
+        "description": "Consultez, modifiez et gérez les horaires d'entraînement de votre équipe.",
+        "buttonText": "Aller aux Entraîneurs"
+      },
+      "manageBookings": {
+        "heading": "Gérer les Réservations des Clients",
+        "description": "Consultez et gérez toutes les réservations et rendez-vous des clients.",
+        "buttonText": "Aller aux Réservations"
+      }
+    }
+  },
+
+  "addCoachPage": {
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom de Famille",
+      "email": "Email",
+      "phone": "Numéro de Téléphone",
+      "gender": "Sélectionnez le Genre",
+      "password": "Mot de Passe",
+      "genderOptions": {
+        "male": "Homme",
+        "female": "Femme",
+        "other": "Autre"
+      },
+      "submitButton": "Ajouter un Entraîneur",
+      "successMessage": "Entraîneur ajouté avec succès !",
+      "errorMessage": "Erreur lors de l'ajout de l'entraîneur : {error}",
+      "unexpectedErrorMessage": "Une erreur inattendue s'est produite"
+    }
+  },
+
+  "bookingPage": {
+    "filterBy": "Filtrer Par",
+    "service": "Service",
+    "status": "Statut",
+    "resetFilter": "Réinitialiser le Filtre",
+    "tableHeaders": {
+      "id": "ID",
+      "client": "Client",
+      "coach": "Entraîneur",
+      "location": "Lieu",
+      "date": "Date",
+      "service": "Service",
+      "timeSlot": "Créneau Horaire",
+      "checkedIn": "Enregistré",
+      "actions": "Actions",
+      "checkIn": "Enregistrement",
+      "status": "Statut"
+    },
+    "statusOptions": {
+      "processing": "En Cours",
+      "completed": "Terminé",
+      "canceled": "Annulé"
+    },
+    "deleteButton": "Supprimer"
+  },
+
+  "bookServicePage": {
+    "selectService": "Sélectionnez un Service",
+    "selectLocation": "Sélectionnez un Lieu",
+    "selectTimeSlot": "Sélectionnez un Créneau Horaire :",
+    "bookServiceButton": "Réserver un Service",
+    "bookingInProcess": "Réservation en cours...",
+    "bookingConfirmation": "Confirmation de Réservation",
+    "inProcessStatus": "En Cours",
+    "bookingSuccessMessage": "Vous avez notifié Mondele Sports de votre réservation avec succès. Nous vous contacterons bientôt pour finaliser le paiement.",
+    "confirmButton": "Confirmer",
+    "errorMessage": "Une erreur s'est produite lors de la réservation du service",
+    "successMessage": "Réservation réussie !"
+  },
+
+  "historyPage": {
+    "tableHeaders": {
+      "id": "ID",
+      "coach": "Entraîneur",
+      "date": "Date",
+      "service": "Service",
+      "location": "Lieu",
+      "timeSlot": "Créneau Horaire",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "deleteButton": "Supprimer"
+  },
+
+  "clientDashboard": {
+    "welcomeMessage": "Bienvenue, {userName} !",
+    "welcomeDescription": "Réservez un service ou consultez votre historique de réservations.",
+    "cards": {
+      "bookService": {
+        "heading": "Réserver un Service",
+        "description": "Planifiez votre service en quelques clics. Choisissez parmi nos options disponibles, sélectionnez un horaire pratique et laissez nos experts s'occuper du reste.",
+        "buttonText": "Réserver un Service"
+      },
+      "viewHistory": {
+        "heading": "Voir l'Historique",
+        "description": "Consultez l'historique de toutes vos réservations.",
+        "buttonText": "Voir l'Historique"
+      }
+    }
+  },
+
+  "coachDashboard": {
+    "welcomeMessage": "Bienvenue, {userName} !",
+    "welcomeDescription": "Consultez vos horaires et enregistrez les sessions avec facilité.",
+    "cards": {
+      "viewSchedule": {
+        "heading": "Voir l'Emploi du Temps",
+        "description": "Restez au courant de toutes les sessions d'entraînement avec un emploi du temps organisé.",
+        "buttonText": "Voir l'Emploi du Temps"
+      },
+      "checkIn": {
+        "heading": "Enregistrement",
+        "description": "Enregistrez rapidement les clients pour leurs sessions.",
+        "buttonText": "Aller aux Sessions"
+      }
+    }
+  },
+
+  "checkInPage": {
+    "tableHeaders": {
+      "id": "ID",
+      "client": "Client",
+      "coach": "Entraîneur",
+      "location": "Lieu",
+      "date": "Date",
+      "service": "Service",
+      "timeSlot": "Créneau horaire",
+      "status": "Statut",
+      "checkIn": "Enregistrement"
+    }
   }
+}

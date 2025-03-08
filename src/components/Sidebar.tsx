@@ -10,7 +10,7 @@ import {
   HandCoins,
   Dumbbell
 } from "lucide-react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { UserButton } from "@clerk/nextjs"; // Clerk Profile Component
 import Image from "next/image";
 import Link from "next/link";
@@ -60,11 +60,54 @@ const SidebarContext = createContext<{ expanded: boolean }>({
   expanded: true,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function Sidebar({ role, className }: { role: keyof RoleLinks; className?: string }) {
+export default function Sidebar({ role }: { role: keyof RoleLinks; className?: string }) {
   const [expanded, setExpanded] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const links = roleLinks[role];
+  const [translations, setTranslations] = useState({
+    sidebar: {
+      dashboardSection: "Dashboard",
+      additionalSection: "Additional",
+      language: "Language",
+      links: {
+        client: [
+          { name: "Book a Service", href: "/client/book-service" },
+          { name: "History", href: "/client/history" },
+        ],
+        coach: [
+          { name: "View Schedule", href: "/coach/schedule" },
+          { name: "Check-In", href: "/coach/check-in" },
+        ],
+        admin: [
+          { name: "Coaches", href: "/admin/coaches" },
+          { name: "Bookings", href: "/admin/bookings" },
+        ],
+      },
+      additionalLinks: [
+        { name: "Services", href: "/services" },
+        { name: "Contact", href: "/contact" },
+        { name: "Members", href: "/members" },
+        { name: "About", href: "/about" },
+      ],
+    },
+  });
+
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en"; // Default to English
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
+
+  const links = roleLinks[role].map((link) => ({
+    ...link,
+    name: translations.sidebar.links[role].find((l) => l.href === link.href)?.name || link.name,
+  }));
+
+  const additionalTranslatedLinks = additionalLinks.map((link) => ({
+    ...link,
+    name: translations.sidebar.additionalLinks.find((l) => l.href === link.href)?.name || link.name,
+  }));
 
   return (
     <SidebarContext.Provider value={{ expanded }}>
@@ -103,7 +146,7 @@ export default function Sidebar({ role, className }: { role: keyof RoleLinks; cl
                 expanded ? "" : "hidden"
               }`}
             >
-              Dashboard
+              {translations.sidebar.dashboardSection}
             </h3>
 
             {links.map((link) => (
@@ -121,9 +164,9 @@ export default function Sidebar({ role, className }: { role: keyof RoleLinks; cl
                 expanded ? "" : "hidden"
               }`}
             >
-              Additional
+              {translations.sidebar.additionalSection}
             </h3>
-            {additionalLinks.map((link) => (
+            {additionalTranslatedLinks.map((link) => (
               <SidebarItem
                 key={link.href}
                 href={link.href}
@@ -144,7 +187,7 @@ export default function Sidebar({ role, className }: { role: keyof RoleLinks; cl
                     expanded ? "w-52 ml-3" : "w-0"
                   } text-left`}
                 >
-                  Language
+                  {translations.sidebar.language}
                 </span>
               </button>
 

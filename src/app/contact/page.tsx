@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -18,6 +17,49 @@ export default function ContactPage() {
 
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
+
+  const [translations, setTranslations] = useState({
+    contactPage: {
+      heroHeading: "Contact Us",
+      form: {
+        heading: "Let's Connect",
+        description:
+          "We’d love to hear from you. Fill out the form below and we’ll be in touch soon.",
+        fields: {
+          fullName: "Full Name",
+          email: "Email",
+          phone: "+ 27 Phone Number",
+          service: "Select a Service",
+          status: "Status",
+          message: "Your Message",
+        },
+        serviceOptions: [
+          "Field Training",
+          "Strength & Conditioning",
+          "Standard Package",
+          "Elite Package",
+          "Athlete Assessment and Profiling",
+          "Online Training Program",
+          "Injury Assessment + FMS Assessment",
+          "Lifestyle Assessment",
+          "Rehabilitation",
+          "Recovery",
+        ],
+        statusOptions: ["Amateur", "Semi-Professional", "Professional"],
+        submitButton: "Send Message",
+        loadingText: "Sending...",
+        successMessage: "Thank you! Your message has been sent.",
+      },
+    },
+  });
+
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en"; // Default to English
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -40,20 +82,21 @@ export default function ContactPage() {
 
     const result = await res.json();
     setLoading(false);
-    setResponseMessage(result.message);
+    setResponseMessage(result.message || translations.contactPage.form.successMessage);
   };
 
   return (
     <div>
       <Navbar />
-      <Hero media={"/home.jpg"} heading="Contact Us" />
+      <Hero media={"/home.jpg"} heading={translations.contactPage.heroHeading} />
       <section className="flex flex-col lg:flex-row justify-between px-0 md:px-[130px] pt-10 md:pt-10 pb-4 md:pb-8">
         {/* Left Section - Contact Form */}
         <div className="w-full lg:w-1/2 space-y-6 px-6">
-          <h2 className="text-xl md:text-4xl font-bold">Let's Connect</h2>
+          <h2 className="text-xl md:text-4xl font-bold">
+            {translations.contactPage.form.heading}
+          </h2>
           <p className="text-base md:text-xl text-gray-600">
-            We’d love to hear from you. Fill out the form below and we’ll be in
-            touch soon.
+            {translations.contactPage.form.description}
           </p>
 
           <form
@@ -64,7 +107,7 @@ export default function ContactPage() {
             <input
               type="text"
               name="fullName"
-              placeholder="Full Name"
+              placeholder={translations.contactPage.form.fields.fullName}
               value={formData.fullName}
               onChange={handleChange}
               required
@@ -75,7 +118,7 @@ export default function ContactPage() {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={translations.contactPage.form.fields.email}
               value={formData.email}
               onChange={handleChange}
               required
@@ -86,7 +129,7 @@ export default function ContactPage() {
             <input
               type="tel"
               name="phone"
-              placeholder="+ 27 Phone Number"
+              placeholder={translations.contactPage.form.fields.phone}
               value={formData.phone}
               onChange={handleChange}
               required
@@ -101,18 +144,13 @@ export default function ContactPage() {
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             >
               <option value="" disabled selected>
-                Select a Service
+                {translations.contactPage.form.fields.service}
               </option>
-              <option value="Field Training">Field Training</option>
-              <option value="Strength & Conditioning">Strength & Conditioning</option>
-              <option value="Standard Package">Standard Package</option>
-              <option value="Elite Package">Elite Package</option>
-              <option value="Athlete Assessment and Profiling">Athlete Assessment and Profiling</option>
-              <option value="Online Training Program">Online Training Program</option>
-              <option value="Injury Assessment + FMS Assessment">Injury Assessment + FMS Assessment</option>
-              <option value="Lifestyle Assessment">Lifestyle Assessment</option>
-              <option value="Rehabilitation">Rehabilitation</option>
-              <option value="Recovery">Recovery</option>
+              {translations.contactPage.form.serviceOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
 
             {/* Status */}
@@ -122,15 +160,17 @@ export default function ContactPage() {
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             >
-              <option value="Amateur">Amateur</option>
-              <option value="Semi-Professional">Semi-Professional</option>
-              <option value="Professional">Professional</option>
+              {translations.contactPage.form.statusOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
 
             {/* Message */}
             <textarea
               name="message"
-              placeholder="Your Message"
+              placeholder={translations.contactPage.form.fields.message}
               value={formData.message}
               onChange={handleChange}
               required
@@ -143,7 +183,9 @@ export default function ContactPage() {
               className="w-full bg-[#75E379] text-white py-3 rounded-md font-semibold hover:bg-[#89dd8c] transition duration-300"
               disabled={loading}
             >
-              {loading ? "Sending..." : "Send Message"}
+              {loading
+                ? translations.contactPage.form.loadingText
+                : translations.contactPage.form.submitButton}
             </button>
           </form>
 

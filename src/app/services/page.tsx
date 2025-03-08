@@ -1,146 +1,141 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// --- Types & Dummy Data ---
-type Service = {
-  id: number;
-  title: string;
-  description: string;
-  price: string;
-  image: string;
-  includes: string[];
-  groupTraining?: {
-    [sessions: number]: string;
-  };
-};
-
-const services: Service[] = [
-  {
-    id: 1,
-    title: "Field Training",
-    description:
-      "Our 1 on 1 Training includes on-field training programs that focus and help athletes improve these skills ensuring they are ready to perform when it counts",
-    price: "R400",
-    image: "/field.jpg",
-    includes: [
-      "Game strategy",
-      "Situational awareness",
-      "Agility",
-      "Reaction time",
-      "Understanding of game dynamics",
-    ],
-    groupTraining: {
-      4: "R1000",
-      8: "R1800",
-      12: "R2400",
-    },
-  },
-  {
-    id: 2,
-    title: "Strength & Conditioning",
-    description:
-      "Built on science-backed techniques designed to help athletes enhance their physical performance and prevent injuries.",
-    price: "R400",
-    image: "/strength.jpg",
-    includes: ["Endurance", "Agility", "Power"],
-    groupTraining: {
-      4: "R1000",
-      8: "R1800",
-      12: "R2400",
-    },
-  },
-  {
-    id: 3,
-    title: "Standard Package",
-    description:
-      "A great choice for athletes looking to build a strong foundation, providing essential training programs to improve key skills and overall fitness at a steady pace.",
-    price: "R3800",
-    image: "/standard.jpg",
-    includes: [
-      "8x Field sessions per Month",
-      "8x Strength & Conditioning",
-      "4x Recovery Session",
-      "4x Mobility and Flexibility classes",
-    ],
-  },
-  {
-    id: 4,
-    title: "Elite Package",
-    description:
-      "Designed for serious athletes aiming for peak performance, offering advanced training programs to help you reach the highest level of competition.",
-    price: "R6600",
-    image: "/elite.jpg",
-    includes: [
-      "8x Field sessions per Month",
-      "8x Strength & Conditioning",
-      "4x Recovery Session",
-      "4x Mobility and Flexibility classes",
-      "Nutrition Guidance",
-      "Sleep Optimisation",
-    ],
-  },
-];
-
-type OtherService = {
-  id: number;
-  title: string;
-  price: string;
-};
-
-const otherServices: OtherService[] = [
-  { id: 1, title: "Athlete Assessment and Profiling", price: "R700" },
-  {
-    id: 2,
-    title: "Online Training Program (5 sessions per week + 2 check ins)",
-    price: "R750",
-  },
-  { id: 3, title: "Injury Assessment + FMS Assessment", price: "R1000" },
-  {
-    id: 4,
-    title: "Lifestyle Assessment (Nutrition + Sleep + Supplements)",
-    price: "R850",
-  },
-  { id: 5, title: "Rehabilitation", price: "Custom" },
-  { id: 6, title: "Recovery", price: "R50 /15 minutes" },
-];
-
-// --- Main Component ---
 export default function Services() {
+  const [translations, setTranslations] = useState({
+    servicesPage: {
+      heroHeading: "Our Services",
+      pageDescription:
+        "Molende Sports offers a variety of specialized training programs designed to enhance performance, strength, and recovery. All programs are personalized based on the athlete’s needs, goals, and sport.",
+      services: [
+        {
+          title: "Field Training",
+          description:
+            "Our 1 on 1 Training includes on-field training programs that focus and help athletes improve these skills ensuring they are ready to perform when it counts.",
+          price: "R400",
+          includes: [
+            "Game strategy",
+            "Situational awareness",
+            "Agility",
+            "Reaction time",
+            "Understanding of game dynamics",
+          ],
+          groupTraining: {
+            4: "R1000",
+            8: "R1800",
+            12: "R2400",
+          },
+        },
+        {
+          title: "Strength & Conditioning",
+          description:
+            "Built on science-backed techniques designed to help athletes enhance their physical performance and prevent injuries.",
+          price: "R400",
+          includes: ["Endurance", "Agility", "Power"],
+          groupTraining: {
+            4: "R1000",
+            8: "R1800",
+            12: "R2400",
+          },
+        },
+        {
+          title: "Standard Package",
+          description:
+            "A great choice for athletes looking to build a strong foundation, providing essential training programs to improve key skills and overall fitness at a steady pace.",
+          price: "R3800",
+          includes: [
+            "8x Field sessions per Month",
+            "8x Strength & Conditioning",
+            "4x Recovery Session",
+            "4x Mobility and Flexibility classes",
+          ],
+        },
+        {
+          title: "Elite Package",
+          description:
+            "Designed for serious athletes aiming for peak performance, offering advanced training programs to help you reach the highest level of competition.",
+          price: "R6600",
+          includes: [
+            "8x Field sessions per Month",
+            "8x Strength & Conditioning",
+            "4x Recovery Session",
+            "4x Mobility and Flexibility classes",
+            "Nutrition Guidance",
+            "Sleep Optimisation",
+          ],
+        },
+      ],
+      otherServices: [
+        { title: "Athlete Assessment and Profiling", price: "R700" },
+        {
+          title: "Online Training Program (5 sessions per week + 2 check ins)",
+          price: "R750",
+        },
+        { title: "Injury Assessment + FMS Assessment", price: "R1000" },
+        {
+          title: "Lifestyle Assessment (Nutrition + Sleep + Supplements)",
+          price: "R850",
+        },
+        { title: "Rehabilitation", price: "Custom" },
+        { title: "Recovery", price: "R50 /15 minutes" },
+      ],
+      assessmentSection: {
+        heading: "Assessment and Profiling",
+        description:
+          "A comprehensive physical evaluation designed to assess your current athletic abilities and track your progress over time. The assessment also helps in tailoring a personalized training program and nutrition plan for the athlete. The assessment includes:",
+        listItems: [
+          "Speed & Acceleration Tests",
+          "Jump Tests & Leg Power",
+          "Leg Symmetry & Individual Leg Power",
+          "Agility Tests",
+          "Upper Body Power Tests",
+          "Fitness Tests & Specific Prescription",
+          "Adult Height & Growth Spurt Predictions",
+        ],
+      },
+    },
+  });
+
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en"; // Default to English
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
+
   return (
     <div>
       <Navbar />
-      <Hero media={"/home.jpg"} heading="Our Services" />
+      <Hero media={"/home.jpg"} heading={translations.servicesPage.heroHeading} />
 
       {/* Main Content with 130px left/right padding */}
       <div className="px-2 md:px-[130px] py-8">
         {/* Page Heading */}
         <div className="mb-2 md:mb-12">
           <h1 className="text-center text-xl md:text-4xl font-bold mb-4">
-            Our Services
+            {translations.servicesPage.heroHeading}
           </h1>
           <p className="text-left md:text-center text-base md:text-xl text-gray-600">
-            Molende Sports offers a variety of specialized training programs
-            designed to enhance performance, strength, and recovery. All
-            programs are personalized based on the athlete’s needs, goals, and
-            sport.
+            {translations.servicesPage.pageDescription}
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5 md:mb-12">
-          {services.map((service, index) => (
+          {translations.servicesPage.services.map((service, index) => (
             <div
-              key={service.id}
+              key={service.title}
               className="flex flex-col rounded-lg overflow-hidden border"
             >
               {/* Service Image */}
               <div className="relative w-full h-[400px]">
                 <Image
-                  src={service.image}
+                  src={`/${service.title.toLowerCase().replace(/ /g, "")}.jpg`}
                   alt={service.title}
                   layout="fill"
                   objectFit="cover"
@@ -251,9 +246,9 @@ export default function Services() {
             Other Services
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {otherServices.map((os) => (
+            {translations.servicesPage.otherServices.map((os) => (
               <div
-                key={os.id}
+                key={os.title}
                 className="flex items-center justify-between p-4 border rounded-lg"
               >
                 <span className="text-xs md:text-lg">{os.title}</span>
@@ -266,7 +261,7 @@ export default function Services() {
         {/* Assessment and Profiling Section */}
         <div className="mb-5 md:mb-12">
           <h2 className="text-xl md:text-4xl font-bold text-center mb-6">
-            Assessment and Profiling
+            {translations.servicesPage.assessmentSection.heading}
           </h2>
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Video on the Left */}
@@ -285,20 +280,14 @@ export default function Services() {
             {/* Description on the Right */}
             <div className="flex-1">
               <p className="text-base md:text-lg text-black mb-4">
-                A comprehensive physical evaluation designed to assess your
-                current athletic abilities and track your progress over time.
-                The assessment also helps in tailoring a personalized training
-                program and nutrition plan for the athlete.The assessment
-                includes:
+                {translations.servicesPage.assessmentSection.description}
               </p>
               <ul className="text-base md:text-lg text-black list-disc pl-5">
-                <li>Speed & Acceleration Tests</li>
-                <li>Jump Tests & Leg Power</li>
-                <li>Leg Symmetry & Individual Leg Power</li>
-                <li>Agility Tests</li>
-                <li>Upper Body Power Tests</li>
-                <li>Fitness Tests & Specific Prescription</li>
-                <li>Adult Height & Growth Spurt Predictions</li>
+                {translations.servicesPage.assessmentSection.listItems.map(
+                  (item, idx) => (
+                    <li key={idx}>{item}</li>
+                  )
+                )}
               </ul>
             </div>
           </div>

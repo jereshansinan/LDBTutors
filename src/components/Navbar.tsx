@@ -10,18 +10,32 @@ import { usePathname } from "next/navigation";
 import ClientSignInButton from "@/components/clientSignInButton";
 import Image from "next/image";
 
-const navLinks = [
-  { title: "HOME", url: "/" },
-  { title: "ABOUT", url: "/about" },
-  { title: "MEMBERS", url: "/members" },
-  { title: "SERVICES", url: "/services" },
-  { title: "CONTACT", url: "/contact" },
-];
-
 export default function Navbar() {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
   const pathname = usePathname();
+  const [translations, setTranslations] = useState({
+    navbar: {
+      logoAlt: "Logo",
+      navLinks: [
+        { title: "HOME", url: "/" },
+        { title: "ABOUT", url: "/about" },
+        { title: "MEMBERS", url: "/members" },
+        { title: "SERVICES", url: "/services" },
+        { title: "CONTACT", url: "/contact" },
+      ],
+      dashboardButton: "Go to Dashboard",
+      loginButton: "Login",
+    },
+  });
+
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en"; // Default to English
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -79,12 +93,12 @@ export default function Navbar() {
                 src={`${isSpecialPage || isScrolled ? "/Logowhite.png" : "/logoDark.png"}`}
                 width={100}
                 height={20}
-                alt="Logo"
+                alt={translations.navbar.logoAlt}
                 className="overflow-hidden transition-all w-32"
               />
             </Link>
             <ul className="flex gap-8 md:gap-16 items-center justify-center text-center cursor-pointer font-body antialiased">
-              {navLinks.map((link, index) => (
+              {translations.navbar.navLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.url}
@@ -96,7 +110,6 @@ export default function Navbar() {
                   >
                     {link.title}
                   </Link>
-
                 </li>
               ))}
             </ul>
@@ -108,7 +121,7 @@ export default function Navbar() {
                     className="bg-[#75E379] text-black text-xl hover:text-white font-body"
                     disabled={isLoading}
                   >
-                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : "Go to Dashboard"}
+                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : translations.navbar.dashboardButton}
                   </Button>
                   <UserButton />
                 </div>
@@ -130,7 +143,7 @@ export default function Navbar() {
                   src={`${isSpecialPage || isScrolled ? "/Logowhite.png" : "/logoDark.png"}`}
                   width={50}
                   height={20}
-                  alt="Logo"
+                  alt={translations.navbar.logoAlt}
                   className="overflow-hidden transition-all w-20"
                 />
               </Link>
@@ -144,7 +157,7 @@ export default function Navbar() {
                       }`}
                     disabled={isLoading}
                   >
-                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : "Go to Dashboard"}
+                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : translations.navbar.dashboardButton}
                   </Button>
                 </div>
               ) : (
@@ -153,7 +166,7 @@ export default function Navbar() {
                     className={`bg-[#75E379] text-black rounded-md hover:text-white ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
                       }`}
                   >
-                    Login
+                    {translations.navbar.loginButton}
                   </Button>
                 </SignInButton>
               )}
@@ -173,7 +186,7 @@ export default function Navbar() {
             <div className="relative bg-white w-full h-full max-w-sm p-8">
               <FaTimes className="absolute top-4 right-4 cursor-pointer" onClick={toggleModal} />
               <div className="flex flex-col gap-6 items-center pt-5">
-                {navLinks.map((link, index) => (
+                {translations.navbar.navLinks.map((link, index) => (
                   <Link key={index} href={link.url} className="text-black text-xl cursor-pointer">
                     {link.title}
                   </Link>
@@ -181,10 +194,8 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-
         </nav>
       )}
     </>
   );
 }
-

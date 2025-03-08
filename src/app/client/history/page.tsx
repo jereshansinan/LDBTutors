@@ -18,6 +18,21 @@ export default function HistoryPage() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const { user } = useUser();
   const isCoach = user?.publicMetadata?.role === 'coach';
+  const [translations, setTranslations] = useState({
+    historyPage: {
+      tableHeaders: {
+        id: "ID",
+        coach: "Coach",
+        date: "Date",
+        service: "Service",
+        location: "Location",
+        timeSlot: "Time Slot",
+        status: "Status",
+        actions: "Actions",
+      },
+      deleteButton: "Delete",
+    },
+  });
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -32,7 +47,15 @@ export default function HistoryPage() {
       }
     };
 
+    const fetchTranslations = async () => {
+      const language = localStorage.getItem("language") || "en";
+      const response = await fetch(`/locales/${language}.json`);
+      const data = await response.json();
+      setTranslations(data);
+    };
+
     fetchBookings();
+    fetchTranslations();
   }, []);
 
   const handleDelete = async (bookingId: string) => {
@@ -55,14 +78,14 @@ export default function HistoryPage() {
       <table className="w-full text-xs sm:text-sm text-left text-gray-700">
         <thead className="text-[10px] sm:text-xs uppercase bg-gray-100">
           <tr>
-            <th className="px-3 py-2 sm:px-6 sm:py-3">ID</th>
-            <th className="px-3 py-2 sm:px-6 sm:py-3">Coach</th>
-            <th className="px-3 py-2 sm:px-6 sm:py-3">Date</th>
-            <th className="px-3 py-2 sm:px-6 sm:py-3">Service</th>
-            <th className="px-3 py-2 sm:px-6 sm:py-3">Location</th>
-            <th className="px-3 py-2 sm:px-6 sm:py-3">Time Slot</th>
-            {!isCoach && <th className="px-3 py-2 sm:px-6 sm:py-3">Status</th>}
-            <th className="px-3 py-2 sm:px-6 sm:py-3">Actions</th>
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.id}</th>
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.coach}</th>
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.date}</th>
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.service}</th>
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.location}</th>
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.timeSlot}</th>
+            {!isCoach && <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.status}</th>}
+            <th className="px-3 py-2 sm:px-6 sm:py-3">{translations.historyPage.tableHeaders.actions}</th>
           </tr>
         </thead>
         <tbody>
@@ -97,15 +120,13 @@ export default function HistoryPage() {
                   </span>
                 </td>
               )}
-
-
               <td className="px-3 py-2 sm:px-6 sm:py-4">
                 {booking.status === 'processing' && (
                   <button
                     onClick={() => handleDelete(booking.id)}
                     className="px-3 py-1 sm:px-4 sm:py-2 text-white bg-red-500 hover:bg-red-600 font-medium rounded-md transition text-xs sm:text-sm"
                   >
-                    Delete
+                    {translations.historyPage.deleteButton}
                   </button>
                 )}
               </td>

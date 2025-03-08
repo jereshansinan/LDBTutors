@@ -1,9 +1,29 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function StatisticsBar() {
+  const [translations, setTranslations] = useState({
+    statistics: {
+      users: "Users",
+      projectsCompleted: "Projects Completed",
+      customerSatisfaction: "Customer Satisfaction",
+      another: "Another",
+    },
+  });
+
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en"; 
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
+
   const stats = [
-    { label: "Users", value: "10K+" },
-    { label: "Projects Completed", value: "500+" },
-    { label: "Customer Satisfaction", value: "98%" },
-    { label: "Another", value: "98%" },
+    { label: translations.statistics.users, value: "10K+" },
+    { label: translations.statistics.projectsCompleted, value: "500+" },
+    { label: translations.statistics.customerSatisfaction, value: "98%" },
+    { label: translations.statistics.another, value: "98%" },
   ];
 
   return (
@@ -19,7 +39,5 @@ export default function StatisticsBar() {
         ))}
       </div>
     </section>
-
   );
-
 }

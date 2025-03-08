@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Calendar, Clock, MapPin } from "lucide-react";
@@ -20,15 +20,47 @@ export default function BookServicePage() {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showDialog, setShowDialog] = useState(false);
 
+  const [translations, setTranslations] = useState({
+    bookServicePage: {
+      selectService: "Select a Service",
+      selectLocation: "Select a Location",
+      selectTimeSlot: "Select a Time Slot:",
+      bookServiceButton: "Book Service",
+      bookingInProcess: "Booking...",
+      bookingConfirmation: "Booking Confirmation",
+      inProcessStatus: "In Process",
+      bookingSuccessMessage: "You have successfully notified Mondele Sports of your booking. We will contact you soon to finalize payment.",
+      confirmButton: "Confirm",
+      errorMessage: "An error occurred while booking the service",
+      successMessage: "Booking successful!",
+    },
+  });
+
+  useEffect(() => {
+    const language = localStorage.getItem("language") || "en";
+    fetch(`/locales/${language}.json`)
+      .then((response) => response.json())
+      .then((data) => setTranslations(data))
+      .catch((error) => console.error("Error loading translations:", error));
+  }, []);
+
   const services = [
-    { id: "service1", name: "Service 1" },
-    { id: "service2", name: "Service 2" },
-    { id: "service3", name: "Service 3" },
-    { id: "service4", name: "Service 4" },
-    { id: "service5", name: "Service 5" },
-    { id: "service6", name: "Service 6" },
-    { id: "service7", name: "Service 7" },
-    { id: "service8", name: "Service 8" },
+    "Field Training (1 on 1)",
+    "Strength & Conditioning (1 on 1)",
+    "Field Training ( Group, 4 sessions/mo. )",
+    "Field Training ( Group, 8 sessions/mo. )",
+    "Field Training ( Group, 12 sessions/mo. )",
+    "Strength and Conditioning ( Group of 3, 4 sessions/mo. )",
+    "Strength and Conditioning ( Group of 3, 8 sessions/mo. )",
+    "Strength and Conditioning ( Group of 3, 12 sessions/mo. )",
+    "Standard Package",
+    "Elite Package",
+    "Athlete Assessment and Profiling",
+    "Online Training Program",
+    "Injury Assessment + FMS Assessment",
+    "Lifestyle Assessment",
+    "Rehabilitation",
+    "Recovery",
   ];
 
   const timeSlots = [
@@ -53,7 +85,7 @@ export default function BookServicePage() {
       const result = await response.json();
 
       if (response.ok) {
-        setSuccessMessage("Booking successful!");
+        setSuccessMessage(translations.bookServicePage.successMessage);
         setBookingDetails(formData);
         setShowDialog(true); // Open dialog
         setFormData({
@@ -63,10 +95,11 @@ export default function BookServicePage() {
           timeSlot: "",
         });
       } else {
-        setError(result.error || "Failed to book service");
+        setError(result.error || translations.bookServicePage.errorMessage);
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
-      setError(err + "An error occurred while booking the service");
+      setError(translations.bookServicePage.errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -84,9 +117,9 @@ export default function BookServicePage() {
           value={formData.service}
           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
         >
-          <option value="">Select a Service</option>
+          <option value="">{translations.bookServicePage.selectService}</option>
           {services.map((service) => (
-            <option key={service.id} value={service.name}>{service.name}</option>
+            <option key={service} value={service}>{service}</option>
           ))}
         </select>
 
@@ -98,7 +131,7 @@ export default function BookServicePage() {
           value={formData.location}
           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
         >
-          <option value="">Select a Location</option>
+          <option value="">{translations.bookServicePage.selectLocation}</option>
           <option value="Location 1">Location 1</option>
           <option value="Location 2">Location 2</option>
         </select>
@@ -115,7 +148,7 @@ export default function BookServicePage() {
 
         {/* Time Slot Selection */}
         <div>
-          <p className="font-medium mb-2">Select a Time Slot:</p>
+          <p className="font-medium mb-2">{translations.bookServicePage.selectTimeSlot}</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
             {timeSlots.map((slot) => (
               <button
@@ -136,7 +169,7 @@ export default function BookServicePage() {
           onClick={handleSubmit}
           disabled={isLoading}
         >
-          {isLoading ? "Booking..." : "Book Service"}
+          {isLoading ? translations.bookServicePage.bookingInProcess : translations.bookServicePage.bookServiceButton}
         </button>
 
         {/* Alert Dialog */}
@@ -144,7 +177,7 @@ export default function BookServicePage() {
           <DialogContent className="max-w-md text-center p-6 bg-white rounded-lg">
             <DialogHeader>
               {/* Hidden Title for Screen Readers */}
-              <DialogTitle>Booking Confirmation</DialogTitle>
+              <DialogTitle>{translations.bookServicePage.bookingConfirmation}</DialogTitle>
 
               {/* Small Image at the Top */}
               <div className="flex justify-center">
@@ -153,7 +186,7 @@ export default function BookServicePage() {
 
               {/* In Process Status */}
               <p className="mt-4 px-3 py-1 border border-gray-300 text-[#75E379] rounded-md text-sm inline-block w-fit">
-                In Process
+                {translations.bookServicePage.inProcessStatus}
               </p>
 
               {/* Service Name */}
@@ -161,7 +194,7 @@ export default function BookServicePage() {
 
               {/* Description */}
               <p className="text-gray-600 mt-2 text-sm">
-                You have successfully notified Mondele Sports of your booking. We will contact you soon to finalize payment.
+                {translations.bookServicePage.bookingSuccessMessage}
               </p>
             </DialogHeader>
 
@@ -184,7 +217,7 @@ export default function BookServicePage() {
             {/* Confirm Button */}
             <DialogFooter>
               <Button className="bg-[#75E379] hover:bg-green-600 text-white w-full" onClick={() => setShowDialog(false)}>
-                Confirm
+                {translations.bookServicePage.confirmButton}
               </Button>
             </DialogFooter>
           </DialogContent>

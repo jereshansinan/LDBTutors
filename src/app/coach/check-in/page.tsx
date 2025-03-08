@@ -17,6 +17,21 @@ type Booking = {
 
 export default function CheckInPage() {
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const [translations, setTranslations] = useState({
+    checkInPage: {
+      tableHeaders: {
+        id: "ID",
+        client: "Client",
+        coach: "Coach",
+        location: "Location",
+        date: "Date",
+        service: "Service",
+        timeSlot: "Time Slot",
+        status: "Status",
+        checkIn: "Check-in"
+      }
+    }
+  });
   const { user } = useUser(); 
   const isCoach = user?.publicMetadata?.role === 'coach';
 
@@ -33,7 +48,16 @@ export default function CheckInPage() {
       }
     };
 
+    const fetchTranslations = async () => {
+      const language = localStorage.getItem("language") || "en"; 
+      fetch(`/locales/${language}.json`)
+        .then((response) => response.json())
+        .then((data) => setTranslations(data))
+        .catch((error) => console.error("Error loading translations:", error));
+    };
+
     fetchBookings();
+    fetchTranslations();
   }, []);
 
   const isCurrentBooking = (date: string, time_slot: string) => {
@@ -52,15 +76,15 @@ export default function CheckInPage() {
       <table className="w-full text-sm text-left text-gray-700">
         <thead className="text-xs uppercase bg-gray-100">
           <tr>
-            <th className="px-6 py-3">ID</th>
-            <th className="px-6 py-3">Client</th>
-            <th className="px-6 py-3">Coach</th>
-            <th className="px-6 py-3">Location</th>
-            <th className="px-6 py-3">Date</th>
-            <th className="px-6 py-3">Service</th>
-            <th className="px-6 py-3">Time Slot</th>
-            {!isCoach && <th className="px-6 py-3">Status</th>} 
-            {isCoach && <th className="px-6 py-3">Check-in</th>}
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.id}</th>
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.client}</th>
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.coach}</th>
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.location}</th>
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.date}</th>
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.service}</th>
+            <th className="px-6 py-3">{translations.checkInPage.tableHeaders.timeSlot}</th>
+            {!isCoach && <th className="px-6 py-3">{translations.checkInPage.tableHeaders.status}</th>} 
+            {isCoach && <th className="px-6 py-3">{translations.checkInPage.tableHeaders.checkIn}</th>}
           </tr>
         </thead>
         <tbody>
@@ -82,7 +106,7 @@ export default function CheckInPage() {
                     `}
                     disabled={!isCurrentBooking(booking.date, booking.time_slot)}
                   >
-                    Check-in
+                    {translations.checkInPage.tableHeaders.checkIn}
                   </button>
                 </td>
               )}

@@ -1,4 +1,396 @@
 {
     "heroTitle": "TRANSFORM PASSION INTO PRECISION",
-    "heroSubtitle": "Personalized training & recovery solutions for serious athletes"
+    "heroSubtitle": "Personalized training & recovery solutions for serious athletes",
+
+    "statistics": {
+    "users": "Users",
+    "projectsCompleted": "Projects Completed",
+    "customerSatisfaction": "Customer Satisfaction",
+    "another": "Another"
+  },
+
+  "testimonials": {
+    "title": "Testimonials",
+    "athleteA": {
+      "name": "Athlete A",
+      "position": "Trainee",
+      "text": "Molende Sports took my training to the next level. The attention to detail and personalized approach made a real difference in my performance!"
+    },
+    "athleteB": {
+      "name": "Athlete B",
+      "position": "Trainee",
+      "text": "Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!"
+    }
+  },
+
+  "whyChooseUs": {
+    "paragraph": "Molende Sports is a performance-focused training facility designed to maximize athlete potential through tailored coaching, recovery solutions, and nutrition guidance. We specialize in off-season training, personalized fitness tracking, and sport-specific skill development for athletes aiming for high performance.",
+    "heading": "Why Choose Us",
+    "services": [
+      {
+        "title": "Expert Coaches",
+        "description": "Years of experience in strength training, rehabilitation, and sport-specific skills."
+      },
+      {
+        "title": "Tailored Programs",
+        "description": "Programs are customized to meet the unique needs of athletes at any level."
+      },
+      {
+        "title": "Advanced Recovery Solutions",
+        "description": "Keeping athletes injury-free and performing at their best."
+      },
+      {
+        "title": "Flexible Scheduling",
+        "description": "Sessions are available both on-site and virtually to fit athletes' schedules."
+      }
+    ]
+  },
+
+  "dashboardNavbar": {
+    "dashboard": "Dashboard",
+    "coaches": "Coaches",
+    "bookService": "Book a Service",
+    "checkIn": "Check In",
+    "yourSchedule": "Your Schedule",
+    "allBookings": "All Bookings",
+    "history": "History",
+    "addCoach": "Add Coach"
+  },
+
+  "footer": {
+    "logoAlt": "Company Logo",
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "members": "Members",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "contact": {
+      "phone": "+27 65 919 9598",
+      "email": "info@molendesports.co.za"
+    },
+    "socialMedia": {
+      "whatsapp": "WhatsApp",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube",
+      "tiktok": "TikTok"
+    },
+    "copyright": "&copy; {year} MondeleSports. All rights reserved."
+  },
+
+  "navbar": {
+    "logoAlt": "Logo",
+    "navLinks": [
+      { "title": "HOME", "url": "/" },
+      { "title": "ABOUT", "url": "/about" },
+      { "title": "MEMBERS", "url": "/members" },
+      { "title": "SERVICES", "url": "/services" },
+      { "title": "CONTACT", "url": "/contact" }
+    ],
+    "dashboardButton": "Go to Dashboard",
+    "loginButton": "Login"
+  },
+
+  "sidebar": {
+    "dashboardSection": "Dashboard",
+    "additionalSection": "Additional",
+    "language": "Language",
+    "links": {
+      "client": [
+        { "name": "Book a Service", "href": "/client/book-service" },
+        { "name": "History", "href": "/client/history" }
+      ],
+      "coach": [
+        { "name": "View Schedule", "href": "/coach/schedule" },
+        { "name": "Check-In", "href": "/coach/check-in" }
+      ],
+      "admin": [
+        { "name": "Coaches", "href": "/admin/coaches" },
+        { "name": "Bookings", "href": "/admin/bookings" }
+      ]
+    },
+    "additionalLinks": [
+      { "name": "Services", "href": "/services" },
+      { "name": "Contact", "href": "/contact" },
+      { "name": "Members", "href": "/members" },
+      { "name": "About", "href": "/about" }
+    ]
+  },
+
+  "aboutPage": {
+    "heroHeading": "About Us",
+    "whoWeAre": {
+      "heading": "Who We Are",
+      "description1": "Molende Sports is a player development and management company dedicated to nurturing football talent in Africa. Through its Molende Training Program, it offers specialized training services, including fieldwork, strength & conditioning, rehab, and sports assessments. The company collaborates with top coaches, biokineticists, and performance specialists to help players reach professional levels.",
+      "description2": "Additionally, Molende Management represents and guides players in their careers, securing opportunities locally and internationally through strategic partnerships with clubs, agencies, and organizations like Imbondeiro.",
+      "description3": "With a strong focus on holistic player development, Molende Sports ensures athletes are physically, mentally, and tactically prepared for the demands of professional football."
+    },
+    "mission": {
+      "heading": "Our Mission",
+      "description": "To empower athletes with tailored training and recovery programs, ensuring they perform at their peak while preventing injuries and optimizing recovery time."
+    },
+    "vision": {
+      "heading": "Our Vision",
+      "description": "To revolutionize the way athletes train, recover, and perform by offering holistic, science-backed solutions that go beyond traditional training."
+    }
+  },
+
+  "servicesPage": {
+    "heroHeading": "Our Services",
+    "pageDescription": "Molende Sports offers a variety of specialized training programs designed to enhance performance, strength, and recovery. All programs are personalized based on the athlete’s needs, goals, and sport.",
+    "services": [
+      {
+        "title": "Field Training",
+        "description": "Our 1 on 1 Training includes on-field training programs that focus and help athletes improve these skills ensuring they are ready to perform when it counts.",
+        "price": "R400",
+        "includes": [
+          "Game strategy",
+          "Situational awareness",
+          "Agility",
+          "Reaction time",
+          "Understanding of game dynamics"
+        ],
+        "groupTraining": {
+          "4": "R1000",
+          "8": "R1800",
+          "12": "R2400"
+        }
+      },
+      {
+        "title": "Strength & Conditioning",
+        "description": "Built on science-backed techniques designed to help athletes enhance their physical performance and prevent injuries.",
+        "price": "R400",
+        "includes": ["Endurance", "Agility", "Power"],
+        "groupTraining": {
+          "4": "R1000",
+          "8": "R1800",
+          "12": "R2400"
+        }
+      },
+      {
+        "title": "Standard Package",
+        "description": "A great choice for athletes looking to build a strong foundation, providing essential training programs to improve key skills and overall fitness at a steady pace.",
+        "price": "R3800",
+        "includes": [
+          "8x Field sessions per Month",
+          "8x Strength & Conditioning",
+          "4x Recovery Session",
+          "4x Mobility and Flexibility classes"
+        ]
+      },
+      {
+        "title": "Elite Package",
+        "description": "Designed for serious athletes aiming for peak performance, offering advanced training programs to help you reach the highest level of competition.",
+        "price": "R6600",
+        "includes": [
+          "8x Field sessions per Month",
+          "8x Strength & Conditioning",
+          "4x Recovery Session",
+          "4x Mobility and Flexibility classes",
+          "Nutrition Guidance",
+          "Sleep Optimisation"
+        ]
+      }
+    ],
+    "otherServices": [
+      { "title": "Athlete Assessment and Profiling", "price": "R700" },
+      {
+        "title": "Online Training Program (5 sessions per week + 2 check ins)",
+        "price": "R750"
+      },
+      { "title": "Injury Assessment + FMS Assessment", "price": "R1000" },
+      {
+        "title": "Lifestyle Assessment (Nutrition + Sleep + Supplements)",
+        "price": "R850"
+      },
+      { "title": "Rehabilitation", "price": "Custom" },
+      { "title": "Recovery", "price": "R50 /15 minutes" }
+    ],
+    "assessmentSection": {
+      "heading": "Assessment and Profiling",
+      "description": "A comprehensive physical evaluation designed to assess your current athletic abilities and track your progress over time. The assessment also helps in tailoring a personalized training program and nutrition plan for the athlete. The assessment includes:",
+      "listItems": [
+        "Speed & Acceleration Tests",
+        "Jump Tests & Leg Power",
+        "Leg Symmetry & Individual Leg Power",
+        "Agility Tests",
+        "Upper Body Power Tests",
+        "Fitness Tests & Specific Prescription",
+        "Adult Height & Growth Spurt Predictions"
+      ]
+    }
+  },
+
+  "contactPage": {
+    "heroHeading": "Contact Us",
+    "form": {
+      "heading": "Let's Connect",
+      "description": "We’d love to hear from you. Fill out the form below and we’ll be in touch soon.",
+      "fields": {
+        "fullName": "Full Name",
+        "email": "Email",
+        "phone": "+ 27 Phone Number",
+        "service": "Select a Service",
+        "status": "Status",
+        "message": "Your Message"
+      },
+      "serviceOptions": [
+        "Field Training",
+        "Strength & Conditioning",
+        "Standard Package",
+        "Elite Package",
+        "Athlete Assessment and Profiling",
+        "Online Training Program",
+        "Injury Assessment + FMS Assessment",
+        "Lifestyle Assessment",
+        "Rehabilitation",
+        "Recovery"
+      ],
+      "statusOptions": ["Amateur", "Semi-Professional", "Professional"],
+      "submitButton": "Send Message",
+      "loadingText": "Sending...",
+      "successMessage": "Thank you! Your message has been sent."
+    }
+  },
+
+  "adminDashboard": {
+    "welcomeMessage": "Welcome back, {userName}!",
+    "welcomeDescription": "Manage your coaching schedules and client bookings with ease.",
+    "cards": {
+      "manageCoaches": {
+        "heading": "Manage Coaches & Schedules",
+        "description": "View, edit, and manage coaching schedules for your team.",
+        "buttonText": "Go to Coaches"
+      },
+      "manageBookings": {
+        "heading": "Manage Client Bookings",
+        "description": "View and manage all client bookings and appointments.",
+        "buttonText": "Go to Bookings"
+      }
+    }
+  },
+
+  "addCoachPage": {
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "gender": "Select Gender",
+      "password": "Password",
+      "genderOptions": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "submitButton": "Add Coach",
+      "successMessage": "Coach added successfully!",
+      "errorMessage": "Error adding coach: {error}",
+      "unexpectedErrorMessage": "Unexpected error occurred"
+    }
+  },
+
+  "bookingPage": {
+    "filterBy": "Filter By",
+    "service": "Service",
+    "status": "Status",
+    "resetFilter": "Reset Filter",
+    "tableHeaders": {
+      "id": "ID",
+      "client": "Client",
+      "coach": "Coach",
+      "location": "Location",
+      "date": "Date",
+      "service": "Service",
+      "timeSlot": "Time Slot",
+      "checkedIn": "Checked In",
+      "actions": "Actions",
+      "checkIn": "Check-in",
+      "status": "Status"
+    },
+    "statusOptions": {
+      "processing": "Processing",
+      "completed": "Completed",
+      "canceled": "Canceled"
+    },
+    "deleteButton": "Delete"
+  },
+
+  "bookServicePage": {
+    "selectService": "Select a Service",
+    "selectLocation": "Select a Location",
+    "selectTimeSlot": "Select a Time Slot:",
+    "bookServiceButton": "Book Service",
+    "bookingInProcess": "Booking...",
+    "bookingConfirmation": "Booking Confirmation",
+    "inProcessStatus": "In Process",
+    "bookingSuccessMessage": "You have successfully notified Mondele Sports of your booking. We will contact you soon to finalize payment.",
+    "confirmButton": "Confirm",
+    "errorMessage": "An error occurred while booking the service",
+    "successMessage": "Booking successful!"
+  },
+
+  "historyPage": {
+    "tableHeaders": {
+      "id": "ID",
+      "coach": "Coach",
+      "date": "Date",
+      "service": "Service",
+      "location": "Location",
+      "timeSlot": "Time Slot",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "deleteButton": "Delete"
+  },
+
+  "clientDashboard": {
+    "welcomeMessage": "Welcome back, {userName}!",
+    "welcomeDescription": "Book a service or view your booking history.",
+    "cards": {
+      "bookService": {
+        "heading": "Book a Service",
+        "description": "Schedule your service effortlessly with just a few clicks. Choose from our available options, select a convenient time, and let our experts handle the rest.",
+        "buttonText": "Book Service"
+      },
+      "viewHistory": {
+        "heading": "View History",
+        "description": "View a history of all your bookings.",
+        "buttonText": "Go to History"
+      }
+    }
+  },
+
+  "coachDashboard": {
+    "welcomeMessage": "Welcome back, {userName}!",
+    "welcomeDescription": "View your schedules and check in to sessions with ease.",
+    "cards": {
+      "viewSchedule": {
+        "heading": "View Schedule",
+        "description": "Stay on top of all coaching sessions with an organized schedule.",
+        "buttonText": "Go to Schedule"
+      },
+      "checkIn": {
+        "heading": "Check In",
+        "description": "Quickly check in clients for their sessions.",
+        "buttonText": "Go to Sessions"
+      }
+    }
+  },
+
+  "checkInPage": {
+    "tableHeaders": {
+      "id": "ID",
+      "client": "Client",
+      "coach": "Coach",
+      "location": "Location",
+      "date": "Date",
+      "service": "Service",
+      "timeSlot": "Time Slot",
+      "status": "Status",
+      "checkIn": "Check-in"
+    }
   }
+}
