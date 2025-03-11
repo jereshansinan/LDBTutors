@@ -24,7 +24,7 @@ export default function Hero({ media, heading }: HeroProps) {
                 )
             ) : (
                 <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-cover bg-center bg-fixed"
                     style={{ backgroundImage: "url('/home.jpg')" }}
                 />
             )}

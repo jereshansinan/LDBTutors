@@ -1,6 +1,7 @@
 "use client";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import Lenis from "@/components/lenis";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -11,17 +12,22 @@ export default function About() {
       heroHeading: "About Us",
       whoWeAre: {
         heading: "Who We Are",
-        description1: "Molende Sports is a player development and management company dedicated to nurturing football talent in Africa. Through its Molende Training Program, it offers specialized training services, including fieldwork, strength & conditioning, rehab, and sports assessments. The company collaborates with top coaches, biokineticists, and performance specialists to help players reach professional levels.",
-        description2: "Additionally, Molende Management represents and guides players in their careers, securing opportunities locally and internationally through strategic partnerships with clubs, agencies, and organizations like Imbondeiro.",
-        description3: "With a strong focus on holistic player development, Molende Sports ensures athletes are physically, mentally, and tactically prepared for the demands of professional football.",
+        description1:
+          "Molende Sports is a player development and management company dedicated to nurturing football talent in Africa. Through its Molende Training Program, it offers specialized training services, including fieldwork, strength & conditioning, rehab, and sports assessments. The company collaborates with top coaches, biokineticists, and performance specialists to help players reach professional levels.",
+        description2:
+          "Additionally, Molende Management represents and guides players in their careers, securing opportunities locally and internationally through strategic partnerships with clubs, agencies, and organizations like Imbondeiro.",
+        description3:
+          "With a strong focus on holistic player development, Molende Sports ensures athletes are physically, mentally, and tactically prepared for the demands of professional football.",
       },
       mission: {
         heading: "Our Mission",
-        description: "To empower athletes with tailored training and recovery programs, ensuring they perform at their peak while preventing injuries and optimizing recovery time.",
+        description:
+          "To empower athletes with tailored training and recovery programs, ensuring they perform at their peak while preventing injuries and optimizing recovery time.",
       },
       vision: {
         heading: "Our Vision",
-        description: "To revolutionize the way athletes train, recover, and perform by offering holistic, science-backed solutions that go beyond traditional training.",
+        description:
+          "To revolutionize the way athletes train, recover, and perform by offering holistic, science-backed solutions that go beyond traditional training.",
       },
     },
   });
@@ -35,7 +41,7 @@ export default function About() {
   }, []);
 
   return (
-    <div>
+    <Lenis>
       <Navbar />
       <Hero media={"/home.jpg"} heading={translations.aboutPage.heroHeading} />
       <div className="w-full md:px-[130px]">
@@ -63,14 +69,18 @@ export default function About() {
         </section>
 
         {/* Large Image Section with Proper Scaling */}
-        <div className="w-full p-2 md:p-0 relative h-40 md:h-72 lg:h-[30rem] rounded-2xl overflow-hidden">
-          <Image
-            src="/whoweare.jpg"
-            alt="Our Work"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
-          />
+        <div
+          className="w-full p-2 md:p-0 relative h-40 md:h-72 lg:h-[30rem] rounded-2xl overflow-hidden bg-fixed bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/whoweare.jpg')",
+          }}
+        >
+          {/* Optional: Add overlay or text */}
+          <div className="w-full h-full flex items-center justify-center bg-black bg-opacity-40">
+            <h2 className="text-3xl md:text-5xl font-bold text-white text-center">
+              Discover Our Work
+            </h2>
+          </div>
         </div>
 
         {/* Alternating Grid Sections */}
@@ -120,6 +130,6 @@ export default function About() {
       </div>
 
       <Footer />
-    </div>
+    </Lenis>
   );
 }

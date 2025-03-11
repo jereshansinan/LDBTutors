@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Lenis from "@/components/lenis";
 
 export default function MembersPage() {
   const Features = [
@@ -88,7 +89,7 @@ export default function MembersPage() {
   ];
 
   return (
-    <div>
+    <Lenis>
       <Navbar />
       <Hero media={"/home.jpg"} heading="Our Team" />
       <section className="py-8 px-2 md:px-[130px]">
@@ -187,6 +188,6 @@ export default function MembersPage() {
       </section>
 
       <Footer />
-    </div>
+    </Lenis>
   );
 }

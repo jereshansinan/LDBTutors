@@ -4,6 +4,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Lenis from "@/components/lenis";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -86,7 +87,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div>
+    <Lenis>
       <Navbar />
       <Hero media={"/home.jpg"} heading={translations.contactPage.heroHeading} />
       <section className="flex flex-col lg:flex-row justify-between px-0 md:px-[130px] pt-10 md:pt-10 pb-4 md:pb-8">
@@ -210,6 +211,6 @@ export default function ContactPage() {
         </div>
       </section>
       <Footer />
-    </div>
+    </Lenis>
   );
 }

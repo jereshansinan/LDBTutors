@@ -4,6 +4,7 @@ import Image from "next/image";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Lenis from "@/components/lenis";
 
 export default function Services() {
   const [translations, setTranslations] = useState({
@@ -109,7 +110,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div>
+    <Lenis>
       <Navbar />
       <Hero
         media={"/home.jpg"}
@@ -317,6 +318,6 @@ export default function Services() {
       </div>
 
       <Footer />
-    </div>
+    </Lenis>
   );
 }
