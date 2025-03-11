@@ -85,9 +85,9 @@
     "navLinks": [
       { "title": "HOME", "url": "/" },
       { "title": "ABOUT", "url": "/about" },
-      { "title": "MEMBERS", "url": "/members" },
+      { "title": "OUR TEAM", "url": "/members" },
       { "title": "SERVICES", "url": "/services" },
-      { "title": "CONTACT", "url": "/contact" }
+      { "title": "CONTACT US", "url": "/contact" }
     ],
     "dashboardButton": "Go to Dashboard",
     "loginButton": "Login"
@@ -113,8 +113,8 @@
     },
     "additionalLinks": [
       { "name": "Services", "href": "/services" },
-      { "name": "Contact", "href": "/contact" },
-      { "name": "Members", "href": "/members" },
+      { "name": "Contact Us", "href": "/contact" },
+      { "name": "Our Team", "href": "/members" },
       { "name": "About", "href": "/about" }
     ]
   },

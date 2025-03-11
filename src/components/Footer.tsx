@@ -19,7 +19,7 @@ export default function Footer() {
       navigation: {
         home: "Home",
         about: "About",
-        members: "Members",
+        members: "Our Team",
         services: "Services",
         contact: "Contact",
       },
@@ -34,7 +34,7 @@ export default function Footer() {
         youtube: "YouTube",
         tiktok: "TikTok",
       },
-      copyright: "&copy; {year} MondeleSports. All rights reserved.",
+      copyright: "© {year} MondeleSports. All rights reserved.",
     },
   });
 
@@ -56,7 +56,7 @@ export default function Footer() {
             alt={translations.footer.logoAlt}
             width={120}
             height={50}
-            className="w-20 md:w-32"
+            className="w-20 md:w-52"
           />
         </div>
 

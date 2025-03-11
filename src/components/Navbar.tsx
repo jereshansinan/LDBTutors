@@ -20,7 +20,7 @@ export default function Navbar() {
       navLinks: [
         { title: "HOME", url: "/" },
         { title: "ABOUT", url: "/about" },
-        { title: "MEMBERS", url: "/members" },
+        { title: "OUR TEAM", url: "/members" },
         { title: "SERVICES", url: "/services" },
         { title: "CONTACT", url: "/contact" },
       ],

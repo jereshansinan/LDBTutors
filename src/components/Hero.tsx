@@ -9,7 +9,7 @@ export default function Hero({ media, heading }: HeroProps) {
             {media ? (
                 typeof media === "string" ? (
                     <div
-                        className="absolute inset-0 bg-cover bg-center"
+                        className="absolute inset-0 bg-cover bg-center bg-fixed"
                         style={{ backgroundImage: `url('${media}')` }}
                     />
                 ) : (

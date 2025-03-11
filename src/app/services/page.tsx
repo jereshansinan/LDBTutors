@@ -111,7 +111,10 @@ export default function Services() {
   return (
     <div>
       <Navbar />
-      <Hero media={"/home.jpg"} heading={translations.servicesPage.heroHeading} />
+      <Hero
+        media={"/home.jpg"}
+        heading={translations.servicesPage.heroHeading}
+      />
 
       {/* Main Content with 130px left/right padding */}
       <div className="px-2 md:px-[130px] py-8">
@@ -179,7 +182,7 @@ export default function Services() {
                     }}
                     className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold mb-6 md:mb-8 hover:bg-black hover:text-white"
                   >
-                    Go to Dashboard
+                    Book Now
                   </button>
                 </div>
 
@@ -245,14 +248,33 @@ export default function Services() {
           <h2 className="text-3xl font-bold text-center mb-6">
             Other Services
           </h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {translations.servicesPage.otherServices.map((os) => (
               <div
                 key={os.title}
-                className="flex items-center justify-between p-4 border rounded-lg"
+                className="flex flex-col items-center justify-between p-4 border rounded-lg shadow-md bg-gray-50"
               >
-                <span className="text-xs md:text-lg">{os.title}</span>
-                <span className="text-lg md:text-xl font-bold">{os.price}</span>
+                {/* Service Name and Price */}
+                <div className="w-full flex justify-between items-center mb-4">
+                  <span className="text-xs md:text-lg font-medium">
+                    {os.title}
+                  </span>
+                  <span className="text-lg md:text-xl font-bold">
+                    {os.price}
+                  </span>
+                </div>
+
+                {/* Book Now Button */}
+                <button
+                  onClick={() => {
+                    const isLoggedIn = false; // Replace with actual login check
+                    window.location.href = isLoggedIn ? "/dashboard" : "/login";
+                  }}
+                  className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold transition-all duration-300 hover:bg-black hover:text-white"
+                >
+                  Book Now
+                </button>
               </div>
             ))}
           </div>
@@ -268,7 +290,7 @@ export default function Services() {
             <div className="flex-1 w-full rounded-lg overflow-hidden">
               <div className="relative w-full pb-[56.25%]">
                 <iframe
-                  src="https://www.youtube.com/embed/your_video_id"
+                  src="https://www.youtube.com/embed/SBcBZF5-020"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

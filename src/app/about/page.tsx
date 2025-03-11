@@ -63,7 +63,7 @@ export default function About() {
         </section>
 
         {/* Large Image Section with Proper Scaling */}
-        <div className="w-full p-2 md:p-0 relative h-40 md:h-72 lg:h-96 rounded-2xl overflow-hidden">
+        <div className="w-full p-2 md:p-0 relative h-40 md:h-72 lg:h-[30rem] rounded-2xl overflow-hidden">
           <Image
             src="/whoweare.jpg"
             alt="Our Work"
