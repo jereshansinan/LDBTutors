@@ -9,13 +9,13 @@ export default function Testimonials() {
     testimonials: {
       title: "Testimonials",
       athleteA: {
-        name: "Athlete A",
-        position: "Trainee",
+        name: "Antoine Bumba",
+        position: "U19 Ts Galaxy Captain",
         text: "Molende Sports took my training to the next level. The attention to detail and personalized approach made a real difference in my performance!",
       },
       athleteB: {
-        name: "Athlete B",
-        position: "Trainee",
+        name: "Karim Kimvuidi",
+        position: "OP Midfielder",
         text: "Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!",
       },
     },

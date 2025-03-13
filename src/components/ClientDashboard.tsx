@@ -55,7 +55,7 @@ export default function ClientDashboard({ userName }: ClientDashboardProps) {
       {/* Cards Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Card 1: Book a Service */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             {translations.clientDashboard.cards.bookService.heading}
           </h2>
@@ -64,14 +64,14 @@ export default function ClientDashboard({ userName }: ClientDashboardProps) {
           </p>
           <Link
             href="/client/book-service"
-            className="inline-block bg-[#75E379] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300"
+            className="inline-block bg-[#75E379] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300 mt-auto self-start"
           >
             {translations.clientDashboard.cards.bookService.buttonText}
           </Link>
         </div>
 
         {/* Card 2: View History */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             {translations.clientDashboard.cards.viewHistory.heading}
           </h2>
@@ -80,7 +80,7 @@ export default function ClientDashboard({ userName }: ClientDashboardProps) {
           </p>
           <Link
             href="/client/history"
-            className="inline-block bg-[#75E379] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300"
+            className="inline-block bg-[#75E379] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300 mt-auto self-start"
           >
             {translations.clientDashboard.cards.viewHistory.buttonText}
           </Link>

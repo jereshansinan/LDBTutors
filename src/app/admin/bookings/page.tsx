@@ -161,10 +161,12 @@ export default function BookingPage() {
   };
 
   const filteredBookings = bookings.filter((booking) => {
-    const matchesService = !selectedService || booking.service === selectedService;
-    const matchesStatus = !selectedStatus || booking.status === selectedStatus;
-    return matchesService || matchesStatus;
+    const matchesService = selectedService ? booking.service === selectedService : true;
+    const matchesStatus = selectedStatus ? booking.status === selectedStatus : true;
+    
+    return matchesService && matchesStatus;
   });
+  
 
   const services = [
     "Field Training (1 on 1)",
