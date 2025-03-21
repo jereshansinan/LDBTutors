@@ -5,16 +5,39 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Lenis from "@/components/lenis";
+import React from "react";
+import type { Selection } from "@heroui/react";
+
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+} from "@heroui/react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     fullName: "",
     email: "",
     phone: "",
     service: "",
-    status: "Amateur",
+    status: "",
+    position: "",
+    skills: "",
     message: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
+    new Set(["I would like to work:"])
+  );
+
+  const selectedValue = React.useMemo(
+    () => Array.from(selectedKeys).join(", "),
+    [selectedKeys]
+  );
 
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
@@ -29,9 +52,11 @@ export default function ContactPage() {
         fields: {
           fullName: "Full Name",
           email: "Email",
-          phone: "+ 27 Phone Number",
+          phone: "+27 Phone Number",
           service: "Select a Service",
           status: "Status",
+          position: "Select a Position",
+          skills: "I would like to work on",
           message: "Your Message",
         },
         serviceOptions: [
@@ -47,6 +72,15 @@ export default function ContactPage() {
           "Recovery",
         ],
         statusOptions: ["Amateur", "Semi-Professional", "Professional"],
+        positionOptions: ["Goalkeeper", "Defender", "Midfielder", "Forward"],
+        skillOptions: [
+          "First Touch",
+          "Driving the Ball",
+          "Heading",
+          "Moving",
+          "Finishing",
+          "Athletic Performance",
+        ],
         submitButton: "Send Message",
         loadingText: "Sending...",
         successMessage: "Thank you! Your message has been sent.",
@@ -78,18 +112,25 @@ export default function ContactPage() {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, skills: selectedValue }),
     });
 
     const result = await res.json();
     setLoading(false);
-    setResponseMessage(result.message || translations.contactPage.form.successMessage);
+    setResponseMessage(
+      result.message || translations.contactPage.form.successMessage
+    );
+    setFormData(initialFormData);
+    setSelectedKeys(new Set());
   };
 
   return (
     <Lenis>
       <Navbar />
-      <Hero media={"/home.jpg"} heading={translations.contactPage.heroHeading} />
+      <Hero
+        media={"/home.jpg"}
+        heading={translations.contactPage.heroHeading}
+      />
       <section className="flex flex-col lg:flex-row justify-between px-0 md:px-[130px] pt-10 md:pt-10 pb-4 md:pb-8">
         {/* Left Section - Contact Form */}
         <div className="w-full lg:w-1/2 space-y-6 px-6">
@@ -137,36 +178,191 @@ export default function ContactPage() {
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
             />
 
-            {/* Service */}
-            <select
-              name="service"
-              value={formData.service}
-              onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
-            >
-              <option value="" disabled selected>
-                {translations.contactPage.form.fields.service}
-              </option>
-              {translations.contactPage.form.serviceOptions.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
+            {/* Service Dropdown */}
+            <div className="relative w-full">
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none bg-white text-left"
+              >
+                <option value="" disabled>
+                  {translations.contactPage.form.fields.service}
                 </option>
-              ))}
-            </select>
+                {translations.contactPage.form.serviceOptions.map(
+                  (option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  )
+                )}
+              </select>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 9l-7.5 7.5L4.5 9"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            {/* Position Dropdown */}
+            <div className="relative w-full">
+              <select
+                name="position"
+                value={formData.position}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none bg-white text-left"
+              >
+                <option value="" disabled>
+                  {translations.contactPage.form.fields.position}
+                </option>
+                {translations.contactPage.form.positionOptions.map(
+                  (option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  )
+                )}
+              </select>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 9l-7.5 7.5L4.5 9"
+                  />
+                </svg>
+              </span>
+            </div>
 
             {/* Status */}
-            <select
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
-            >
-              {translations.contactPage.form.statusOptions.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
+            {/* Status Dropdown */}
+            <div className="relative w-full">
+              <select
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none bg-white text-left"
+              >
+                <option value="" disabled>
+                  {translations.contactPage.form.fields.status}
                 </option>
-              ))}
-            </select>
+                {translations.contactPage.form.statusOptions.map(
+                  (option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  )
+                )}
+              </select>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 9l-7.5 7.5L4.5 9"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            {/* Multi-Select Skills Dropdown */}
+            <Dropdown className="w-full">
+              <DropdownTrigger>
+                <Button
+                  className="w-full flex justify-between items-center p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] bg-white text-left capitalize"
+                  variant="bordered"
+                >
+                  {selectedValue || translations.contactPage.form.fields.skills}
+                  <span className="ml-2 text-gray-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 9l-7.5 7.5L4.5 9"
+                      />
+                    </svg>
+                  </span>
+                </Button>
+              </DropdownTrigger>
+
+              <DropdownMenu
+                disallowEmptySelection
+                aria-label="Multiple selection example"
+                closeOnSelect={false}
+                selectedKeys={selectedKeys}
+                selectionMode="multiple"
+                variant="flat"
+                onSelectionChange={setSelectedKeys}
+                className="w-full md:w-72 bg-white border border-gray-300 rounded-md shadow-md capitalize"
+              >
+                {translations.contactPage.form.skillOptions.map((skill) => {
+                  const skillKey = skill.toLowerCase().replace(/\s+/g, " ");
+                  const isSelected =
+                    Array.from(selectedKeys).includes(skillKey); // ✅ Fix for `.has()`
+
+                  return (
+                    <DropdownItem
+                      key={skillKey}
+                      className="p-3 flex flex-row justify-between items-center text-left hover:bg-gray-100 capitalize w-full"
+                    >
+                      <span className="flex-grow">
+                        {skill}{" "}
+                        {isSelected && (
+                          <span className="text-green-500">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={2}
+                              stroke="currentColor"
+                              className="w-5 h-5"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                          </span>
+                        )}
+                      </span>
+                    </DropdownItem>
+                  );
+                })}
+              </DropdownMenu>
+            </Dropdown>
 
             {/* Message */}
             <textarea
@@ -181,7 +377,7 @@ export default function ContactPage() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#75E379] text-white py-3 rounded-md font-semibold hover:bg-[#89dd8c] transition duration-300"
+              className="w-full bg-[#75E379] text-black py-3 rounded-md font-semibold hover:bg-black hover:text-white transition duration-300"
               disabled={loading}
             >
               {loading
@@ -189,17 +385,16 @@ export default function ContactPage() {
                 : translations.contactPage.form.submitButton}
             </button>
           </form>
-
           {/* Response Message */}
           {responseMessage && (
             <p className="text-center text-[#75E379] mt-2">{responseMessage}</p>
           )}
         </div>
 
+        {/* Right Section - Image */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-0 h-full">
-          <div className="relative w-full lg:h-[700px]">
+          <div className="relative w-full lg:h-[900px]">
             {" "}
-            {/* Ensure height */}
             <Image
               src="/contact.jpg"
               alt="Contact Us"

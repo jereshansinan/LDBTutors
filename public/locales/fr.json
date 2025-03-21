@@ -229,6 +229,8 @@
         "phone": "+ 27 Numéro de Téléphone",
         "service": "Sélectionnez un Service",
         "status": "Statut",
+        "position": "Select a Position",
+        "skills": "I would like to work on",
         "message": "Votre Message"
       },
       "serviceOptions": [
@@ -244,6 +246,15 @@
         "Récupération"
       ],
       "statusOptions": ["Amateur", "Semi-Professionnel", "Professionnel"],
+      "positionOptions": ["Goalkeeper", "Defender", "Midfielder", "Forward"],
+        "skillOptions": [
+          "First Touch",
+          "Driving the Ball",
+          "Heading",
+          "Moving",
+          "Finishing",
+          "Athletic Performance"
+        ],
       "submitButton": "Envoyer le Message",
       "loadingText": "Envoi en cours...",
       "successMessage": "Merci ! Votre message a été envoyé."

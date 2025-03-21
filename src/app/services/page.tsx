@@ -82,7 +82,7 @@ export default function Services() {
           price: "R850",
         },
         { title: "Rehabilitation", price: "Custom" },
-        { title: "Recovery", price: "R50 /15 minutes" },
+        { title: "Recovery (Ice Bath)", price: "R50 /15 minutes" },
       ],
       assessmentSection: {
         heading: "Assessment and Profiling",

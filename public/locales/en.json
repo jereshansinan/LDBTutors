@@ -124,7 +124,7 @@
     "whoWeAre": {
       "heading": "Who We Are",
       "description1": "Molende Sports is a player development and management company dedicated to nurturing football talent in Africa. Through its Molende Training Program, it offers specialized training services, including fieldwork, strength & conditioning, rehab, and sports assessments. The company collaborates with top coaches, biokineticists, and performance specialists to help players reach professional levels.",
-      "description2": "Additionally, Molende Management represents and guides players in their careers, securing opportunities locally and internationally through strategic partnerships with clubs, agencies, and organizations like Imbondeiro.",
+      "description2": "Additionally, Molende Management represents and guides players in their careers, securing opportunities locally and internationally through strategic partnerships with clubs and agencies.",
       "description3": "With a strong focus on holistic player development, Molende Sports ensures athletes are physically, mentally, and tactically prepared for the demands of professional football."
     },
     "mission": {
@@ -206,7 +206,7 @@
         "price": "R850"
       },
       { "title": "Rehabilitation", "price": "Custom" },
-      { "title": "Recovery", "price": "R50 /15 minutes" }
+      { "title": "Recovery (Ice Bath)", "price": "R50 /15 minutes" }
     ],
     "assessmentSection": {
       "heading": "Assessment and Profiling",
@@ -234,6 +234,8 @@
         "phone": "+ 27 Phone Number",
         "service": "Select a Service",
         "status": "Status",
+        "position": "Select a Position",
+        "skills": "I would like to work on",
         "message": "Your Message"
       },
       "serviceOptions": [
@@ -249,6 +251,15 @@
         "Recovery"
       ],
       "statusOptions": ["Amateur", "Semi-Professional", "Professional"],
+      "positionOptions": ["Goalkeeper", "Defender", "Midfielder", "Forward"],
+        "skillOptions": [
+          "First Touch",
+          "Driving the Ball",
+          "Heading",
+          "Moving",
+          "Finishing",
+          "Athletic Performance"
+        ],
       "submitButton": "Send Message",
       "loadingText": "Sending...",
       "successMessage": "Thank you! Your message has been sent."
