@@ -69,19 +69,21 @@ export default function About() {
         </section>
 
         {/* Large Image Section with Proper Scaling */}
+        <section className="py-5 md:py-10 mx-auto grid gap-5 md:gap-10 px-2 md:px-0">
         <div
-          className="w-full p-2 md:p-0 relative h-40 md:h-72 lg:h-[30rem] rounded-2xl overflow-hidden bg-fixed bg-cover bg-center"
+          className="w-full px-2 md:px-0 md:p-0 relative h-40 md:h-72 lg:h-[30rem] rounded-lg overflow-hidden bg-fixed bg-cover bg-center"
           style={{
             backgroundImage: "url('/whoweare.jpg')",
           }}
         >
           {/* Optional: Add overlay or text */}
-          <div className="w-full h-full flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-full h-full flex items-center justify-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white text-center">
               Discover Our Work
             </h2>
           </div>
         </div>
+        </section>
 
         {/* Alternating Grid Sections */}
         <section className="py-5 md:py-10 mx-auto grid gap-5 md:gap-10 px-2 md:px-0">
