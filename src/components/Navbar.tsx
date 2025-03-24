@@ -33,10 +33,14 @@ export default function Navbar() {
     },
   });
 
-  const [currentLanguage, setCurrentLanguage] = useState(
-    localStorage.getItem("language") || "en"
-  );
-  
+  const [currentLanguage, setCurrentLanguage] = useState("en");
+
+  useEffect(() => {
+    // Fetch language preference from localStorage after component mounts
+    const storedLanguage = localStorage.getItem("language") || "en";
+    setCurrentLanguage(storedLanguage);
+  }, []);
+
   useEffect(() => {
     fetch(`/locales/${currentLanguage}.json`)
       .then((response) => response.json())
@@ -150,27 +154,25 @@ export default function Navbar() {
             <ul className="flex gap-6 items-center cursor-pointer font-body">
               {/* Language Toggle Switch for Desktop */}
               <div className="flex items-center">
-                  {/* Language Toggle Switch */}
-                  <label className="inline-flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      value=""
-                      className="sr-only peer"
-                      checked={currentLanguage === "fr"}
-                      onChange={toggleLanguage}
-                    />
-                    <div className="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-[#75E379] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-[#75E379] dark:peer-checked:bg-[#75E379]"></div>
-                    <span
+                {/* Language Toggle Switch */}
+                <label className="inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value=""
+                    className="sr-only peer"
+                    checked={currentLanguage === "fr"}
+                    onChange={toggleLanguage}
+                  />
+                  <div className="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#75E379] dark:peer-focus:ring-[#75E379] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-[#75E379] dark:peer-checked:bg-[#75E379]"></div>
+                  <span
                     className={`ms-3 font-bold text-xl ${
-                      isScrolled
-                        ? "text-black"
-                        : "text-white"
+                      isScrolled ? "text-black" : "text-white"
                     }`}
                   >
                     {currentLanguage === "en" ? "Français" : "English"}
                   </span>
-                  </label>
-                </div>
+                </label>
+              </div>
 
               {isSignedIn ? (
                 <div className="flex items-center gap-4">
