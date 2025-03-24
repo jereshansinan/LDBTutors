@@ -41,11 +41,14 @@ export default function About() {
   });
 
   useEffect(() => {
-    const language = localStorage.getItem("language") || "en"; // Default to English
-    fetch(`/locales/${language}.json`)
-      .then((response) => response.json())
-      .then((data) => setTranslations(data))
-      .catch((error) => console.error("Error loading translations:", error));
+    // Check if window and localStorage are available (client-side check)
+    if (typeof window !== "undefined" && window.localStorage) {
+      const language = localStorage.getItem("language") || "en"; // Default to English
+      fetch(`/locales/${language}.json`)
+        .then((response) => response.json())
+        .then((data) => setTranslations(data))
+        .catch((error) => console.error("Error loading translations:", error));
+    }
   }, []);
 
   return (
