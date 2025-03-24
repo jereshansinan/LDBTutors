@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
           variants={textVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-left text-xs sm:text-sm md:text-2xl mx-auto text-gray-700 mb-6 md:mb-8 font-body"
+          className="text-left text-base md:text-2xl mx-auto text-gray-700 mb-6 md:mb-8 font-body"
         >
           <motion.p variants={itemVariants}>
             {translations.whyChooseUs.paragraph}

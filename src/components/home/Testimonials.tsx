@@ -16,13 +16,13 @@ export default function Testimonials() {
       athleteB: {
         name: "Karim Kimvuidi",
         position: "OP Midfielder",
-        text: "Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!",
+        text: "Thanks to Molende’s for private training during pre season it helped me prepare well to get back in my team in better shape",
       },
     },
   });
 
   useEffect(() => {
-    const language = localStorage.getItem("language") || "en"; // Default to English
+    const language = localStorage.getItem("language") || "en"; 
     fetch(`/locales/${language}.json`)
       .then((response) => response.json())
       .then((data) => setTranslations(data))
@@ -73,7 +73,7 @@ export default function Testimonials() {
         />
 
         {/* Testimonial Card */}
-        <div className="absolute bottom-6 right-6 bg-[#75E379] p-2 md:p-8 rounded-lg shadow-xl w-[85%] md:w-[600px] lg:w-[700px] h-[40%] md:min-h-[80%] flex flex-col justify-between">
+        <div className="absolute bottom-6 right-6 bg-[#75E379] p-2 md:p-8 rounded-lg shadow-xl w-[90%] md:w-[600px] lg:w-[700px] h-[50%] md:min-h-[80%] flex flex-col justify-between">
           {/* Top Section: Image & Counter */}
           <div className="flex justify-between items-center">
             {/* Small Image (Profile Picture) */}

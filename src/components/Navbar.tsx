@@ -10,6 +10,9 @@ import { usePathname } from "next/navigation";
 import ClientSignInButton from "@/components/clientSignInButton";
 import Image from "next/image";
 
+import { ChevronDown } from "lucide-react";
+import LanguageDropdown from "./LanguageDropdown";
+
 export default function Navbar() {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
@@ -26,21 +29,33 @@ export default function Navbar() {
       ],
       dashboardButton: "Go to Dashboard",
       loginButton: "Login",
+      language: "LANGUAGE",
     },
   });
 
+  const [currentLanguage, setCurrentLanguage] = useState(
+    localStorage.getItem("language") || "en"
+  );
+  
   useEffect(() => {
-    const language = localStorage.getItem("language") || "en"; // Default to English
-    fetch(`/locales/${language}.json`)
+    fetch(`/locales/${currentLanguage}.json`)
       .then((response) => response.json())
       .then((data) => setTranslations(data))
       .catch((error) => console.error("Error loading translations:", error));
-  }, []);
+  }, [currentLanguage]);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === "en" ? "fr" : "en";
+    setCurrentLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+    window.location.reload();
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,19 +93,34 @@ export default function Navbar() {
     }, 1000);
   };
 
-  const isSpecialPage = pathname.startsWith('/coach') || pathname.startsWith('/client') || pathname.startsWith('/admin');
+  const isSpecialPage =
+    pathname.startsWith("/coach") ||
+    pathname.startsWith("/client") ||
+    pathname.startsWith("/admin");
 
   return (
     <>
       {!isMobile ? (
         <nav
-          className={`fixed top-0 pt-0 left-0 w-full z-50 transition-all duration-300 ${isSpecialPage || isScrolled ? "bg-white shadow-md pt-0" : "bg-transparent"
-            }`}
+          className={`fixed top-0 pt-0 left-0 w-full z-50 transition-all duration-300 ${
+            isSpecialPage || isScrolled
+              ? "bg-white shadow-md pt-0"
+              : "bg-transparent"
+          }`}
         >
           <div className="flex justify-between mx-auto items-center py-4 px-24">
-            <Link href="/" className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
+            <Link
+              href="/"
+              className={`font-bold text-xl ${
+                isSpecialPage || isScrolled ? "text-black" : "text-white"
+              }`}
+            >
               <Image
-                src={`${isSpecialPage || isScrolled ? "/Logowhite.png" : "/logoDark.png"}`}
+                src={`${
+                  isSpecialPage || isScrolled
+                    ? "/Logowhite.png"
+                    : "/logoDark.png"
+                }`}
                 width={100}
                 height={20}
                 alt={translations.navbar.logoAlt}
@@ -103,7 +133,11 @@ export default function Navbar() {
                   <Link
                     href={link.url}
                     className={`relative text-lg transition-colors duration-300 font-body tracking-[1px] 
-                      ${isSpecialPage || isScrolled ? "text-black" : "text-white"} 
+                      ${
+                        isSpecialPage || isScrolled
+                          ? "text-black"
+                          : "text-white"
+                      } 
                       after:content-[''] after:absolute after:left-0 after:bottom-[-5px] 
                       after:w-0 after:h-[4px] after:bg-[#75E379] after:rounded-xl 
                       after:transition-all after:duration-300 hover:after:w-full`}
@@ -114,6 +148,30 @@ export default function Navbar() {
               ))}
             </ul>
             <ul className="flex gap-6 items-center cursor-pointer font-body">
+              {/* Language Toggle Switch for Desktop */}
+              <div className="flex items-center">
+                  {/* Language Toggle Switch */}
+                  <label className="inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value=""
+                      className="sr-only peer"
+                      checked={currentLanguage === "fr"}
+                      onChange={toggleLanguage}
+                    />
+                    <div className="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-[#75E379] rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-[#75E379] dark:peer-checked:bg-[#75E379]"></div>
+                    <span
+                    className={`ms-3 font-bold text-xl ${
+                      isScrolled
+                        ? "text-black"
+                        : "text-white"
+                    }`}
+                  >
+                    {currentLanguage === "en" ? "Français" : "English"}
+                  </span>
+                  </label>
+                </div>
+
               {isSignedIn ? (
                 <div className="flex items-center gap-4">
                   <Button
@@ -121,7 +179,11 @@ export default function Navbar() {
                     className="bg-[#75E379] text-black text-xl hover:text-white font-body"
                     disabled={isLoading}
                   >
-                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : translations.navbar.dashboardButton}
+                    {isLoading ? (
+                      <Loader2 className="animate-spin w-4 h-4" />
+                    ) : (
+                      translations.navbar.dashboardButton
+                    )}
                   </Button>
                   <UserButton />
                 </div>
@@ -133,14 +195,30 @@ export default function Navbar() {
         </nav>
       ) : (
         <nav
-          className={`fixed top-0 left-0 w-full z-50 py-4 px-4 transition-all duration-300 ${isSpecialPage || isScrolled ? "bg-white shadow-md" : "bg-transparent"
-            }`}
+          className={`fixed top-0 left-0 w-full z-50 py-4 px-4 transition-all duration-300 ${
+            isSpecialPage || isScrolled
+              ? "bg-white shadow-md"
+              : "bg-transparent"
+          }`}
         >
           <div className="mx-auto flex justify-between items-center">
-            <div className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
-              <Link href="/" className={`font-bold text-xl ${isSpecialPage || isScrolled ? "text-black" : "text-white"}`}>
+            <div
+              className={`font-bold text-xl ${
+                isSpecialPage || isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              <Link
+                href="/"
+                className={`font-bold text-xl ${
+                  isSpecialPage || isScrolled ? "text-black" : "text-white"
+                }`}
+              >
                 <Image
-                  src={`${isSpecialPage || isScrolled ? "/Logowhite.png" : "/logoDark.png"}`}
+                  src={`${
+                    isSpecialPage || isScrolled
+                      ? "/Logowhite.png"
+                      : "/logoDark.png"
+                  }`}
                   width={50}
                   height={20}
                   alt={translations.navbar.logoAlt}
@@ -153,18 +231,24 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Button
                     onClick={handleDashboardClick}
-                    className={`bg-[#75E379] text-black rounded-md ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
-                      }`}
+                    className={`bg-[#75E379] text-black rounded-md ${
+                      isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                    }`}
                     disabled={isLoading}
                   >
-                    {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : translations.navbar.dashboardButton}
+                    {isLoading ? (
+                      <Loader2 className="animate-spin w-4 h-4" />
+                    ) : (
+                      translations.navbar.dashboardButton
+                    )}
                   </Button>
                 </div>
               ) : (
                 <SignInButton>
                   <Button
-                    className={`bg-[#75E379] text-black rounded-md hover:text-white ${isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
-                      }`}
+                    className={`bg-[#75E379] text-black rounded-md hover:text-white ${
+                      isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
+                    }`}
                   >
                     {translations.navbar.loginButton}
                   </Button>
@@ -172,25 +256,52 @@ export default function Navbar() {
               )}
               <FaBars
                 onClick={toggleModal}
-                className={`cursor-pointer transition-colors duration-300 ${isSpecialPage || isScrolled ? "text-black" : "text-white"
-                  }`}
+                className={`cursor-pointer transition-colors duration-300 ${
+                  isSpecialPage || isScrolled ? "text-black" : "text-white"
+                }`}
               />
             </div>
           </div>
 
           {/* Modal */}
           <div
-            className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-500 ${showModal ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
+            className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 transition-opacity duration-500 ${
+              showModal ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
           >
             <div className="relative bg-white w-full h-full max-w-sm p-8">
-              <FaTimes className="absolute top-4 right-4 cursor-pointer" onClick={toggleModal} />
+              <FaTimes
+                className="absolute top-4 right-4 cursor-pointer"
+                onClick={toggleModal}
+              />
               <div className="flex flex-col gap-6 items-center pt-5">
                 {translations.navbar.navLinks.map((link, index) => (
-                  <Link key={index} href={link.url} className="text-black text-xl cursor-pointer">
+                  <Link
+                    key={index}
+                    href={link.url}
+                    className="text-black text-xl cursor-pointer"
+                  >
                     {link.title}
                   </Link>
                 ))}
+                {/* Language Dropdown */}
+                <li className="relative flex px-2 text-xl font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-black capitalize">
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="flex items-center w-full"
+                  >
+                    <ChevronDown />
+                    <span
+                      className={`overflow-hidden transition-all w-52"
+                      }`}
+                    >
+                      {translations.navbar.language}
+                    </span>
+                  </button>
+
+                  {/* Dropdown content */}
+                  {dropdownOpen && <LanguageDropdown />}
+                </li>
               </div>
             </div>
           </div>

@@ -154,7 +154,7 @@ export default function Services() {
 
                 {/* Description Section */}
                 <p
-                  className={`text-base md:text-lg text-gray-700 ${
+                  className={`text-base md:text-lg text-black ${
                     index === 1
                       ? "min-h-48 md:min-h-48 lg:min-h-[600px] xl:min-h-[300px]"
                       : "min-h-40 md:min-h-52 lg:min-h-[600px] xl:min-h-60"

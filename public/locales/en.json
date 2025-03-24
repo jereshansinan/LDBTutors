@@ -14,13 +14,83 @@
     "athleteA": {
       "name": "Antoine Bumba",
       "position": "U19 Ts Galaxy Captain",
-      "text": "Molende Sports took my training to the next level. The attention to detail and personalized approach made a real difference in my performance!"
+      "text": "Molende Sports took my training to the next level. The attention to detail and approach made a difference in my performance!"
     },
     "athleteB": {
       "name": "Karim Kimvuidi",
       "position": "OP Midfielder",
-      "text": "Thanks to Molende’s recovery and nutrition programs, I was able to get back on the field faster than expected!"
+      "text": "Thanks to Molende’s for private training during pre season it helped me prepare well to get back in my team in better shape"
     }
+  },
+
+  "membersPage": {
+    "title": "Our Team",
+    "features": {
+      "expertTeam": {
+        "name": "EXPERT TEAM",
+        "description":
+          "Our team includes former elite athletes, certified coaches, strength and conditioning experts, nutritionists, biokinetics, and sports psychologists—all committed to delivering the best training experience for each athlete.",
+        "image": "/expert-team.jpg"
+      },
+      "leadership": {
+        "name": "LEADERSHIP",
+        "description":
+          "A dynamic leadership team and industry expert partners with deep experience in both sports management and athlete development.",
+        "image": "/leadership.jpg"
+      },
+      "supportStaff": {
+        "name": "SUPPORT STAFF",
+        "description":
+          "Specialized professionals in rehabilitation, recovery, and performance optimization to ensure every athlete receives the best care.",
+        "image": "/support-staff.jpg"
+      },
+      "trainingFacility": {
+        "name": "TRAINING FACILITY AND TECHNOLOGY",
+        "description":
+          "Our state-of-the-art training facilities give you access to professional-level training fields, advanced equipment to monitor performance, and cutting-edge technology in performance assessment and recovery tools to ensure that athletes have the resources they need to excel.",
+        "image": "/training-facility.jpg"
+      }
+    },
+    "team": [
+      {
+        "id": "edelbertDinha",
+        "name": "EDELBERT DINHA",
+        "position": "Head Coach",
+        "description":
+          "Our Head Coach at Molende Training is a CAF B licensed coach and a celebrated Orlando Pirates legend. With his deep knowledge of the game and extensive experience, Dinha brings an elite level of professionalism and insight to our training program.",
+        "image": "/profile.jpg"
+      },
+      {
+        "id": "jesseDonn",
+        "name": "JESSE DONN",
+        "position": "Lifestyle Coach",
+        "description":
+          "As a former professional footballer with over seven years of elite-level experience, Jesse has lived the lifestyle of an athlete, mastering the art of performance optimization.",
+        "image": "/profile.jpg"
+      },
+      {
+        "id": "ratiG",
+        "name": "RATI GUARAJENA",
+        "position": "Biokinetic",
+        "description":
+          "Rati leads our team with a passion for helping people achieve their fitness goals. As a qualified biokineticist, she specializes in rehabilitation for injuries and age-related concerns.",
+        "image": "/profile.jpg"
+      },
+      {
+        "id": "brydenC",
+        "name": "BRYDEN CABRAL",
+        "position": "Strength And Conditioning",
+        "description": "Creative mastermind.",
+        "image": "/profile.jpg"
+      },
+      {
+        "id": "siobanS",
+        "name": "SIOBAN STANDER",
+        "position": "Strength And Conditioning",
+        "description": "Team motivator.",
+        "image": "/profile.jpg"
+      }
+    ]
   },
 
   "whyChooseUs": {
@@ -77,7 +147,7 @@
       "youtube": "YouTube",
       "tiktok": "TikTok"
     },
-    "copyright": "© {year} MondeleSports. All rights reserved."
+    "copyright": "© {year} MondeleSports (Pty) Ltd. All rights reserved."
   },
 
   "navbar": {
@@ -90,7 +160,8 @@
       { "title": "CONTACT US", "url": "/contact" }
     ],
     "dashboardButton": "Go to Dashboard",
-    "loginButton": "Login"
+    "loginButton": "Login",
+    "language": "LANGUAGE"
   },
 
   "sidebar": {
@@ -125,15 +196,23 @@
       "heading": "Who We Are",
       "description1": "Molende Sports is a player development and management company dedicated to nurturing football talent in Africa. Through its Molende Training Program, it offers specialized training services, including fieldwork, strength & conditioning, rehab, and sports assessments. The company collaborates with top coaches, biokineticists, and performance specialists to help players reach professional levels.",
       "description2": "Additionally, Molende Management represents and guides players in their careers, securing opportunities locally and internationally through strategic partnerships with clubs and agencies.",
-      "description3": "With a strong focus on holistic player development, Molende Sports ensures athletes are physically, mentally, and tactically prepared for the demands of professional football."
+      "description3": "With a strong focus on holistic player development, Molende Sports ensures athletes are physically, mentally, and tactically prepared for the demands of professional football.",
+      "description4":
+          "Recognizing the challenges South African footballers face in securing positions with top European clubs, it’s evident that enhancing individual training regimens can significantly improve their prospects. A study highlighted that African players who undergo grassroots training within European systems tend to have higher success rates in joining elite clubs and competitive national teams",
+        "description5":
+          "Integrating personalized strength and conditioning programs into a player’s routine has been shown to yield substantial benefits. Research indicates that such individualized training can lead to a 50% reduction in injury occurrences and a 77% decrease in days lost due to injuries. This improvement in physical resilience is accompanied by increases in game participation, playing minutes, goals scored, assists, and overall market value.",
+        "description6":
+          "Moreover, the journey of Alexander Isak serves as a pertinent example. His progression from AIK Stockholm’s academy to becoming a leading striker for Newcastle underscores the importance of tailored training and development. Isak’s coaches emphasized that a pivotal push at the age of fourteen was crucial in honing his abilities and mindset, leading to his current professional success.",
+        "description7":
+          "By adopting similar personalized training approaches, South African footballers can enhance their skills, reduce injury risks, and align more closely with the demands of top-tier European football."
     },
     "mission": {
       "heading": "Our Mission",
-      "description": "To empower athletes with tailored training and recovery programs, ensuring they perform at their peak while preventing injuries and optimizing recovery time."
+      "description": "Molende’s mission is to elevate African football talent through elite training, mentorship, and strategic career development. We bridge the gap between local potential and global opportunity, preparing players to compete at the highest levels"
     },
     "vision": {
       "heading": "Our Vision",
-      "description": "To revolutionize the way athletes train, recover, and perform by offering holistic, science-backed solutions that go beyond traditional training."
+      "description": "Molende’s vision is to be the leading platform for African footballers, transforming raw talent into world-class athletes through innovation, excellence, and global partnerships. We aim to redefine player development and create pathways to the highest levels of the game."
     }
   },
 

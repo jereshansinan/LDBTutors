@@ -20,6 +20,77 @@
       "text": "Grâce aux programmes de récupération et de nutrition de Molende, j'ai pu retourner sur le terrain plus rapidement que prévu !"
     }
   },
+
+  "membersPage": {
+  "title": "Notre Équipe",
+  "features": {
+    "expertTeam": {
+      "name": "ÉQUIPE D'EXPERTS",
+      "description":
+        "Notre équipe comprend d'anciens athlètes d'élite, des entraîneurs certifiés, des experts en force et conditionnement, des nutritionnistes, des biokinéticiens et des psychologues sportifs—tous engagés à offrir la meilleure expérience d'entraînement à chaque athlète.",
+      "image": "/expert-team.jpg"
+    },
+    "leadership": {
+      "name": "LEADERSHIP",
+      "description":
+        "Une équipe de leadership dynamique et des partenaires experts du secteur ayant une expérience approfondie dans la gestion sportive et le développement des athlètes.",
+      "image": "/leadership.jpg"
+    },
+    "supportStaff": {
+      "name": "ÉQUIPE DE SOUTIEN",
+      "description":
+        "Des professionnels spécialisés dans la rééducation, la récupération et l'optimisation de la performance pour garantir que chaque athlète reçoive les meilleurs soins.",
+      "image": "/support-staff.jpg"
+    },
+    "trainingFacility": {
+      "name": "INSTALLATIONS D'ENTRAÎNEMENT ET TECHNOLOGIE",
+      "description":
+        "Nos installations d'entraînement de pointe vous offrent un accès à des terrains d'entraînement de niveau professionnel, un équipement avancé pour surveiller les performances et des technologies de pointe en évaluation de performance et outils de récupération pour garantir que les athlètes disposent des ressources nécessaires pour exceller.",
+      "image": "/training-facility.jpg"
+    }
+  },
+  "team": [
+    {
+      "id": "edelbertDinha",
+      "name": "EDELBERT DINHA",
+      "position": "Entraîneur Principal",
+      "description":
+        "Notre entraîneur principal chez Molende Training est un entraîneur licencié CAF B et une légende des Orlando Pirates. Avec sa connaissance approfondie du jeu et son expérience considérable, Dinha apporte un niveau élite de professionnalisme et de perspicacité à notre programme d'entraînement.",
+      "image": "/profile.jpg"
+    },
+    {
+      "id": "jesseDonn",
+      "name": "JESSE DONN",
+      "position": "Entraîneur de Vie",
+      "description":
+        "Ancien footballeur professionnel avec plus de sept ans d'expérience de niveau élite, Jesse a vécu le mode de vie d'un athlète, maîtrisant l'art de l'optimisation de la performance.",
+      "image": "/profile.jpg"
+    },
+    {
+      "id": "ratiG",
+      "name": "RATI GUARAJENA",
+      "position": "Biokinéticien",
+      "description":
+        "Rati dirige notre équipe avec une passion pour aider les gens à atteindre leurs objectifs de remise en forme. En tant que biokinéticienne qualifiée, elle se spécialise dans la rééducation des blessures et des préoccupations liées à l'âge.",
+      "image": "/profile.jpg"
+    },
+    {
+      "id": "brydenC",
+      "name": "BRYDEN CABRAL",
+      "position": "Force et Conditionnement",
+      "description": "Créatif de génie.",
+      "image": "/profile.jpg"
+    },
+    {
+      "id": "siobanS",
+      "name": "SIOBAN STANDER",
+      "position": "Force et Conditionnement",
+      "description": "Motivateur de l'équipe.",
+      "image": "/profile.jpg"
+    }
+  ]
+},
+
   "whyChooseUs": {
     "paragraph": "Molende Sports est une installation d'entraînement axée sur la performance, conçue pour maximiser le potentiel des athlètes grâce à un coaching personnalisé, des solutions de récupération et des conseils nutritionnels. Nous nous spécialisons dans l'entraînement hors saison, le suivi de la condition physique personnalisé et le développement des compétences spécifiques au sport pour les athlètes visant une haute performance.",
     "heading": "Pourquoi Nous Choisir",
@@ -72,7 +143,7 @@
       "youtube": "YouTube",
       "tiktok": "TikTok"
     },
-    "copyright": "© {year} MondeleSports. Tous droits réservés."
+    "copyright": "© {year} MondeleSports (Pty) Ltd. Tous droits réservés."
   },
 
   "navbar": {
@@ -85,7 +156,8 @@
       { "title": "CONTACT", "url": "/contact" }
     ],
     "dashboardButton": "Aller au Tableau de Bord",
-    "loginButton": "Connexion"
+    "loginButton": "Connexion",
+    "language": "LANGUE"
   },
 
   "sidebar": {
@@ -120,15 +192,23 @@
       "heading": "Qui Nous Sommes",
       "description1": "Molende Sports est une entreprise de développement et de gestion de joueurs dédiée à cultiver les talents du football en Afrique. Grâce à son Programme de Formation Molende, elle propose des services de formation spécialisés, y compris le travail sur le terrain, la force et le conditionnement, la rééducation et les évaluations sportives. L'entreprise collabore avec des entraîneurs de haut niveau, des biokinésistes et des spécialistes de la performance pour aider les joueurs à atteindre des niveaux professionnels.",
       "description2": "De plus, Molende Management représente et guide les joueurs dans leur carrière, en leur offrant des opportunités localement et internationalement grâce à des partenariats stratégiques avec des clubs et des agences.",
-      "description3": "Avec une forte concentration sur le développement holistique des joueurs, Molende Sports s'assure que les athlètes sont physiquement, mentalement et tactiquement préparés aux exigences du football professionnel."
+      "description3": "Avec une forte concentration sur le développement holistique des joueurs, Molende Sports s'assure que les athlètes sont physiquement, mentalement et tactiquement préparés aux exigences du football professionnel.",
+      "description4":
+          "Compte tenu des difficultés rencontrées par les footballeurs sud-africains pour intégrer les meilleurs clubs européens, il est évident qu'une amélioration des programmes d'entraînement individuels peut améliorer considérablement leurs perspectives. Une étude a montré que les joueurs africains qui suivent une formation de base au sein des systèmes européens ont tendance à avoir de meilleurs taux de réussite pour intégrer des clubs d'élite et des équipes nationales compétitives.",
+        "description5":
+          "Il a été démontré que l'intégration de programmes personnalisés de musculation et de conditionnement physique à la routine d'un joueur apporte des bénéfices substantiels. Des recherches indiquent qu'un tel entraînement individualisé peut entraîner une réduction de 50 % des blessures et de 77 % des jours d'arrêt de jeu pour cause de blessure. Cette amélioration de la résilience physique s'accompagne d'une augmentation de la participation aux matchs, du temps de jeu, des buts marqués, des passes décisives et de la valeur marchande globale.",
+        "description6":
+          "Le parcours d'Alexander Isak est un exemple pertinent. Son passage du centre de formation de l'AIK Stockholm à l'attaquant vedette de Newcastle souligne l'importance d'une formation et d'un développement sur mesure. Les entraîneurs d'Isak ont ​​souligné qu'un effort décisif à l'âge de quatorze ans avait été crucial pour perfectionner ses capacités et son état d'esprit, menant à sa réussite professionnelle actuelle.",
+        "description7":
+          "En adoptant des approches d’entraînement personnalisées similaires, les footballeurs sud-africains peuvent améliorer leurs compétences, réduire les risques de blessures et s’aligner plus étroitement sur les exigences du football européen de haut niveau."
     },
     "mission": {
       "heading": "Notre Mission",
-      "description": "Permettre aux athlètes de performer à leur meilleur niveau grâce à des programmes d'entraînement et de récupération sur mesure, tout en prévenant les blessures et en optimisant le temps de récupération."
+      "description": "La mission de Molende est de promouvoir les talents du football africain grâce à une formation d'élite, un mentorat et un développement de carrière stratégique. Nous comblons le fossé entre le potentiel local et les opportunités mondiales, en préparant les joueurs à concourir au plus haut niveau."
     },
     "vision": {
       "heading": "Notre Vision",
-      "description": "Révolutionner la façon dont les athlètes s'entraînent, récupèrent et performent en proposant des solutions holistiques et scientifiques qui vont au-delà de l'entraînement traditionnel."
+      "description": "La vision de Molende est d'être la plateforme de référence pour les footballeurs africains, transformant les talents bruts en athlètes de classe mondiale grâce à l'innovation, l'excellence et des partenariats mondiaux. Notre objectif est de redéfinir le développement des joueurs et de créer des voies vers les plus hauts niveaux du jeu."
     }
   },
 
