@@ -73,6 +73,13 @@ html, body {
   }
 }
 
+@media (max-width: 768px) {
+  .mobile-bg-scroll {
+    background-attachment: scroll !important;
+  }
+}
+
+
 
 @layer base {
   * {
