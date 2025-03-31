@@ -23,14 +23,18 @@ export default function Hero() {
   return (
     <Lenis>
       <section
-        className="relative w-full h-screen bg-fixed bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden"
-        style={{ backgroundImage: "url('/base.jpg')" }}
+        className="relative w-full h-screen md:bg-fixed bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden"
+        style={{
+          backgroundImage: "url('/home.jpg')",
+          backgroundAttachment: "scroll",
+        }}
       >
         {/* Parallax Background Effect */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: "url('/home.jpg')",
+            backgroundAttachment: "scroll",
           }}
         />
 

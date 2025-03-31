@@ -9,8 +9,8 @@ export default function Hero({ media, heading }: HeroProps) {
             {media ? (
                 typeof media === "string" ? (
                     <div
-                        className="absolute inset-0 bg-cover bg-center bg-fixed"
-                        style={{ backgroundImage: `url('${media}')` }}
+                        className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+                        style={{ backgroundImage: `url('${media}')`, backgroundAttachment: 'scroll' }}
                     />
                 ) : (
                     <video
@@ -24,8 +24,8 @@ export default function Hero({ media, heading }: HeroProps) {
                 )
             ) : (
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-fixed"
-                    style={{ backgroundImage: "url('/home.jpg')" }}
+                    className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+                    style={{ backgroundImage: `url('${media}')`, backgroundAttachment: 'scroll' }}
                 />
             )}
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>

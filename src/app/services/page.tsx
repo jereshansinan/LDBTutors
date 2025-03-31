@@ -3,13 +3,21 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 import Lenis from "@/components/lenis";
+import { useUser } from "@clerk/nextjs";
+import ClientSignInButton from "@/components/clientSignInButton";
+import { Loader2 } from "lucide-react";
 
 export default function Services() {
+  const { user, isSignedIn } = useUser();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [translations, setTranslations] = useState({
     servicesPage: {
       heroHeading: "Our Services",
+      bookNow: "Book Now",
       pageDescription:
         "Molende Sports offers a variety of specialized training programs designed to enhance performance, strength, and recovery. All programs are personalized based on the athlete’s needs, goals, and sport.",
       services: [
@@ -109,6 +117,18 @@ export default function Services() {
       .catch((error) => console.error("Error loading translations:", error));
   }, []);
 
+  const handleDashboardClick = () => {
+    setIsLoading(true); // Show loading state
+    const role = user?.publicMetadata?.role;
+    const dashboardURL =
+      role === "admin" ? "/admin" : role === "coach" ? "/coach" : "/client";
+    router.push(dashboardURL);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
+
   return (
     <Lenis>
       <Navbar />
@@ -156,8 +176,8 @@ export default function Services() {
                 <p
                   className={`text-base md:text-lg text-black ${
                     index === 1
-                      ? "min-h-48 md:min-h-48 lg:min-h-[600px] xl:min-h-[300px]"
-                      : "min-h-40 md:min-h-52 lg:min-h-[600px] xl:min-h-60"
+                      ? "min-h-48 md:min-h-48 lg:min-h-[340px] xl:min-h-[300px]"
+                      : "min-h-40 md:min-h-52 lg:min-h-[340px] xl:min-h-60"
                   }`}
                 >
                   {service.description}
@@ -170,22 +190,23 @@ export default function Services() {
                   </span>
                 </div>
 
-                {/* Button for Logged In Users */}
-                <div className="text-center">
-                  <button
-                    onClick={() => {
-                      const isLoggedIn = false; // Replace with actual login check
-                      if (isLoggedIn) {
-                        window.location.href = "/dashboard";
-                      } else {
-                        window.location.href = "/login";
-                      }
-                    }}
-                    className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold mb-6 md:mb-8 hover:bg-black hover:text-white"
-                  >
-                    Book Now
-                  </button>
-                </div>
+                {isSignedIn ? (
+                  <div className="text-center">
+                    <button
+                      onClick={handleDashboardClick}
+                      disabled={isLoading}
+                      className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold mb-6 md:mb-8 hover:bg-black hover:text-white"
+                    >
+                      {isLoading ? (
+                        <Loader2 className="animate-spin w-4 h-4" />
+                      ) : (
+                        translations.servicesPage.bookNow
+                      )}
+                    </button>
+                  </div>
+                ) : (
+                  <ClientSignInButton title="Book Now" />
+                )}
 
                 {/* Includes List */}
                 <div className="mb-4">
@@ -267,15 +288,21 @@ export default function Services() {
                 </div>
 
                 {/* Book Now Button */}
-                <button
-                  onClick={() => {
-                    const isLoggedIn = false; // Replace with actual login check
-                    window.location.href = isLoggedIn ? "/dashboard" : "/login";
-                  }}
-                  className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold transition-all duration-300 hover:bg-black hover:text-white"
-                >
-                  Book Now
-                </button>
+                {isSignedIn ? (
+                  <button
+                    onClick={handleDashboardClick}
+                    disabled={isLoading}
+                    className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold transition-all duration-300 hover:bg-black hover:text-white"
+                  >
+                    {isLoading ? (
+                      <Loader2 className="animate-spin w-4 h-4" />
+                    ) : (
+                      translations.servicesPage.bookNow
+                    )}
+                  </button>
+                ) : (
+                  <ClientSignInButton title="Book Now" />
+                )}
               </div>
             ))}
           </div>
@@ -305,13 +332,28 @@ export default function Services() {
               <p className="text-base md:text-lg text-black mb-4">
                 {translations.servicesPage.assessmentSection.description}
               </p>
-              <ul className="text-base md:text-lg text-black list-disc pl-5">
+              <ul className="text-base md:text-lg text-black list-disc pl-5 mb-2">
                 {translations.servicesPage.assessmentSection.listItems.map(
                   (item, idx) => (
                     <li key={idx}>{item}</li>
                   )
                 )}
               </ul>
+              {isSignedIn ? (
+                <button
+                  onClick={handleDashboardClick}
+                  disabled={isLoading}
+                  className="w-full py-2 bg-[#75E379] text-black rounded-lg font-semibold transition-all duration-300 hover:bg-black hover:text-white"
+                >
+                  {isLoading ? (
+                    <Loader2 className="animate-spin w-4 h-4" />
+                  ) : (
+                    translations.servicesPage.bookNow
+                  )}
+                </button>
+              ) : (
+                <ClientSignInButton title="Book Now" />
+              )}
             </div>
           </div>
         </div>
