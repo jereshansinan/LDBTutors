@@ -150,7 +150,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6 mb-5 md:mb-12">
           {translations.servicesPage.services.map((service, index) => (
             <div
               key={service.title}
@@ -168,7 +168,7 @@ export default function Services() {
 
               {/* Bordered Content Section */}
               <div className="p-2 md:p-6 flex flex-col flex-1">
-                <h2 className="text-xl md:text-xl font-semibold mb-2 min-h-[3.5rem]">
+                <h2 className="text-xl md:text-xl font-semibold mb-2 md:min-h-[3.5rem]">
                   {service.title}
                 </h2>
 
@@ -176,8 +176,8 @@ export default function Services() {
                 <p
                   className={`text-base md:text-lg text-black ${
                     index === 1
-                      ? "min-h-48 md:min-h-48 lg:min-h-[340px] xl:min-h-[300px]"
-                      : "min-h-40 md:min-h-52 lg:min-h-[340px] xl:min-h-60"
+                      ? "min-h-32 md:min-h-48 lg:min-h-[340px] xl:min-h-[300px]"
+                      : "min-h-32 md:min-h-52 lg:min-h-[340px] xl:min-h-60"
                   }`}
                 >
                   {service.description}
