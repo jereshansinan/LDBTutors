@@ -34,7 +34,7 @@ export default function Footer() {
         youtube: "YouTube",
         tiktok: "TikTok",
       },
-      copyright: "© {year} MolendeSports (Pty) Ltd. All rights reserved.",
+      copyright: "© {year} Molende Sports (Pty) Ltd. All rights reserved.",
     },
   });
 
