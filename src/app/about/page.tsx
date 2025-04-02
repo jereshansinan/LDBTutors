@@ -82,7 +82,7 @@ export default function About() {
         {/* Large Image Section with Proper Scaling */}
         <section className="py-5 md:py-10 mx-auto grid gap-5 md:gap-10 px-2 md:px-0">
           <div
-            className="w-full px-2 md:px-0 md:p-0 relative h-40 md:h-72 lg:h-[30rem] rounded-lg overflow-hidden bg-cover bg-center md:bg-fixed mobile-bg-scroll"
+            className="w-full px-2 md:px-0 md:p-0 relative h-72 md:h-72 lg:h-[30rem] rounded-lg overflow-hidden bg-cover bg-center md:bg-fixed mobile-bg-scroll"
             style={{
               backgroundImage: "url('/whoweare.jpg')",
             }}
@@ -125,7 +125,7 @@ export default function About() {
             </div>
             <div className="relative w-full h-72 md:h-96 rounded-lg overflow-hidden order-1 md:order-2">
               <Image
-                src="/mission1.jpg"
+                src="/mission2.jpg"
                 alt="First Section"
                 layout="fill"
                 objectFit="cover"

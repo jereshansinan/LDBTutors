@@ -50,7 +50,7 @@ export default function MembersPage() {
         {
           id: "jesseDonn",
           name: "JESSE DONN",
-          position: "Lifestyle Coach",
+          position: "Field And Strength & Conditioning",
           description:
             "As a former professional footballer with over seven years of elite-level experience, Jesse has lived the lifestyle of an athlete, mastering the art of performance optimization.",
           image: "/profile.jpg",
@@ -63,23 +63,9 @@ export default function MembersPage() {
             "Rati leads our team with a passion for helping people achieve their fitness goals. As a qualified biokineticist, she specializes in rehabilitation for injuries and age-related concerns.",
           image: "/profile.jpg",
         },
-        {
-          id: "brydenC",
-          name: "BRYDEN CABRAL",
-          position: "Strength And Conditioning",
-          description: "Creative mastermind.",
-          image: "/profile.jpg",
-        },
-        {
-          id: "siobanS",
-          name: "SIOBAN STANDER",
-          position: "Strength And Conditioning",
-          description: "Team motivator.",
-          image: "/profile.jpg",
-        },
       ],
     },
-  }));  
+  }));
 
   useEffect(() => {
     const language = localStorage.getItem("language") || "en"; // Default to English
@@ -94,7 +80,6 @@ export default function MembersPage() {
       <Navbar />
       <Hero media="/home.jpg" heading={translations.membersPage.title} />
       <section className="py-8 px-2 md:px-[130px]">
-        
         {/* Features Section */}
         {Object.values(translations.membersPage.features).map((item, index) => (
           <section key={index} className="relative w-full">
@@ -107,13 +92,7 @@ export default function MembersPage() {
             <div className="relative z-10 flex flex-col md:flex-row items-center py-16">
               {index % 2 !== 0 && (
                 <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
-                  <Image
-                    src={item.image}
-                    alt={item.image}
-                    width={600}
-                    height={600}
-                    className="rounded-lg object-cover shadow-lg aspect-square"
-                  />
+                  
                 </div>
               )}
 
@@ -128,13 +107,7 @@ export default function MembersPage() {
 
               {index % 2 === 0 && (
                 <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-                  <Image
-                    src={item.image}
-                    alt={item.image}
-                    width={600}
-                    height={600}
-                    className="rounded-lg object-cover shadow-lg aspect-square"
-                  />
+                  
                 </div>
               )}
             </div>

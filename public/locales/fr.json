@@ -61,7 +61,7 @@
     {
       "id": "jesseDonn",
       "name": "JESSE DONN",
-      "position": "Entraîneur de Vie",
+      "position": "Terrain et force et conditionnement",
       "description":
         "Ancien footballeur professionnel avec plus de sept ans d'expérience de niveau élite, Jesse a vécu le mode de vie d'un athlète, maîtrisant l'art de l'optimisation de la performance.",
       "image": "/profile.jpg"
@@ -72,20 +72,6 @@
       "position": "Biokinéticien",
       "description":
         "Rati dirige notre équipe avec une passion pour aider les gens à atteindre leurs objectifs de remise en forme. En tant que biokinéticienne qualifiée, elle se spécialise dans la rééducation des blessures et des préoccupations liées à l'âge.",
-      "image": "/profile.jpg"
-    },
-    {
-      "id": "brydenC",
-      "name": "BRYDEN CABRAL",
-      "position": "Force et Conditionnement",
-      "description": "Créatif de génie.",
-      "image": "/profile.jpg"
-    },
-    {
-      "id": "siobanS",
-      "name": "SIOBAN STANDER",
-      "position": "Force et Conditionnement",
-      "description": "Motivateur de l'équipe.",
       "image": "/profile.jpg"
     }
   ]
@@ -143,7 +129,7 @@
       "youtube": "YouTube",
       "tiktok": "TikTok"
     },
-    "copyright": "© {year} MondeleSports (Pty) Ltd. Tous droits réservés."
+    "copyright": "© {year} MolendeSports (Pty) Ltd. Tous droits réservés."
   },
 
   "navbar": {
@@ -310,8 +296,8 @@
         "phone": "+ 27 Numéro de Téléphone",
         "service": "Sélectionnez un Service",
         "status": "Statut",
-        "position": "Select a Position",
-        "skills": "I would like to work on",
+        "position": "Sélectionnez un poste",
+        "skills": "J’aimerais travailler sur",
         "message": "Votre Message"
       },
       "serviceOptions": [
@@ -327,15 +313,15 @@
         "Récupération"
       ],
       "statusOptions": ["Amateur", "Semi-Professionnel", "Professionnel"],
-      "positionOptions": ["Goalkeeper", "Defender", "Midfielder", "Forward"],
-        "skillOptions": [
-          "First Touch",
-          "Driving the Ball",
-          "Heading",
-          "Moving",
-          "Finishing",
-          "Athletic Performance"
-        ],
+      "positionOptions": ["Gardien de but", "Défenseur", "Milieu de terrain", "Attaquant"],
+      "skillOptions": [
+        "Premier Contact",
+        "Conduite de Ballon",
+        "Jeu de Tête",
+        "Déplacement",
+        "Finition",
+        "Performance Athlétique"
+      ],
       "submitButton": "Envoyer le Message",
       "loadingText": "Envoi en cours...",
       "successMessage": "Merci ! Votre message a été envoyé."

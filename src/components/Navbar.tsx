@@ -224,7 +224,7 @@ export default function Navbar() {
                   width={50}
                   height={20}
                   alt={translations.navbar.logoAlt}
-                  className="overflow-hidden transition-all w-20"
+                  className="overflow-hidden transition-all w-28 md:w-20"
                 />
               </Link>
             </div>

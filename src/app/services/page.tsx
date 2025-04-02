@@ -176,8 +176,8 @@ export default function Services() {
                 <p
                   className={`text-base md:text-lg text-black ${
                     index === 1
-                      ? "min-h-32 md:min-h-48 lg:min-h-[340px] xl:min-h-[300px]"
-                      : "min-h-32 md:min-h-52 lg:min-h-[340px] xl:min-h-60"
+                      ? "min-h-20 md:min-h-48 lg:min-h-[340px] xl:min-h-[240px]"
+                      : "min-h-20 md:min-h-52 lg:min-h-[340px] xl:min-h-60"
                   }`}
                 >
                   {service.description}
@@ -209,7 +209,7 @@ export default function Services() {
                 )}
 
                 {/* Includes List */}
-                <div className="mb-4">
+                <div className="mb-4 mt-2 md:mt-0">
                   {service.includes.map((inc, idx) => (
                     <div key={idx} className="flex items-center mb-2">
                       {/* Green Tick Icon */}

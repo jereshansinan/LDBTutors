@@ -63,7 +63,7 @@
       {
         "id": "jesseDonn",
         "name": "JESSE DONN",
-        "position": "Lifestyle Coach",
+        "position": "Field And Strength & Conditioning",
         "description":
           "As a former professional footballer with over seven years of elite-level experience, Jesse has lived the lifestyle of an athlete, mastering the art of performance optimization.",
         "image": "/profile.jpg"
@@ -74,20 +74,6 @@
         "position": "Biokinetic",
         "description":
           "Rati leads our team with a passion for helping people achieve their fitness goals. As a qualified biokineticist, she specializes in rehabilitation for injuries and age-related concerns.",
-        "image": "/profile.jpg"
-      },
-      {
-        "id": "brydenC",
-        "name": "BRYDEN CABRAL",
-        "position": "Strength And Conditioning",
-        "description": "Creative mastermind.",
-        "image": "/profile.jpg"
-      },
-      {
-        "id": "siobanS",
-        "name": "SIOBAN STANDER",
-        "position": "Strength And Conditioning",
-        "description": "Team motivator.",
         "image": "/profile.jpg"
       }
     ]
@@ -147,7 +133,7 @@
       "youtube": "YouTube",
       "tiktok": "TikTok"
     },
-    "copyright": "© {year} MondeleSports (Pty) Ltd. All rights reserved."
+    "copyright": "© {year} MolendeSports (Pty) Ltd. All rights reserved."
   },
 
   "navbar": {
