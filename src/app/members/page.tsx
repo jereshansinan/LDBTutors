@@ -90,13 +90,8 @@ export default function MembersPage() {
             ></div>
 
             <div className="relative z-10 flex flex-col md:flex-row items-center py-16">
-              {index % 2 !== 0 && (
-                <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
-                  
-                </div>
-              )}
 
-              <div className="w-full md:w-1/2 text-center md:text-left px-6 md:px-[130px]">
+              <div className="w-full md:w-1/full text-center md:text-left px-6 md:px-[130px]">
                 <h3 className="text-xl md:text-4xl font-semibold mb-6">
                   {item.name}
                 </h3>
@@ -105,11 +100,6 @@ export default function MembersPage() {
                 </p>
               </div>
 
-              {index % 2 === 0 && (
-                <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
-                  
-                </div>
-              )}
             </div>
           </section>
         ))}

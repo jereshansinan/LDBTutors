@@ -176,8 +176,8 @@ export default function Services() {
                 <p
                   className={`text-base md:text-lg text-black ${
                     index === 1
-                      ? "min-h-20 md:min-h-48 lg:min-h-[340px] xl:min-h-[240px]"
-                      : "min-h-20 md:min-h-52 lg:min-h-[340px] xl:min-h-60"
+                      ? "min-h-20 md:min-h-48 lg:min-h-[350px] xl:min-h-[250px]"
+                      : "min-h-20 md:min-h-52 lg:min-h-[340px] xl:min-h-[250px]"
                   }`}
                 >
                   {service.description}

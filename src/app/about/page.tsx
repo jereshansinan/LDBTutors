@@ -12,6 +12,7 @@ export default function About() {
       heroHeading: "About Us",
       whoWeAre: {
         heading: "Who We Are",
+        heading2: "Why Molende",
         description1:
           "Molende Sports is a player development and management company dedicated to nurturing football talent in Africa. Through its Molende Training Program, it offers specialized training services, including fieldwork, strength & conditioning, rehab, and sports assessments. The company collaborates with top coaches, biokineticists, and performance specialists to help players reach professional levels.",
         description2:
@@ -90,7 +91,7 @@ export default function About() {
             {/* Optional: Add overlay or text */}
             <div className="w-full h-full flex items-center justify-center">
               <h2 className="text-xl md:text-4xl font-bold text-white text-center">
-                Why Molende
+                {translations.aboutPage.whoWeAre.heading2}
               </h2>
             </div>
           </div>

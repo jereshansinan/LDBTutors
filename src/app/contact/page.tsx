@@ -30,24 +30,6 @@ export default function ContactPage() {
 
   const [formData, setFormData] = useState(initialFormData);
 
-  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
-    new Set(["I would like to work:"])
-  );
-
-  const selectedValue = React.useMemo(() => {
-    const items = Array.from(selectedKeys);
-    if (items.length === 0) return ""; // Handle empty array case
-    
-    // Ensure the first item is treated as a string and remove trailing comma if necessary
-    const firstItem = String(items[0]).replace(/,$/, ""); // Convert to string and remove trailing comma
-    return `${firstItem}${items.length > 1 ? ` ${items.slice(1).join(", ")}` : ""}`;
-  }, [selectedKeys]);
-  
-  
-
-  const [loading, setLoading] = useState(false);
-  const [responseMessage, setResponseMessage] = useState("");
-
   const [translations, setTranslations] = useState({
     contactPage: {
       heroHeading: "Contact Us",
@@ -93,6 +75,26 @@ export default function ContactPage() {
       },
     },
   });
+
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
+    new Set([translations.contactPage.form.fields.skills])
+  );
+
+  const selectedValue = React.useMemo(() => {
+    const items = Array.from(selectedKeys);
+    if (items.length === 0) return ""; // Handle empty array case
+    
+    // Ensure the first item is treated as a string and remove trailing comma if necessary
+    const firstItem = String(items[0]).replace(/,$/, ""); // Convert to string and remove trailing comma
+    return `${firstItem}${items.length > 1 ? ` ${items.slice(1).join(", ")}` : ""}`;
+  }, [selectedKeys]);
+  
+  
+
+  const [loading, setLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+
+  
 
   useEffect(() => {
     const language = localStorage.getItem("language") || "en"; // Default to English

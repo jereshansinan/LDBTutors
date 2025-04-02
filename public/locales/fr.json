@@ -129,7 +129,7 @@
       "youtube": "YouTube",
       "tiktok": "TikTok"
     },
-    "copyright": "© {year} MolendeSports (Pty) Ltd. Tous droits réservés."
+    "copyright": "© {year} Molende Sports (Pty) Ltd. Tous droits réservés."
   },
 
   "navbar": {
@@ -176,6 +176,7 @@
     "heroHeading": "À Propos de Nous",
     "whoWeAre": {
       "heading": "Qui Nous Sommes",
+      "heading2": "Pourquoi Molende",
       "description1": "Molende Sports est une entreprise de développement et de gestion de joueurs dédiée à cultiver les talents du football en Afrique. Grâce à son Programme de Formation Molende, elle propose des services de formation spécialisés, y compris le travail sur le terrain, la force et le conditionnement, la rééducation et les évaluations sportives. L'entreprise collabore avec des entraîneurs de haut niveau, des biokinésistes et des spécialistes de la performance pour aider les joueurs à atteindre des niveaux professionnels.",
       "description2": "De plus, Molende Management représente et guide les joueurs dans leur carrière, en leur offrant des opportunités localement et internationalement grâce à des partenariats stratégiques avec des clubs et des agences.",
       "description3": "Avec une forte concentration sur le développement holistique des joueurs, Molende Sports s'assure que les athlètes sont physiquement, mentalement et tactiquement préparés aux exigences du football professionnel.",
