@@ -221,8 +221,8 @@ export default function Navbar() {
                       ? "/Logowhite.png"
                       : "/logoDark.png"
                   }`}
-                  width={50}
-                  height={20}
+                  width={120}
+                  height={50}
                   alt={translations.navbar.logoAlt}
                   className="overflow-hidden transition-all w-28 md:w-20"
                 />

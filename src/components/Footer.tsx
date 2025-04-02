@@ -52,10 +52,13 @@ export default function Footer() {
         {/* Left Section: Logo & Slogan */}
         <div className="flex flex-col items-center lg:items-start">
           <Image
-            src="/Logowhite.png"
+            src="/Logowhite1.png"
             alt={translations.footer.logoAlt}
-            width={120}
-            height={50}
+            width={300}
+            height={300}
+            quality={100}
+            unoptimized={true}
+            priority
             className="w-20 md:w-52"
           />
         </div>
