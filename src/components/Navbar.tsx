@@ -112,7 +112,7 @@ export default function Navbar() {
               : "bg-transparent"
           }`}
         >
-          <div className="flex justify-between mx-auto items-center py-4 px-24">
+          <div className="flex justify-between mx-auto items-center py-4 px-14">
             <Link
               href="/"
               className={`font-bold text-xl ${
@@ -128,15 +128,15 @@ export default function Navbar() {
                 width={100}
                 height={20}
                 alt={translations.navbar.logoAlt}
-                className="overflow-hidden transition-all w-32"
+                className="overflow-hidden transition-all w-32 mr-2"
               />
             </Link>
-            <ul className="flex gap-8 md:gap-16 items-center justify-center text-center cursor-pointer font-body antialiased">
+            <ul className="flex gap-8 md:gap-6 items-center justify-center text-center cursor-pointer font-body antialiased">
               {translations.navbar.navLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.url}
-                    className={`relative text-lg transition-colors duration-300 font-body tracking-[1px] 
+                    className={`relative md:text[14px] xl:text-[16px] leading-6 transition-colors duration-300 font-body tracking-[1px] 
                       ${
                         isSpecialPage || isScrolled
                           ? "text-black"
@@ -151,7 +151,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <ul className="flex gap-6 items-center cursor-pointer font-body">
+            <ul className="flex gap-4 items-center cursor-pointer font-body">
               {/* Language Toggle Switch for Desktop */}
               <div className="flex items-center">
                 {/* Language Toggle Switch */}
