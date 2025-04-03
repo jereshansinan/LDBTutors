@@ -302,7 +302,7 @@
         "service": "Select a Service",
         "status": "Status",
         "position": "Select a Position",
-        "skills": "I would like to work on",
+        "skills": "I would like to work on: ",
         "message": "Your Message"
       },
       "serviceOptions": [

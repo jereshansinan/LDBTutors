@@ -89,17 +89,15 @@ export default function MembersPage() {
               }`}
             ></div>
 
-            <div className="relative z-10 flex flex-col md:flex-row items-center py-16">
-
-              <div className="w-full md:w-1/full text-center md:text-left px-6 md:px-[130px]">
-                <h3 className="text-xl md:text-4xl font-semibold mb-6">
+            <div className="relative z-10 flex flex-col md:flex-row items-center py-4 md:py-16">
+              <div className="w-full md:w-1/full text-center md:text-left px-4 md:px-[130px]">
+                <h3 className="text-xl md:text-4xl font-semibold mb-2 md:mb-6">
                   {item.name}
                 </h3>
                 <p className="text-base md:text-2xl text-black leading-relaxed">
                   {item.description}
                 </p>
               </div>
-
             </div>
           </section>
         ))}
@@ -113,7 +111,7 @@ export default function MembersPage() {
           {translations.membersPage.team.map((member, index) => (
             <motion.div
               key={index}
-              className="flex flex-col md:flex-row items-center bg-gray-100 rounded-lg p-8 shadow-lg transition-all duration-300 hover:bg-[#75E379]"
+              className="flex flex-col md:flex-row items-center bg-gray-100 rounded-lg px-4 py-2 md:px-8 md:py-8 shadow-lg transition-all duration-300 hover:bg-[#75E379]"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -126,7 +124,7 @@ export default function MembersPage() {
                 className="rounded-lg object-cover border-2 border-gray-300 aspect-square"
               />
 
-              <div className="ml-6 text-center md:text-left">
+              <div className="ml-0 md:ml-6 text-center md:text-left">
                 <h3 className="text-lg md:text-3xl font-semibold">
                   {member.name}
                 </h3>

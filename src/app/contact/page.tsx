@@ -77,24 +77,24 @@ export default function ContactPage() {
   });
 
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
-    new Set([translations.contactPage.form.fields.skills])
+    new Set([])
   );
 
   const selectedValue = React.useMemo(() => {
     const items = Array.from(selectedKeys);
     if (items.length === 0) return ""; // Handle empty array case
-    
+
     // Ensure the first item is treated as a string and remove trailing comma if necessary
-    const firstItem = String(items[0]).replace(/,$/, ""); // Convert to string and remove trailing comma
-    return `${firstItem}${items.length > 1 ? ` ${items.slice(1).join(", ")}` : ""}`;
-  }, [selectedKeys]);
-  
-  
+    const firstItem = String(items[0]).replace(/,$/, "");
+
+    // If there are multiple items, add a comma after the first item
+    return `${translations.contactPage.form.fields.skills}${firstItem}${
+      items.length > 1 ? `, ${items.slice(1).join(", ")}` : ""
+    }`;
+  }, [selectedKeys, translations]);
 
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
-
-  
 
   useEffect(() => {
     const language = localStorage.getItem("language") || "en"; // Default to English

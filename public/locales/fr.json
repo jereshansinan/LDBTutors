@@ -298,7 +298,7 @@
         "service": "Sélectionnez un Service",
         "status": "Statut",
         "position": "Sélectionnez un poste",
-        "skills": "J’aimerais travailler sur",
+        "skills": "J’aimerais travailler sur: ",
         "message": "Votre Message"
       },
       "serviceOptions": [
