@@ -89,7 +89,7 @@ export default function MembersPage() {
               }`}
             ></div>
 
-            <div className="relative z-10 flex flex-col md:flex-row items-center py-4 md:py-16">
+            <div className="relative z-10 flex flex-col md:flex-row items-center py-8 md:py-16">
               <div className="w-full md:w-1/full text-center md:text-left px-4 md:px-[130px]">
                 <h3 className="text-xl md:text-4xl font-semibold mb-2 md:mb-6">
                   {item.name}
