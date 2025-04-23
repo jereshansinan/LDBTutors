@@ -24,7 +24,7 @@ export async function POST() {
     );
   } catch (clerkError) {
     // Fixed error handling
-    console.error("Error updating user role in Clerk:", clerkError);
+    console.error("Error updating user role in Clerks:", clerkError);
     console.error("Clerk Response:", clerkError || clerkError);
     return NextResponse.json(
       {
