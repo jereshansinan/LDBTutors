@@ -1,6 +1,6 @@
 {
-    "heroTitle": "TRANSFORM PASSION INTO PRECISION",
-    "heroSubtitle": "Personalized training & recovery solutions for serious athletes",
+    "heroTitle": "Tutor Heading",
+    "heroSubtitle": "Personalized tutoring for every student",
 
     "statistics": {
     "users": "Users",
@@ -140,9 +140,6 @@
     "logoAlt": "Logo",
     "navLinks": [
       { "title": "HOME", "url": "/" },
-      { "title": "ABOUT", "url": "/about" },
-      { "title": "OUR TEAM", "url": "/members" },
-      { "title": "SERVICES", "url": "/services" },
       { "title": "CONTACT US", "url": "/contact" }
     ],
     "dashboardButton": "Go to Dashboard",
