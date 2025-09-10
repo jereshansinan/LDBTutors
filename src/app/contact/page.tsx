@@ -22,9 +22,7 @@ export default function ContactPage() {
     email: "",
     phone: "",
     service: "",
-    status: "",
     position: "",
-    skills: "",
     message: "",
   };
 
@@ -58,14 +56,6 @@ export default function ContactPage() {
           "Chemistry Lessons",
         ],
         positionOptions: ["Tutor/Teacher", "Student"],
-        skillOptions: [
-          "First Touch",
-          "Driving the Ball",
-          "Heading",
-          "Moving",
-          "Finishing",
-          "Athletic Performance",
-        ],
         submitButton: "Send Message",
         loadingText: "Sending...",
         successMessage: "Thank you! Your message has been sent.",
@@ -256,81 +246,7 @@ export default function ContactPage() {
                 </svg>
               </span>
             </div>
-
-            {/* Multi-Select Skills Dropdown */}
-            <Dropdown className="w-full">
-              <DropdownTrigger>
-                <Button
-                  className="w-full flex justify-between items-center p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] bg-white text-left capitalize"
-                  variant="bordered"
-                >
-                  {selectedValue || translations.contactPage.form.fields.skills}
-                  <span className="ml-2 text-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-5 h-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 9l-7.5 7.5L4.5 9"
-                      />
-                    </svg>
-                  </span>
-                </Button>
-              </DropdownTrigger>
-
-              <DropdownMenu
-                disallowEmptySelection
-                aria-label="Multiple selection example"
-                closeOnSelect={false}
-                selectedKeys={selectedKeys}
-                selectionMode="multiple"
-                variant="flat"
-                onSelectionChange={setSelectedKeys}
-                className="w-full md:w-72 bg-white border border-gray-300 rounded-md shadow-md capitalize"
-              >
-                {translations.contactPage.form.skillOptions.map((skill) => {
-                  const skillKey = skill.toLowerCase().replace(/\s+/g, " ");
-                  const isSelected =
-                    Array.from(selectedKeys).includes(skillKey); // ✅ Fix for `.has()`
-
-                  return (
-                    <DropdownItem
-                      key={skillKey}
-                      className="p-3 flex flex-row justify-between items-center text-left hover:bg-gray-100 capitalize w-full"
-                    >
-                      <span className="flex-grow">
-                        {skill}{" "}
-                        {isSelected && (
-                          <span className="text-green-500">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              strokeWidth={2}
-                              stroke="currentColor"
-                              className="w-5 h-5"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                          </span>
-                        )}
-                      </span>
-                    </DropdownItem>
-                  );
-                })}
-              </DropdownMenu>
-            </Dropdown>
-
+             
             {/* Message */}
             <textarea
               name="message"
@@ -344,7 +260,7 @@ export default function ContactPage() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#75E379] text-black py-3 rounded-md font-semibold hover:bg-black hover:text-white transition duration-300"
+              className="w-full bg-[#e89117] text-black py-3 rounded-md font-semibold hover:bg-black hover:text-white transition duration-300"
               disabled={loading}
             >
               {loading

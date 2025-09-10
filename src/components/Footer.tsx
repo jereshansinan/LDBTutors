@@ -7,6 +7,10 @@ import {
   FaLinkedin,
   FaTiktok,
   FaYoutube,
+  FaInfoCircle, 
+  FaUsers, 
+  FaHouseUser,
+  FaConciergeBell,
 } from "react-icons/fa";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -24,15 +28,12 @@ export default function Footer() {
         contact: "Contact",
       },
       contact: {
-        phone: "+27 65 919 9598",
+        phone: "+27 73 748 7513",
         email: "info@molendesports.co.za",
       },
       socialMedia: {
         whatsapp: "WhatsApp",
         instagram: "Instagram",
-        linkedin: "LinkedIn",
-        youtube: "YouTube",
-        tiktok: "TikTok",
       },
       copyright: "© {year} Molende Sports (Pty) Ltd. All rights reserved.",
     },
@@ -63,24 +64,59 @@ export default function Footer() {
           />
         </div>
 
-        {/* Center Section: Navigation Links */}
-        <div className="flex flex-col items-center space-y-2 my-6 lg:my-0">
-          <Link href="/" className="hover:text-[#75E379]">
-            {translations.footer.navigation.home}
-          </Link>
-          <Link href="/about" className="hover:text-[#75E379]">
-            {translations.footer.navigation.about}
-          </Link>
-          <Link href="/members" className="hover:text-[#75E379]">
-            {translations.footer.navigation.members}
-          </Link>
-          <Link href="/services" className="hover:text-[#75E379]">
-            {translations.footer.navigation.services}
-          </Link>
-          <Link href="/contact" className="hover:text-[#75E379]">
-            {translations.footer.navigation.contact}
-          </Link>
-        </div>
+{/* Center Section: Navigation Icons */}
+
+<div className="flex flex-row items-center space-x-6 my-6 lg:my-0">
+  {/* Home */}
+  <div className="flex flex-col items-center">
+    <Link href="/" className="hover:text-[#e89117] text-2xl">
+      <FaHouseUser />
+    </Link>
+    <span className="text-sm mt-1">Home</span>
+  </div>
+
+  <span className="text-gray-400">|</span>
+
+  {/* About */}
+  <div className="flex flex-col items-center">
+    <Link href="/about" className="hover:text-[#e89117] text-2xl">
+      <FaInfoCircle />
+    </Link>
+    <span className="text-sm mt-1">About</span>
+  </div>
+
+  <span className="text-gray-400">|</span>
+
+  {/* Members */}
+  <div className="flex flex-col items-center">
+    <Link href="/members" className="hover:text-[#e89117] text-2xl">
+      <FaUsers />
+    </Link>
+    <span className="text-sm mt-1">Members</span>
+  </div>
+
+  <span className="text-gray-400">|</span>
+
+  {/* Services */}
+  <div className="flex flex-col items-center">
+    <Link href="/services" className="hover:text-[#e89117] text-2xl">
+      <FaConciergeBell />
+    </Link>
+    <span className="text-sm mt-1">Services</span>
+  </div>
+
+  <span className="text-gray-400">|</span>
+
+  {/* Contact */}
+  <div className="flex flex-col items-center">
+    <Link href="/contact" className="hover:text-[#e89117] text-2xl">
+      <FaEnvelope />
+    </Link>
+    <span className="text-sm mt-1">Contact</span>
+  </div>
+</div>
+
+
 
         {/* Right Section: Contact Info & Social Icons */}
         <div className="flex flex-col items-center lg:items-end">
@@ -97,34 +133,16 @@ export default function Footer() {
           {/* Social Media Icons */}
           <div className="flex space-x-4 mt-4">
             <a
-              href="https://wa.me/27659199598?text=I%20am%20interested%20in%20your%20services"
+              href="https://wa.me/27737487513?text=I%20am%20interested%20in%20your%20services"
               className="text-xl text-black hover:text-green-300"
             >
               <FaWhatsapp />
             </a>
             <a
-              href="https://www.instagram.com/molendesports?igsh=MXBueHpkbjFsanMycw=="
+              href="https://www.instagram.com/ldb.tutors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               className="text-xl text-black hover:text-pink-400"
             >
               <FaInstagram />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/molendesports/"
-              className="text-xl text-black hover:text-blue-400"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://youtube.com/@molendesports?si=zZKSXVZb6W8NWTP1"
-              className="text-xl text-black hover:text-red-600"
-            >
-              <FaYoutube />
-            </a>
-            <a
-              href="https://www.tiktok.com/@molende.sports?_t=ZM-8uTRPdlttkV&_r=1"
-              className="text-xl text-black hover:text-gray-300"
-            >
-              <FaTiktok />
             </a>
           </div>
         </div>
