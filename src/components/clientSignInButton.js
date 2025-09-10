@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function ClientSignInButton({ title = "Login" }) {
   return (
     <SignInButton>
-      <Button className="bg-[#75E379] text-black hover:text-white">{title}</Button>
+      <Button className="bg-[#fa5407] text-white hover:text-white">{title}</Button>
     </SignInButton>
   );
 }

@@ -1,73 +1,57 @@
 "use client";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Lenis from "../lenis";
 
 export default function Hero() {
-  // State to hold translations
-  const [translations, setTranslations] = useState({
-    heroTitle: "TRANSFORM PASSION INTO PRECISION",
-    heroSubtitle:
-      "Personalized training & recovery solutions for serious athletes",
-  });
-
-  // Load translations based on the selected language
-  useEffect(() => {
-    const language = localStorage.getItem("language") || "en"; // Default to English
-    fetch(`/locales/${language}.json`)
-      .then((response) => response.json())
-      .then((data) => setTranslations(data))
-      .catch((error) => console.error("Error loading translations:", error));
-  }, []);
-
   return (
     <Lenis>
-      <section
-        className="relative w-full h-screen md:bg-fixed bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden"
-        style={{
-          backgroundImage: "url('/home.jpg')",
-          backgroundAttachment: "scroll",
-        }}
-      >
-        {/* Parallax Background Effect */}
-        <div
-          className="absolute inset-0 bg-cover bg-center md:bg-fixed"
-          style={{
-            backgroundImage: "url('/home.jpg')",
-            backgroundAttachment: "scroll",
-          }}
-        />
+      <section className="relative lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24 bg-black">
+        <div className="absolute inset-x-0 bottom-0 z-10 hidden lg:flex">
+          <img
+            className="hidden w-full lg:block"
+            src="/heroimages.svg"
+            alt=""
+          />
+          <img
+            className="block w-full lg:hidden"
+            src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/5/credit-cards-mobile.png"
+            alt=""
+          />
+        </div>
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
+          <div className="mx-auto text-center">
+            <h1 className="text-4xl font-bold sm:text-9xl">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fa5407] to-white">
+                {" "}
+                LDB TUTORS{" "}
+              </span>
+            </h1>
+            <p className="mt-5 text-base text-white sm:text-xl">subheading</p>
 
-        {/* Content */}
-        <motion.div
-          className="bg-opacity-50 p-8 rounded-lg z-10"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <motion.h1
-            className="md:text-6xl text-xl font-heading antialiased font-bold"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            {translations.heroTitle}
-          </motion.h1>
-
-          <motion.p
-            className="text-lg font-body mt-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            {translations.heroSubtitle}
-          </motion.p>
-        </motion.div>
+            <a
+              href="#"
+              title=""
+              className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-white transition-all duration-200 bg-[#fa5407] rounded-lg sm:mt-16 hover:bg-[#fa5407] focus:bg-[#fa5407]"
+              role="button"
+            >
+              Contact Us
+              <svg
+                className="w-6 h-6 ml-8 -mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
       </section>
     </Lenis>
   );

@@ -136,7 +136,7 @@ export default function Navbar() {
                           : "text-white"
                       } 
                       after:content-[''] after:absolute after:left-0 after:bottom-[-5px] 
-                      after:w-0 after:h-[4px] after:bg-[#75E379] after:rounded-xl 
+                      after:w-0 after:h-[4px] after:bg-[#fa5407] after:rounded-xl 
                       after:transition-all after:duration-300 hover:after:w-full`}
                   >
                     {link.title}
@@ -154,7 +154,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Button
                     onClick={handleDashboardClick}
-                    className="bg-[#75E379] text-black text-xl hover:text-white font-body"
+                    className="bg-[#fa5407] text-black text-xl hover:text-white font-body"
                     disabled={isLoading}
                   >
                     {isLoading ? (
@@ -209,7 +209,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Button
                     onClick={handleDashboardClick}
-                    className={`bg-[#75E379] text-black rounded-md ${
+                    className={`bg-[#fa5407] text-black rounded-md ${
                       isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
                     }`}
                     disabled={isLoading}
@@ -224,7 +224,7 @@ export default function Navbar() {
               ) : (
                 <SignInButton>
                   <Button
-                    className={`bg-[#75E379] text-black rounded-md hover:text-white ${
+                    className={`bg-[#fa5407] text-black rounded-md hover:text-white ${
                       isMobile ? "px-2 py-1 text-xs" : "px-4 py-2 text-base"
                     }`}
                   >
