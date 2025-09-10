@@ -150,7 +150,7 @@ export default function ContactPage() {
             onSubmit={handleSubmit}
             className="space-y-4 rounded-lg bg-transparent"
           >
-            {/* Full Name */}
+            {/* Full Name e.g Jaiden */}
             <input
               type="text"
               name="fullName"
