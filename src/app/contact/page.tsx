@@ -220,7 +220,7 @@ export default function ContactPage() {
               </span>
             </div>
 
-            {/* Position Dropdown xxxxxx */}
+            {/* Position Dropdown */}
             <div className="relative w-full">
               <select
                 name="position"
