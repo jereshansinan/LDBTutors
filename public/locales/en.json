@@ -303,19 +303,17 @@
         "message": "Your Message"
       },
       "serviceOptions": [
-        "Field Training",
-        "Strength & Conditioning",
-        "Standard Package",
-        "Elite Package",
-        "Athlete Assessment and Profiling",
-        "Online Training Program",
-        "Injury Assessment + FMS Assessment",
-        "Lifestyle Assessment",
-        "Rehabilitation",
-        "Recovery"
+        "Afrikaans Lessons",
+          "English Lessons",
+          "Pure Maths Lessons",
+          "Math Lit Lessons",
+          "History Lessons",
+          "Geography Lessons",
+          "Physics Lessons",
+          "Chemistry Lessons"
       ],
-      "statusOptions": ["Amateur", "Semi-Professional", "Professional"],
-      "positionOptions": ["Goalkeeper", "Defender", "Midfielder", "Forward"],
+      "statusOptions": ["Tutor/Teacher", "Student"],
+      "positionOptions": ["Tutor/Teacher", "Student"],
         "skillOptions": [
           "First Touch",
           "Driving the Ball",

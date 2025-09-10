@@ -48,19 +48,16 @@ export default function ContactPage() {
           message: "Your Message",
         },
         serviceOptions: [
-          "Field Training",
-          "Strength & Conditioning",
-          "Standard Package",
-          "Elite Package",
-          "Athlete Assessment and Profiling",
-          "Online Training Program",
-          "Injury Assessment + FMS Assessment",
-          "Lifestyle Assessment",
-          "Rehabilitation",
-          "Recovery",
+          "Afrikaans Lessons",
+          "English Lessons",
+          "Pure Maths Lessons",
+          "Math Lit Lessons",
+          "History Lessons",
+          "Geography Lessons",
+          "Physics Lessons",
+          "Chemistry Lessons",
         ],
-        statusOptions: ["Amateur", "Semi-Professional", "Professional"],
-        positionOptions: ["Goalkeeper", "Defender", "Midfielder", "Forward"],
+        positionOptions: ["Tutor/Teacher", "Student"],
         skillOptions: [
           "First Touch",
           "Driving the Ball",
@@ -235,44 +232,6 @@ export default function ContactPage() {
                   {translations.contactPage.form.fields.position}
                 </option>
                 {translations.contactPage.form.positionOptions.map(
-                  (option, index) => (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  )
-                )}
-              </select>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 9l-7.5 7.5L4.5 9"
-                  />
-                </svg>
-              </span>
-            </div>
-
-            {/* Status */}
-            {/* Status Dropdown */}
-            <div className="relative w-full">
-              <select
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none bg-white text-left"
-              >
-                <option value="" disabled>
-                  {translations.contactPage.form.fields.status}
-                </option>
-                {translations.contactPage.form.statusOptions.map(
                   (option, index) => (
                     <option key={index} value={option}>
                       {option}
