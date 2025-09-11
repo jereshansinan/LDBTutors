@@ -3,7 +3,7 @@ import DashboardNavbar from "@/components/DashboardNavbar";
 
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-[#0c0e12]">
           {/* Sidebar should not scroll */}
           <Sidebar role="client" className="h-screen sticky top-0" /> 
     

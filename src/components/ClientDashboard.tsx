@@ -38,16 +38,16 @@ export default function ClientDashboard({ userName }: ClientDashboardProps) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-1 md:p-10">
+    <div className="min-h-screen bg-[#0c0e12] p-1 md:p-10">
       {/* Welcome Message */}
       <div className="mb-8">
-        <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
+        <h1 className="text-2xl md:text-4xl font-bold text-white">
           {translations.clientDashboard.welcomeMessage.replace(
             "{userName}",
             userName
           )}
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 mt-2">
+        <p className="text-lg md:text-xl text-white mt-2">
           {translations.clientDashboard.welcomeDescription}
         </p>
       </div>
@@ -55,32 +55,32 @@ export default function ClientDashboard({ userName }: ClientDashboardProps) {
       {/* Cards Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Card 1: Book a Service */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        <div className="bg-black rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {translations.clientDashboard.cards.bookService.heading}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-6">
+          <p className="text-lg md:text-xl text-white mb-6">
             {translations.clientDashboard.cards.bookService.description}
           </p>
           <Link
             href="/client/book-service"
-            className="inline-block bg-[#75E379] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300 mt-auto self-start"
+            className="inline-block bg-[#fa5407] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300 mt-auto self-start"
           >
             {translations.clientDashboard.cards.bookService.buttonText}
           </Link>
         </div>
 
         {/* Card 2: View History */}
-        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        <div className="bg-black rounded-lg shadow-lg p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             {translations.clientDashboard.cards.viewHistory.heading}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-6">
+          <p className="text-lg md:text-xl text-white mb-6">
             {translations.clientDashboard.cards.viewHistory.description}
           </p>
           <Link
             href="/client/history"
-            className="inline-block bg-[#75E379] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300 mt-auto self-start"
+            className="inline-block bg-[#fa5407] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-black transition-colors duration-300 mt-auto self-start"
           >
             {translations.clientDashboard.cards.viewHistory.buttonText}
           </Link>

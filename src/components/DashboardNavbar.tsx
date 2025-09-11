@@ -60,7 +60,7 @@ export default function DashboardNavbar() {
   const isAdmin = user?.publicMetadata?.role === "admin";
 
   return (
-    <nav className="flex items-center justify-between px-3 md:px-4 pt-4 md:p-4 bg-white text-black font-body">
+    <nav className="flex items-center justify-between px-3 md:px-4 pt-4 md:p-4 bg-[#0c0e12] text-white font-body">
       {/* Page Title */}
       <h1 className="text-xl font-bold sm:text-lg md:text-xl lg:text-2xl">
         {pageTitle}

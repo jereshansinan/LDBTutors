@@ -6,7 +6,6 @@ import {
   Home,
   Phone,
   Info,
-  ChevronDown,
   HandCoins,
   Dumbbell
 } from "lucide-react";
@@ -14,7 +13,6 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { UserButton } from "@clerk/nextjs"; // Clerk Profile Component
 import Image from "next/image";
 import Link from "next/link";
-import LanguageDropdown from "./LanguageDropdown";
 
 // Define types for the links object
 type SidebarLink = {
@@ -34,7 +32,7 @@ type AdditionalLinks = SidebarLink[]; // Define a separate type for additional l
 // Define roleLinks object with specific keys and types
 const roleLinks: RoleLinks = {
   client: [
-    { name: "Book a Service", href: "/client/book-service", icon: <Home /> },
+    { name: "Book Lesson", href: "/client/book-service", icon: <Home /> },
     { name: "History", href: "/client/history", icon: <Home /> },
   ],
   coach: [
@@ -62,7 +60,6 @@ const SidebarContext = createContext<{ expanded: boolean }>({
 
 export default function Sidebar({ role }: { role: keyof RoleLinks; className?: string }) {
   const [expanded, setExpanded] = useState(true);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [translations, setTranslations] = useState({
     sidebar: {
       dashboardSection: "Dashboard",
@@ -116,7 +113,7 @@ export default function Sidebar({ role }: { role: keyof RoleLinks; className?: s
           expanded ? "w-64" : "sidebar-collapsed"
         }`}
       >
-        <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+        <nav className="h-full flex flex-col bg-[#0c0e12] border-r border-black shadow-sm text-white">
           {/* LOGO + TOGGLE BUTTON */}
           <div className="pt-4 p-1 md:p-4 pb-2 flex items-center">
             <Link href="/">
@@ -132,7 +129,7 @@ export default function Sidebar({ role }: { role: keyof RoleLinks; className?: s
             </Link>
             <button
               onClick={() => setExpanded((curr) => !curr)}
-              className="p-1 rounded-lg bg-gray-50 hover:bg-gray-100 ml-auto"
+              className="p-1 rounded-lg bg-gray-50 hover:bg-gray-100 ml-auto text-black"
             >
               {expanded ? <ChevronFirst /> : <ChevronLast />}
             </button>
@@ -142,7 +139,7 @@ export default function Sidebar({ role }: { role: keyof RoleLinks; className?: s
           <ul className="flex-1 px-1 md:px-4">
             {/* Dashboard Section */}
             <h3
-              className={`text-sm font-semibold text-gray-600 mt-4 mb-2 ${
+              className={`text-sm font-semibold text-white mt-4 mb-2 ${
                 expanded ? "" : "hidden"
               }`}
             >
@@ -160,7 +157,7 @@ export default function Sidebar({ role }: { role: keyof RoleLinks; className?: s
 
             {/* Additional Section */}
             <h3
-              className={`text-sm font-semibold text-gray-600 mt-4 mb-2 ${
+              className={`text-sm font-semibold text-white mt-4 mb-2 ${
                 expanded ? "" : "hidden"
               }`}
             >
@@ -175,30 +172,9 @@ export default function Sidebar({ role }: { role: keyof RoleLinks; className?: s
               />
             ))}
 
-            {/* Language Dropdown */}
-            <li className="relative flex py-2 px-2 my-1 font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-gray-600">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center w-full"
-              >
-                <ChevronDown className="mr-2" />
-                <span
-                  className={`overflow-hidden transition-all ${
-                    expanded ? "w-52 ml-3" : "w-0"
-                  } text-left`}
-                >
-                  {translations.sidebar.language}
-                </span>
-              </button>
-
-              {/* Dropdown content */}
-              {dropdownOpen && (
-                <LanguageDropdown />
-              )}
-            </li>
           </ul>
 
-          <div className="border-t flex p-[2px] sm:p-3 items-center">
+          <div className="border-t border-black flex p-[2px] sm:p-3 items-center">
             <UserButton afterSignOutUrl="/" />
           </div>
         </nav>
@@ -219,7 +195,7 @@ function SidebarItem({
   const { expanded } = useContext(SidebarContext);
 
   return (
-    <li className="relative flex items-center py-2 px-2 my-1 font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-gray-600">
+    <li className="relative flex items-center py-2 px-2 my-1 font-medium rounded-md cursor-pointer transition-colors group hover:bg-black text-white">
       <Link
         href={href}
         className={`flex items-center w-full ${

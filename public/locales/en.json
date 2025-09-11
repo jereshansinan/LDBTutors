@@ -139,8 +139,10 @@
   "navbar": {
     "logoAlt": "Logo",
     "navLinks": [
-      { "title": "HOME", "url": "/" },
-      { "title": "CONTACT US", "url": "/contact" }
+      { "title": "Home", "url": "/" },
+      { "title": "Features", "url": "#gallery" },
+      { "title": "Testimonials", "url": "#testimonials" },
+      { "title": "Contact Us", "url": "/contact" }
     ],
     "dashboardButton": "Go to Dashboard",
     "loginButton": "Login",
@@ -153,7 +155,7 @@
     "language": "Language",
     "links": {
       "client": [
-        { "name": "Book a Service", "href": "/client/book-service" },
+        { "name": "Book Lesson", "href": "/client/book-service" },
         { "name": "History", "href": "/client/history" }
       ],
       "coach": [
@@ -161,15 +163,15 @@
         { "name": "Check-In", "href": "/coach/check-in" }
       ],
       "admin": [
-        { "name": "Coaches", "href": "/admin/coaches" },
+        { "name": "Tutors", "href": "/admin/coaches" },
         { "name": "Bookings", "href": "/admin/bookings" }
       ]
     },
     "additionalLinks": [
-      { "name": "Services", "href": "/services" },
-      { "name": "Contact Us", "href": "/contact" },
-      { "name": "Our Team", "href": "/members" },
-      { "name": "About", "href": "/about" }
+      { "name": "Home", "href": "/" },
+      { "name": "Features", "href": "#features" },
+      { "name": "Testimonials", "href": "#testimonials" },
+      { "name": "Contact Us", "href": "/contact" }
     ]
   },
 
