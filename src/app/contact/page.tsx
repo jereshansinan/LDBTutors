@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Lenis from "@/components/lenis";
 import React from "react";
@@ -71,10 +70,7 @@ export default function ContactPage() {
     const items = Array.from(selectedKeys);
     if (items.length === 0) return ""; // Handle empty array case
 
-    // Ensure the first item is treated as a string and remove trailing comma if necessary
     const firstItem = String(items[0]).replace(/,$/, "");
-
-    // If there are multiple items, add a comma after the first item
     return `${translations.contactPage.form.fields.skills}${firstItem}${
       items.length > 1 ? `, ${items.slice(1).join(", ")}` : ""
     }`;
@@ -84,7 +80,7 @@ export default function ContactPage() {
   const [responseMessage, setResponseMessage] = useState("");
 
   useEffect(() => {
-    const language = localStorage.getItem("language") || "en"; // Default to English
+    const language = localStorage.getItem("language") || "en";
     fetch(`/locales/${language}.json`)
       .then((response) => response.json())
       .then((data) => setTranslations(data))
@@ -121,174 +117,141 @@ export default function ContactPage() {
 
   return (
     <Lenis>
-      <Navbar />
-      <Hero
-        media={"/home.jpg"}
-        heading={translations.contactPage.heroHeading}
-      />
-      <section className="flex flex-col lg:flex-row justify-between px-0 md:px-[130px] pt-10 md:pt-10 pb-4 md:pb-8">
-        {/* Left Section - Contact Form */}
-        <div className="w-full lg:w-1/2 space-y-6 px-6">
-          <h2 className="text-xl md:text-4xl font-bold">
-            {translations.contactPage.form.heading}
-          </h2>
-          <p className="text-base md:text-xl text-gray-600">
-            {translations.contactPage.form.description}
-          </p>
+      <div className="bg-black min-h-screen text-white">
+        <Navbar />
 
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4 rounded-lg bg-transparent"
-          >
-            {/* Full Name e.g Jaiden */}
-            <input
-              type="text"
-              name="fullName"
-              placeholder={translations.contactPage.form.fields.fullName}
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
-            />
+        {/* This is the main content section. Added pt-20 to push content down. */}
+        <section className="flex flex-col lg:flex-row justify-center px-6 md:px-[130px] pt-20 pb-4 md:pb-8">
+          <div className="w-full lg:w-2/5 space-y-6">
+            <h2 className="text-xl md:text-4xl font-bold">
+              {translations.contactPage.form.heading}
+            </h2>
+            <p className="text-base md:text-xl text-gray-300">
+              {translations.contactPage.form.description}
+            </p>
 
-            {/* Email */}
-            <input
-              type="email"
-              name="email"
-              placeholder={translations.contactPage.form.fields.email}
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
-            />
-
-            {/* Phone Number */}
-            <input
-              type="tel"
-              name="phone"
-              placeholder={translations.contactPage.form.fields.phone}
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
-            />
-
-            {/* Service Dropdown */}
-            <div className="relative w-full">
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none bg-white text-left"
-              >
-                <option value="" disabled>
-                  {translations.contactPage.form.fields.service}
-                </option>
-                {translations.contactPage.form.serviceOptions.map(
-                  (option, index) => (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  )
-                )}
-              </select>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 9l-7.5 7.5L4.5 9"
-                  />
-                </svg>
-              </span>
-            </div>
-
-            {/* Position Dropdown */}
-            <div className="relative w-full">
-              <select
-                name="position"
-                value={formData.position}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none bg-white text-left"
-              >
-                <option value="" disabled>
-                  {translations.contactPage.form.fields.position}
-                </option>
-                {translations.contactPage.form.positionOptions.map(
-                  (option, index) => (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  )
-                )}
-              </select>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 9l-7.5 7.5L4.5 9"
-                  />
-                </svg>
-              </span>
-            </div>
-             
-            {/* Message */}
-            <textarea
-              name="message"
-              placeholder={translations.contactPage.form.fields.message}
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#75E379]"
-            ></textarea>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-[#e89117] text-black py-3 rounded-md font-semibold hover:bg-black hover:text-white transition duration-300"
-              disabled={loading}
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 rounded-lg bg-transparent"
             >
-              {loading
-                ? translations.contactPage.form.loadingText
-                : translations.contactPage.form.submitButton}
-            </button>
-          </form>
-          {/* Response Message */}
-          {responseMessage && (
-            <p className="text-center text-[#75E379] mt-2">{responseMessage}</p>
-          )}
-        </div>
+              <input
+                type="text"
+                name="fullName"
+                placeholder={translations.contactPage.form.fields.fullName}
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-600 rounded-md bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#75E379]"
+              />
 
-        {/* Right Section - Image */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-0 h-full">
-          <div className="relative w-full lg:h-[900px]">
-            {" "}
-            <Image
-              src="/contact.jpg"
-              alt="Contact Us"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
-            />
+              <input
+                type="email"
+                name="email"
+                placeholder={translations.contactPage.form.fields.email}
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-600 rounded-md bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#75E379]"
+              />
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder={translations.contactPage.form.fields.phone}
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-600 rounded-md bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#75E379]"
+              />
+
+              <div className="relative w-full">
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-600 rounded-md bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none"
+                >
+                  <option value="" disabled>
+                    {translations.contactPage.form.fields.service}
+                  </option>
+                  {translations.contactPage.form.serviceOptions.map(
+                    (option, index) => (
+                      <option key={index} value={option}>
+                        {option}
+                      </option>
+                    )
+                  )}
+                </select>
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                  ▼
+                </span>
+              </div>
+
+              <div className="relative w-full">
+                <select
+                  name="position"
+                  value={formData.position}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-600 rounded-md bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#75E379] appearance-none"
+                >
+                  <option value="" disabled>
+                    {translations.contactPage.form.fields.position}
+                  </option>
+                  {translations.contactPage.form.positionOptions.map(
+                    (option, index) => (
+                      <option key={index} value={option}>
+                        {option}
+                      </option>
+                    )
+                  )}
+                </select>
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                  ▼
+                </span>
+              </div>
+
+              <textarea
+                name="message"
+                placeholder={translations.contactPage.form.fields.message}
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-600 rounded-md bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#75E379]"
+              ></textarea>
+
+              <button
+                type="submit"
+                className="w-full bg-[#e89117] text-black py-3 rounded-md font-semibold hover:bg-black hover:text-white transition duration-300"
+                disabled={loading}
+              >
+                {loading
+                  ? translations.contactPage.form.loadingText
+                  : translations.contactPage.form.submitButton}
+              </button>
+            </form>
+
+            {responseMessage && (
+              <p className="text-center text-[#75E379] mt-2">
+                {responseMessage}
+              </p>
+            )}
           </div>
-        </div>
-      </section>
-      <Footer />
+
+          <div className="w-full lg:w-3/5 flex justify-center lg:justify-start mt-0">
+            <div className="relative w-full h-[600px]">
+              <Image
+                src="/contact.jpg"
+                alt="Contact Us"
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
     </Lenis>
   );
 }

@@ -115,8 +115,8 @@ export default function Navbar() {
               <Image
                 src={`${
                   isSpecialPage || isScrolled
-                    ? "/Logowhite.png"
-                    : "/logoDark.png"
+                    ? "/LDB_Logo_Black.png"
+                    : "/LDB Logo.png"
                 }`}
                 width={100}
                 height={20}
@@ -194,8 +194,8 @@ export default function Navbar() {
                 <Image
                   src={`${
                     isSpecialPage || isScrolled
-                      ? "/Logowhite.png"
-                      : "/logoDark.png"
+                    ? "/LDB_Logo_Black.png"
+                    : "/LDB Logo.png"
                   }`}
                   width={120}
                   height={50}

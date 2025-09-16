@@ -48,13 +48,13 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-[#111827] text-gray-300 py-10 px-[130px]">
+    <footer className="bg-[#000000] text-gray-300 py-10 px-[130px]">
       <div className="flex flex-col lg:flex-row justify-between items-center">
         
         {/* Left Section: Logo */}
         <div className="flex flex-col items-center lg:items-start">
           <Image
-            src="/Logowhite.png"
+            src="/LDB Logo.png"
             alt={translations.footer.logoAlt}
             width={300}
             height={300}
